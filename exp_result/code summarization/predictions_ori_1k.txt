@@ -1,0 +1,1564 @@
+0	Integrate plugins.
+1	<nooutput>
+2	phase = Pauli._prod_phase(p1, p2)
+        new_pauli = p1 * p2
+        return new_pauli, phase
+3	import win32api
+import os
+
+def find_cmd(cmd):
+    """
+    Returns the full path to the executable for the given command
+    """
+    return win32api.SearchPath(os.environ['PATH'], cmd)
+4	No output expected.
+5	Raises a ServerError if the server has an error.
+6	def optimal_marginal_branch_length(node, tol=1e-10):
+    '''
+    Compute the optimal marginal branch length for a given node.
+    
+    Parameters
+    ----------
+    node : TreeNode
+        The node to compute the marginal branch length for.
+    tol : float
+        The tolerance for determining the optimal marginal branch length.
+        
+    Returns
+    -------
+    float
+        The optimal marginal branch length for the given node.
+    '''
+    return self.optimal_marginal_branch_length(node, tol=
+7	def get_storage_name(self, names):
+    return self.get_storage_name(names, remove_dir=True)
+8	True
+9	def _end_of_cluster_function(
+    hits,
+    clusters,
+    cluster_size,
+    cluster_hit_indices,
+    cluster_index,
+    cluster_id,
+    charge_correction,
+    noisy_pixels,
+    disabled_pixels,
+    seed_hit_index):
+    '''
+    End of cluster function
+    '''
+    pass
+10	def upload_file(path, destination_frame=None, header=0, sep=None, col_names=None, col_types=None,
+                na_strings=None, skipped_columns=None):
+    """
+    Uploads a file to H2O.
+    
+    Parameters
+    ----------
+    path : str
+        The path to the file to be uploaded.
+    destination_frame : str
+        The destination frame in H2O.
+    header : int
+        The number of columns in the file.
+    sep : str
+        The separator between columns in the file.
+    col_names : list
+        The names of the columns in the file.
+    col_types : list
+        The types of the columns in the file.
+    na_strings : list
+        The strings to be used for missing values in the file.
+    skipped_columns : list
+        The names of the columns to be skipped in the file.
+    
+    Returns
+    -------
+    H2OFrame
+        The H2OFrame containing the uploaded file.
+    """
+    return upload_file(path, destination_frame, header, sep, col_names, col_types, na_strings, skipped_columns)
+11	Adds a new state to the state machine.
+12	<nooutput>
+13	def marginal_branch_profile(self, node):
+        """
+        Compute the marginal branch profile of a given node
+
+        Parameters
+        ----------
+        node : Node
+            The node whose marginal branch profile is to be calculated
+
+        Returns
+        -------
+        marginal_branch_profile : list
+            The marginal branch profile of the given node
+
+        """
+        marginal_branch_profile = []
+        for i in range(len(node.children)):
+            marginal_branch_profile.append(self.marginal_branch_profile(node.children[i]))
+        return marginal_branch_profile
+14	class AnnotatedMetadata(object):
+    def __init__(self, func, name):
+        self.func = func
+        self.name = name
+        self.annotations = {}
+
+    def add_annotation(self, key, value):
+        self.annotations[key] = value
+
+    def get_annotations(self):
+        return self.annotations
+15	def call(self, *args, **kwargs):
+    """
+    """
+    return self.environment.call(self, *args, **kwargs)
+16	<nooutput>
+17	def kl_beta_beta(d1, d2, name="kl_beta_beta"):
+  """
+  Computes the Kullback-Leibler divergence between two beta distributions.
+  """
+  with tf.name_scope(name):
+    return _kl_beta_beta(d1, d2)
+18	def parse_ensembl_transcript_request(result):
+    """
+    """
+    LOG.info("Parsing transcripts from request")
+
+    for index, row in result.iterrows():
+        # print(index, row)
+        ensembl_info = {}
+
+        # Pandas represents missing data with nan which is a float
+        if type(row['hgnc_symbol']) is float:
+            # Skip transcripts without hgnc information
+            continue
+
+        ensembl_info['chrom'] = row['chromosome_name']
+        ensembl_info['transcript_start'] = int(row['start_position'])
+        ensembl_info['transcript_end'] = int(row['end_position'])
+        ensembl_info['ensembl_transcript_id'] = row['ensembl_transcript_id']
+        ensembl_info['hgnc_symbol'] = row['hgnc_symbol']
+
+        hgnc_id = row['hgnc_id']
+
+        if type(hgnc_id) is float:
+            hgnc_id = int(hgnc_id)
+        else:
+            hgnc_id = int(hgnc_id.split(':')[-1])
+
+        ens
+19	Save a Nifti1 image from numpy data.
+20	def test_good_prefix():
+    prefix = good_prefix(max_error=0.01, round_length=2)
+    assert prefix == 'ab'
+21	This function is called when the connection with the worker is lost.
+
+        :param exc: The exception that caused the connection to be lost.
+22	Search for dates in text.
+23	def _onOutgoingMessageReceived(self, conn, message):
+    """
+    Called when a message is received from another node.
+    """
+    node = self._connToNode(conn)
+    conn.setOnMessageReceivedCallback(functools.partial(self._onMessageReceived, node))
+    self._onNodeConnected(node)
+24	<nooutput>
+25	This function returns the coordinates of the bottom-left and top-right corners of the widget.
+26	Returns a dictionary containing the parameters and their values.
+27	"""
+        Generates the visual representation of the instruction.
+        """
+        layer = VisualLayer()
+        current_cons = []
+        connection_label = None
+
+        # add in a gate that operates over multiple qubits
+        def add_connected_gate(instruction, gates, layer, current_cons):
+            for i, gate in enumerate(gates):
+                layer.set_qubit(instruction.qargs[i], gate)
+                actual_index = self.qregs.index(instruction.qargs[i])
+                current_cons.append((actual_index, gate))
+
+        if instruction.name == 'measure':
+            gate = MeasureFrom()
+            layer.set_qubit(instruction.qargs[0], gate)
+
+        elif instruction.name in ['barrier', 'snapshot', 'load', 'noise']:
+            # barrier
+            gates = [Ex() for _ in range(len(instruction.qargs))]
+            add_connected_gate(instruction, gates, layer, current_cons)
+
+        elif instruction.name == 'swap':
+            # swap
+            gates = [Bullet(), Ex(), Ex()]
+            add_connected_gate(instruction, gates, layer, current_cons)
+
+        elif instruction.
+28	return config
+29	<noinput>
+30	def parse_ensembl_line(line, header):
+    ensembl_info = parse_ensembl_line(line, header)
+    return ensembl_info
+31	def align_end_hierarchies(hier1, hier2, thres=0.5):
+    """
+    """
+    # Make sure we have correctly formatted hierarchies
+    dur_h1 = hier1[0][-1]
+    for hier in hier1:
+        assert hier[-1] == dur_h1, "hier1 is not correctly " \
+            "formatted {} {}".format(hier[-1], dur_h1)
+    dur_h2 = hier2[0][-1]
+    for hier in hier2:
+        assert hier[-1] == dur_h2, "hier2 is not correctly formatted"
+
+    # If durations are different, do nothing
+    if abs(dur_h1 - dur_h2) > thres:
+        return
+
+    # Align h1 with h2
+    for hier in hier1:
+        hier[-1] = dur_h2
+
+    return hier1
+32	<nooutput>
+33	def object_to_string(obj):
+    '''
+    Returns a string representation of an object.
+    
+    :param obj: The object to convert
+    :return: The string representation of the object
+    '''
+    return str(obj)
+34	def prune_by_names(self, leaf_names, inverse=False):
+    """
+    Prunes the tree by removing nodes whose name is in leaf_names.
+    
+    Parameters
+    ----------
+    leaf_names : list
+        List of leaf node names to prune.
+    
+    Returns
+    -------
+    None
+    """
+    self.prune([l for l in self.walk() if l.name in leaf_names], inverse)
+35	Returns True if the given value is a virtual register.
+36	"""
+        Returns the combined credits of a user.
+        """
+        return response.json()
+37	class BackwardPassState:
+  def __init__(self, backward_mean, backward_cov):
+    self.backward_mean = backward_mean
+    self.backward_cov = backward_cov
+    self.timestep = 0
+38	<nooutput>
+39	def __resolve_namespaced_symbol(
+    ctx: ParserContext, form: sym.Symbol
+) -> Union[MaybeClass, MaybeHostForm, VarRef]:
+    """"""
+    if form.ns is None:
+        return __resolve_bare_symbol(ctx, form)
+40	<nooutput>
+41	Write a single word to the device.
+42	<nooutput>
+43	"""
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+       
+44	Create a TcpServer object.
+45	This function guesses the type of the given path.
+46	<noinput>
+47	class JobNotCreated(Exception):
+    def __init__(self, message):
+        self.message = message
+
+    def __str__(self):
+        return self.message
+48	<nooutput>
+49	midi_to_note(midi, octave=True, cents=False)
+50	<nooutput>
+51	"""
+Create a secret link for the given record.
+
+:param request: The API request.
+:param record: The record to create the secret link for.
+:param expires_at: The expiration time of the secret link.
+:param message: An optional message to be included in the secret link.
+:return: The secret link.
+"""
+
+    return request.create_secret_link(
+        record["title"],
+        description=description,
+        expires_at=expires_at,
+        message=message
+    )
+52	This function adds a new module to the context of the current thread.
+53	def _pair_delims(expr, ldelim="(", rdelim=")"):
+    """"""
+    lnum = 0
+    rnum = len(expr)
+    tpars = []
+    while lnum < rnum:
+        if ldelim in expr[lnum]:
+            lnum += 1
+        elif rdelim in expr[rnum]:
+            rnum -= 1
+        else:
+            tpars.append((lnum, rnum))
+    return tpars
+54	Create a MIME text object from a string.
+55	Execute a list of DML statements in a transaction.
+56	def histogram(x,
+              edges,
+              axis=None,
+              extend_lower_interval=False,
+              extend_upper_interval=False,
+              dtype=None,
+              name=None):
+  """
+  Computes a histogram of the values in `x` between `edges`.
+
+  Args:
+    x: A `Tensor` of type `float32` or `float64`.
+    edges: A `Tensor` of type `float32` or `float64`.
+    axis: A `Tensor` of type `int32` or `int64`.
+    extend_lower_interval: A `bool`.
+    extend_upper_interval: A `bool`.
+    dtype: A `Tensor` of type `float32` or `float64`.
+    name: A `string`.
+
+  Returns:
+    A `Tensor` of type `float32` or `float64`.
+  """
+  return histogram(x, edges, axis=axis, extend_lower_interval=extend_lower_interval,
+                  extend_upper_interval=extend_upper_interval,
+                  dtype=dtype, name=name)
+57	def check_type(o, acceptable_types, may_be_none=True):
+    """
+    Checks if an object is of an acceptable type.
+
+    :param o: The object to check.
+    :param acceptable_types: A list of acceptable types.
+    :param may_be_none: If True, None is an acceptable type.
+    :return: True if the object is of an acceptable type.
+    :rtype: bool
+    """
+    if may_be_none and isinstance(o, acceptable_types):
+        return True
+    else:
+        return isinstance(o, acceptable_types)
+58	wrappable_fn = _ensure_wrappability(fn)
+59	Write data to output file.
+60	Closing the RPC system.
+61	Subscribes the user to a specific topic.
+62	def ucd_find(self, ucds, exclude=[]):
+        """
+        """
+        if isinstance(ucds, six.string_types):
+            ucds = [ucds]
+        if len(ucds) == 1:
+            ucd = ucds[0]
+            if ucd[0] == "^":  # we want it to start with
+                ucd = ucd[1:]
+                columns = [name for name in self.get_column_names() if self.ucds.get(name, "").startswith(ucd) and name not in exclude]
+            else:
+                columns = [name for name in self.get_column_names() if ucd in self.ucds.get(name, "") and name not in exclude]
+            return None if len(columns) == 0 else columns[0]
+        else:
+            columns = [self.ucd_find([ucd], exclude=exclude) for ucd in ucds]
+            return None if None in columns else columns
+63	Write the default configuration file.
+64	Register blueprints.
+65	def list_classes(mname, cls_filter=None):
+    """
+    Returns a list of classes defined in the given module.
+    
+    :param mname: The name of the module to search.
+    :param cls_filter: A function that takes a class and returns True if it should be included in the result.
+    :return: A list of classes found.
+    """
+    found = list()
+    module = import_module(mname)
+    if inspect.ismodule(module):
+        for cls in _list_classes(module, cls_filter):
+            if cls_filter(cls):
+                found.append(cls)
+    return found
+66	This code creates a new statement and adds it to the end of the statement list.
+
+        :param statements:
+        :return:
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+       
+67	def transpile(experiments,
+                basis_gates=None,
+                coupling_map=None,
+                backend_properties=None,
+                initial_layout=None,
+                seed_transpiler=None,
+                optimization_level=None,
+                backend=None,
+                pass_manager=None,
+                seed_mapper=None,  # deprecated
+                config=None,
+                circuits=None,
+                **run_config):
+    """
+    Transpiles the given circuits into a qobj to be run on the backend
+
+    Parameters
+    ----------
+    experiments : list
+        The circuits to be transpiled
+    basis_gates : list
+        The basis gates to be used in the transpiled circuits
+    coupling_map : list
+        The coupling map to be used in the transpiled circuits
+    backend_properties : list
+        The backend properties to be used in the transpiled circuits
+    initial_layout : list
+        The initial layout to be used in the transpiled circuits
+    seed_transpiler : list
+        The seed transpiler to be used in the transpiled circuits
+    optimization_level : list
+        The optimization level to be used in the transpiled circuits
+    backend : list
+        The backen
+68	<nooutput>
+69	def count_words(self, filter_preds):
+        '''
+        '''
+        num_words = defaultdict(int)
+        for hit in self._scan():
+            for filter_pred in filter_preds:
+                if filter_pred(did(hit['_id'])):
+                    num_words[filter_pred] += len(hit['_source']['words'])
+        return num_words
+70	"""
+Downloads and generates Enrichr library gene sets.
+
+:param libname: The name of the Enrichr library to be downloaded.
+
+:return: A dictionary containing the Enrichr library gene sets.
+
+"""
+
+import requests
+import re
+import time
+
+def _download_libraries(self, libname):
+    """ """
+    self._logger.info("Downloading and generating Enrichr library gene sets......")
+    s = retry(5)
+    # queery string
+    ENRICHR_URL = 'http://amp.pharm.mssm.edu/Enrichr/geneSetLibrary'
+    query_string = '?mode=text&libraryName=%s'
+    # get
+    response = s.get( ENRICHR_URL + query_string % libname, timeout=None)
+    if not response.ok:
+        raise Exception('Error fetching enrichment results, check internet connection first.')
+    # reformat to dict and save to disk
+    mkdirs(DEFAULT_CACHE_PATH)
+    genesets_dict = {}
+    outname = "enrichr.%s.gmt"%libname
+    gmtout = open(os.path.join(DEFAULT_CACHE_PATH, outna
+71	def get_newline_positions(text):
+  """
+  """
+  pos = []
+  for i, c in enumerate(text):
+    if c == "\n":
+      pos.append(i)
+  return
+72	def __init__(
+        self,
+        validation_authority_type=None,
+        validation_authority_country=None,
+        validation_version_major=None,
+        validation_version_minor=None,
+        validation_type=None,
+        validation_level=None,
+        validation_certificate_identifier=None,
+        validation_certificate_uri=None,
+        validation_vendor_uri=None,
+        validation_profiles=None
+    ):
+        super(ValidationInformation, self).__init__()
+        self.validation_authority_type = validation_authority_type
+        self.validation_authority_country = validation_authority_country
+        self.validation_version_major = validation_version_major
+        self.validation_version_minor = validation_version_minor
+        self.validation_type = validation_type
+        self.validation_level = validation_level
+        self.validation_certificate_identifier = validation_certificate_identifier
+        self.validation_certificate_uri = validation_certificate_uri
+        self.validation_vendor_uri = validation_vendor_uri
+        self.validation_profiles = validation_profiles
+73	def main():
+    parser = argparse.ArgumentParser()
+    subparsers = parser.add_subparsers()
+    subparsers.add_parser(
+        'list', help='list objects in container')
+    subparsers.add_parser(
+        'show', help='show object details')
+    subparsers.add_parser(
+        'delete', help='delete object')
+    subparsers.add_parser(
+        'head', help='head object')
+    subparsers.add_parser(
+        'put', help='put object')
+    subparsers.add_parser(
+        'post', help='post object')
+    subparsers.add_parser(
+        'patch', help='patch object')
+    subparsers.add_parser(
+        'delete_container', help='delete container')
+    subparsers.add_parser(
+        'head_container', help='head container')
+    subparsers.add_parser(
+        'put_container', help='put container')
+    subparsers.add_parser(
+        'post_container', help='post container')
+    subparsers.add_parser(
+        'delete_object', help='delete object')
+    subparsers.add_parser(
+        'head_object', help='
+74	Returns a list of :class:`.Album` objects.
+75	Find the actual controller key file.
+76	plugins = Plugins()
+77	Decoding layer.
+78	def hash_token(application, token):
+    return _hash_token(application, token)
+79	<nooutput>
+80	Returns the KL divergence between two distributions.
+81	This function is called before the main loop of the game begins. It sets up the camera and calls the superclass's `predraw()` function.
+82	<nooutput>
+83	Reads an entry from the cache.
+84	def _make_etree_ns_attr_name(ns, name):
+    if ns is None:
+        return name
+    return '%s:%s' % (ns, name)
+85	Shannon entropy.
+86	Send data to the client.
+87	Pipeline is a decorator that allows you to chain multiple functions together.
+
+    :param functions: A sequence of functions to be pipelined.
+    :param funcs: A sequence of functions to be pipelined.
+    :return: A function that pipelines the given functions.
+    """
+    if funcs:
+        functions = funcs
+    head, *tail = functions
+    return lambda *args, **kwargs: pipe(head(*args, **kwargs), funcs=tail)
+88	This method initializes the bars in the chart.
+89	No output.
+90	<nooutput>
+91	chmod(path, mode)
+92	"""
+This function is the main function of the script.
+
+It is responsible for running the mining process.
+"""
+
+if __name__ == "__main__":
+    main()
+93	<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <p>This is a document</p>
+    </body>
+</html>
+94	class ConsumerGroupsOperations(object):
+    """
+    """
+    def __init__(self, client, config, serializer, deserializer):
+        self._client = client
+        self._config = config
+        self._serialize = serializer
+        self._deserialize = deserializer
+        self.api_version = '2015-08-01'
+95	Retrieves issue data from Github.
+96	Confirmation code.
+97	SlowTransport.deliver(sender, receiver, packet, add_delay=to)
+98	This function establishes a connection to the given host and port.
+99	Returns a list of errors for each parameter.
+100	def replace(fileobj, old_pages, new_pages):
+    """
+    Replace old pages with new ones.
+
+    Parameters
+    ----------
+    fileobj : file-like object
+        The file to replace the pages in.
+    old_pages : list of Page objects
+        The old pages to replace.
+    new_pages : list of Page objects
+        The new pages to replace the old ones with.
+
+    Returns
+    -------
+    None
+    """
+    cls.replace(fileobj, old_pages, new_pages)
+101	def _pack_accumulated(x, dtype):
+    """"""
+    if len(x) == 0:
+        return x
+    elif len(x) == 1:
+        return x[0]
+    else:
+        return x
+102	Closing...
+103	def cli_get_container_listing(context, path):
+    """
+    Get a listing of objects in a container.
+
+    :param context:
+    :param path:
+    :return:
+    """
+    with context.client_manager.with_client() as client:
+        status, reason, headers, contents = client.get_container(
+            path, query=context.query, cdn=context.cdn)
+        if status // 100 != 2:
+            if status == 404 and context.ignore_404:
+                return
+            if hasattr(contents, 'read'):
+                contents.read()
+            raise ReturnCode('listing container: %s %s' % (status, reason))
+104	def ugettext(message, context=None):
+    """"""
+    stripped = strip_whitespace(message)
+
+    message = add_context(context, stripped) if context else stripped
+
+    ret = django_ugettext(message)
+
+    # If the context isn't found, we need to return the string without it
+    return stripped if ret == message else ret
+105	<nooutput>
+106	def lookup(self, key):
+    """
+    Lookup a key in the hash table.
+
+    :param key: The key to lookup.
+    :return: The value associated with the key, or None if not found.
+    """
+    return self.lookup_by_key(key)
+107	import_module(mname)
+108	wrap_ob = attr
+109	def write_fcs(filename, chn_names, data,
+                endianness="big",
+                compat_chn_names=True,
+                compat_copy=True,
+                compat_percent=True,
+                compat_max_int16=10000):
+    """
+    Write a Flexible Character Set (FCS) file.
+
+    Parameters
+    ----------
+    filename : str
+        The name of the output file.
+    chn_names : list
+        The names of the channels.
+    data : ndarray
+        The data to be written.
+    endianness : {'big', 'little'}
+        The endianness of the data.
+    compat_chn_names : bool
+        Compatibility mode: Clean up headers.
+    compat_copy : bool
+        Compatibility mode: Copy data if requested.
+    compat_percent : bool
+        Compatibility mode: Scale values b/w 0 and 1 to percent.
+    compat_max_int16 : int
+        Compatibility mode: Set maximum value of int16.
+
+    Returns
+    -------
+    None
+
+    """
+    write_fcs(filename, chn_names, data,
+              endianness="big",
+              compat_
+110	def _find_link(from_instance, to_instance, rel_id, phrase):
+    if from_instance is to_instance:
+        raise RelateException(from_instance, to_instance, rel_id, phrase)
+    
+    ass = Relation(from_instance, to_instance, rel_id, phrase)
+    ass.source_link.connect(from_instance, to_instance)
+    ass.target_link.connect(to_instance, from_instance)
+    return ass
+111	Transplants a class from one module to another.
+112	<nooutput>
+113	Create a new class event node.
+114	Returns the log probability of a deterministic distribution.
+115	This code will spin forever until the stop_spinning flag is set.
+116	This function is used to load data from an array of HdlType.
+117	True
+118	"""
+This function is used to authenticate the client
+"""
+
+def authenticate_client(self, request, *args, **kwargs):
+    """
+    This function is used to authenticate the client
+    """
+    if not self.client_authentication_required(request, *args, **kwargs):
+        return None
+119	<noinput>
+120	def subsample_osw(infile, outfile, subsample_ratio, test):
+    """
+    Subsamples the input file by the given ratio.
+    
+    Parameters
+    ----------
+    infile : str
+        The input file
+    outfile : str
+        The output file
+    subsample_ratio : int
+        The subsample ratio
+    test : bool
+        Whether to test the subsample ratio
+    
+    Returns
+    -------
+    None
+    """
+    if test:
+        print("Subsample ratio:", subsample_ratio)
+    else:
+        subsample(infile, outfile, subsample_ratio)
+121	<nooutput>
+122	<nooutput>
+123	Send a shared pin.
+124	print(msg % args)
+125	def _assert_no_recur(node: Node) -> None:
+    pass
+126	"""
+
+        """
+        if not self.require_3D:
+            self.fail(AttributeError("use 3D coordinate in 2D descriptor"))
+
+        return self._context.get_coord(self, 3)
+127	Returns True if the type is known, False if not.
+128	Create a new session.
+129	<nooutput>
+130	Returns the value of the given field from the given result.
+131	def diagonal_filter(window, n, slope=1.0, angle=None, zero_mean=False):
+    '''
+    '''
+
+    if angle is None:
+        angle = np.arctan(slope)
+
+    win = np.diag(get_window(window, n, fftbins=False))
+
+    if not np.isclose(angle, np.pi/4):
+        win = scipy.ndimage.rotate(win, 45 - angle * 180 / np.pi,
+                                   order=5, prefilter=False)
+
+    np.clip(win, 0, None, out=win)
+    win /= win.sum()
+
+    if zero_mean:
+        win -= win.mean()
+
+    return win
+132	def verify_md5(i_content_md5, data, other_errors):
+    """
+    Verifies the md5 of the data.
+
+    :param i_content_md5:
+    :param data:
+    :param other_errors:
+    :return:
+    """
+    if i_content_md5 != data.md5:
+        if other_errors:
+            other_errors.append('MD5 verification failed.')
+        else:
+            other_errors = ['MD5 verification failed.']
+        return other_errors
+133	AIRFLOW_VAR_NAME_FORMAT_MAPPING = {
+    'AIRFLOW_CONTEXT_DAG_ID': 'dag_id',
+    'AIRFLOW_CONTEXT_TASK_ID': 'task_id',
+    'AIRFLOW_CONTEXT_EXECUTION_DATE': 'execution_date',
+    'AIRFLOW_CONTEXT_DAG_RUN_ID': 'run_id',
+}
+134	blocking(indices, block_size, initial_boundary=0)
+135	"""
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+       
+136	"""
+This method is used to store the current state of a sync operation.
+
+:param method: The HTTP method to use for the request.
+:param url: The URL to send the request to.
+:param params: The parameters to send with the request.
+:param kwargs: The keyword arguments to send with the request.
+:return: The response from the request.
+"""
+
+import requests
+import json
+
+class SyncStateStore:
+    def __init__(self):
+        self.syncStates = {}
+
+    def store(self, method, url, params={}, **kwargs):
+        """
+        Stores the current state of a sync operation.
+
+        :param method: The HTTP method to use for the request.
+        :param url: The URL to send the request to.
+        :param params: The parameters to send with the request.
+        :param kwargs: The keyword arguments to send with the request.
+        :return: The response from the request.
+        """
+        self.syncStates[(method, url)] = []
+        resp = requests.request(method, url, params=params, **kwargs)
+        try:
+            json = resp.json()
+        except ValueError:
+            # Don't do anything if not a JSON response.
+            pass
+        else:
+         
+137	class BotoInstance(object):
+    def __init__(self, name, private_ip, public_ip, instance_type, instance_id, hostname, stack_id, stack_name, logical_id, security_groups, launch_time, ami_id, tags):
+        self.name = name
+        self.private_ip = private_ip
+        self.public_ip = public_ip
+        self.instance_type = instance_type
+        self.instance_id = instance_id
+        self.hostname = hostname
+        self.stack_id = stack_id
+        self.stack_name = stack_name
+        self.logical_id = logical_id
+        self.security_groups = security_groups
+        self.launch_time = launch_time
+        self.ami_id = ami_id
+        self.tags = tags
+138	def adapter(data, headers, **kwargs):
+    """"""
+    for row in data:
+        yield "\t".join((replace(r, (('\n', r'\n'), ('\t', r'\t'))) for r in row))
+139	Shuffles the playback queue.
+140	<nooutput>
+141	char_to_length = {
+    'a': 1,
+    'b': 1,
+    'c': 1,
+    'd': 1,
+    'e': 1,
+    'f': 1,
+    'g': 1,
+    'h': 1,
+    'i': 1,
+    'j': 1,
+    'k': 1,
+    'l': 1,
+    'm': 1,
+    'n': 1,
+    'o': 1,
+    'p': 1,
+    'q': 1,
+    'r': 1,
+    's': 1,
+    't': 1,
+    'u': 1,
+    'v': 1,
+    'w': 1,
+    'x': 1,
+    'y': 1,
+    'z': 1
+}
+142	This function returns the basename of a given path.
+143	<nooutput>
+144	<nooutput>
+145	def get_pid_list():
+    """
+    Returns a list of PIDs of all running processes.
+    """
+    return [pid for proc in _pmap.values() for pid in proc.children()]
+146	class Node:
+    def __init__(self):
+        self.wins = 0
+        self.losses = 0
+        self.parent = None
+        self.best_child = None
+147	def get_ids(self, features, threshold=0.0, func=np.sum, get_weights=False):
+        """ 
+        """
+        if isinstance(features, str):
+            features = [features]
+        features = self.search_features(features)  # Expand wild cards
+        feature_weights = self.data.ix[:, features]
+        weights = feature_weights.apply(func, 1)
+        above_thresh = weights[weights >= threshold]
+        # ids_to_keep = self.ids[above_thresh]
+        return above_thresh if get_weights else list(above_thresh.index)
+148	def _serialize(self, stream):
+        """"""
+
+        stream_iter = iter(stream)
+        dimension = self.properties.dimension
+        darray = ctypes.c_double * dimension
+        mins = darray()
+        maxs = darray()
+        no_data = ctypes.cast(ctypes.pointer(ctypes.c_ubyte(0)),
+                              ctypes.POINTER(ctypes.c_ubyte))
+
+        def py_next_item(p_id, p_mins, p_maxs, p_dimension, p_data, p_length):
+            """This function must fill pointers to individual entries that will
+            be added to the index.  The C API will actually call this function
+            to fill out the pointers.  If this function returns anything other
+            than 0, it is assumed that the stream of data is done."""
+
+            try:
+                p_id[0], coordinates, obj = next(stream_iter)
+            except StopIteration:
+                # we're done
+                return -1
+            except Exception as exc:
+                self._exception = exc
+                return -1
+
+            if self.interleaved:
+                coordinates = Index.deinterleave(coordinates)
+
+            # this code ass
+149	Returns the timestamp of the last time the item's metadata was updated.
+150	<noinput>
+151	Return the filtered root folder.
+152	True
+153	<noinput>
+154	Run the task at the specified interval.
+155	Returns a list of physical qubits in the circuit.
+156	def get_pipeline(self, pipeline_name):
+        '''
+        Gets a pipeline by name
+
+        :param pipeline_name: The name of the pipeline
+        :return: The pipeline
+        '''
+        return self.pipeline_dict[pipeline_name]
+157	Create a credit note from an invoice.
+158	Prepare initializes and activates the proxy.
+159	def sitetree_treeNode(tree_alias, use_template):
+    """
+    """
+    if use_template:
+        return TemplateNode(tree_alias)
+    else:
+        return Node(tree_alias)
+160	Download a file from YouTube.
+161	def check_config(config):
+    global static_stages
+    if static_stages is None:
+        static_stages = PipelineStages()
+        stages = static_stages
+        if 'external_stages_path' in config:
+            path = config['external_stages_path']
+            if not os.path.isabs(path) and config.get('root_path'):
+                path = os.path.join(config['root_path'], path)
+            try:
+                stages.load_external_stages(config['external_stages_path'])
+            except IOError:
+                return streamcorpus_pipeline  # let check_config re-raise this
+        if 'external_stages_modules' in config:
+            for mod in config['external_stages_modules']:
+                try:
+                    stages.load_module_stages(mod)
+                except ImportError:
+                    return streamcorpus_pipeline  # let check_config re-raise this
+162	<nooutput>
+163	def parse_omim_line(line, header):
+    """"""
+    fields = line.split('\t')
+    if len(fields) != len(header):
+        fields = fields[:len(header)]
+    return fields
+164	Resize the image to the specified size and resample type.
+165	True
+166	This function quits the debugger.
+167	"""
+Returns True if the given user is an effective member of the given group.
+
+:param group_id: The ID of the group to check.
+:param netid: The ID of the user to check.
+:return: True if the user is an effective member of the group, False otherwise.
+"""
+
+        return is_effective_member(group_id, netid)
+168	"""
+This function parallelizes a given function across multiple cores.
+
+Args:
+    func: The function to be parallelized.
+    data: The data to be processed.
+    cpu_cores: The number of cores to use for parallelization.
+
+Returns:
+    Parallelized data.
+169	<nooutput>
+170	<nooutput>
+171	"""
+        """
+172	def from_descriptions(descriptions, lexicon,
+                       source="LAS",
+                       dlm=',',
+                       abbreviations=False):
+    """
+    Parses a set of descriptions and returns a list of LAS objects.
+    
+    Parameters
+    ----------
+    descriptions : str
+        A string containing a set of descriptions.
+    lexicon : str
+        The lexicon to use.
+    source : str
+        The source of the data.
+    dlm : str
+        The delimiter to use.
+    abbreviations : bool
+        Whether abbreviations should be expanded.
+    
+    Returns
+    -------
+    list
+        A list of LAS objects.
+    """
+    las = []
+    for desc in descriptions.split():
+        las.append(from_description(desc, lexicon, source, dlm, abbreviations))
+    return las
+
+def from_description(desc, lexicon, source, dlm, abbreviations):
+    """
+    Parses a single description and returns a LAS object.
+    
+    Parameters
+    ----------
+    desc : str
+        The description to parse.
+    lexicon : str
+        The lexicon to use.
+    source : str
+        The source of
+173	<nooutput>
+174	"""
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+       
+175	def substring_after(ctx, full, part):
+    '''
+    Returns the substring of `full` after `part`.
+    
+    :param full: string
+    :param part: string
+    :return: string
+    '''
+    full = next(string_arg(ctx, full), '')
+    part = next(string_arg(ctx, part), '')
+    return full.partition(part)[-1]
+176	def assoc(m, *kvs):
+    return m.assoc(kvs)
+177	Getting text from the clipboard.
+178	fillna(value, fill_nan=fill_nan, fill_masked=fill_masked)
+179	Create a new variable in the given namespace with the given name and value.
+180	def run_line_magic(self, magic_name, line):
+    """
+    Run a line magic function.
+    """
+    return self.run_cell_magic(magic_name, line)
+181	def get_bound_method(self, instruction):
+        """"""
+        try:
+            return self._bound_instructions[type(instruction)]()
+        except KeyError:
+            raise PulseError('Qobj conversion method for %s is not found.' % instruction)
+182	<nooutput>
+183	<nooutput>
+184	Building the data set.
+185	Option decorator.
+186	<nooutput>
+187	Serialize a metric to a string.
+188	This method executes the given query and returns the result.
+189	print(list_attributes(MyClass))
+190	"""Compute the frame synchronization times.
+
+        Returns
+        -------
+        None
+        """
+        pass
+191	def unique_items(seq):
+    seen = set()
+    for x in seq:
+        if x not in seen:
+            seen.add(x)
+    return seen
+192	Register with boss.
+193	return target_accept_prob
+194	"""
+        Returns a dictionary containing the parameters of the filter.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        dict
+        """
+        return self.get_params()
+195	<nooutput>
+196	"""
+        Load a child node from the tree.
+
+        Parameters
+        ----------
+        name : str
+            The name of the child node to load.
+        recursive : bool
+            Whether to recursively load the child node.
+        load_data : bool
+            Whether to load the data of the child node.
+        max_depth : int
+            The maximum depth of the tree to be loaded.
+
+        Returns
+        -------
+        Node
+            The loaded child node.
+        """
+
+        return self.f_load_child(name, recursive=recursive, load_data=load_data,
+                                 max_depth=max_depth)
+197	def userselect_block(blocks, default=None, debug=False):
+    """"""
+    print("Blocks found in assembly file:")
+    print("      block     | OPs | pck. | AVX || Registers |    ZMM   |    YMM   |    XMM   |    GP   ||ptr.inc|\n"
+          "----------------+-----+------+-----++-----------+----------+----------+----------+---------++-------|")
+    for idx, b in blocks:
+        print('{:>2} {b[labels]!r:>12} | {b[ops]:>3} | {b[packed_instr]:>4} | {b[avx_instr]:>3} |'
+              '| {b[regs][0]:>3} ({b[regs][1]:>3}) | {b[ZMM][0]:>3} ({b[ZMM][1]:>2}) | '
+              '{b[YMM][0]:>3} ({b[YMM][1]:>2}) | '
+              '{b[XMM][0]:>3} ({b[XMM][1]:>2}) | {b[GP][0]:>2} ({b[GP][1]:>2}) || '
+              '{b[poi
+198	No output.
+199	Dumps a Python object into a JSON string.
+
+    :param obj: The object to be dumped.
+    :param **kwargs: Keyword arguments to be passed to :meth:`json.dumps`.
+    :return: The JSON string representation of the object.
+    """
+    return json.dumps(obj, **kwargs)
+
+def _dump_arg_defaults(kwargs):
+    """
+    """
+    if 'indent' not in kwargs:
+        kwargs['indent'] = 4
+    if 'separators' not in kwargs:
+        kwargs['separators'] = (',', ': ')
+    if 'sort_keys' not in kwargs:
+        kwargs['sort_keys'] = True
+    if 'skipkeys' not in kwargs:
+        kwargs['skipkeys'] = False
+    if 'ensure_ascii' not in kwargs:
+        kwargs['ensure_ascii'] = True

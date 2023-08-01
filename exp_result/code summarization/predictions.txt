@@ -1,0 +1,2806 @@
+0	Return the encoding of the terminal.
+1	Returns the decoded string.
+2	Enforce tags on a CloudFront resource.
+3	Retrieve the MAC address of the VM.
+4	Returns a sequence of elements from `start` to `stop` (inclusive).
+
+    :param start: The start of the sequence.
+    :param stop: The stop of the sequence.
+    :param step: The step size of the sequence.
+
+    >>> from pyspark.sql.functions import sequence
+    >>> df = spark.createDataFrame([(1,), (2,), (3,)], ["a"])
+    >>> result = sequence(df.a)
+    >>> result.collect()
+    [Row(a=1), Row(a=2), Row(a=3)]
+5	Make a static URL for the given path.
+
+        :param cls:
+            The :class:`~django.db.models.Model` class.
+
+        :param settings:
+            The settings dictionary.
+
+        :param path:
+            The path to the static file.
+
+        :param include_version:
+            Whether to include the version in the URL.
+
+        :return:
+            The static URL.
+6	Processes a double click event.
+7	Labels for LM.
+8	Returns True if the body should be base64 decoded.
+9	Plots the metrics.
+10	Decorate a command with a cooldown.
+11	Return a list of files in the package.
+12	Release the mouse button.
+13	The amplitude of the bar.
+14	Save stock xdxr
+15	Returns True if the CA certificate exists.
+
+    Args:
+        ca_name (str): The name of the CA.
+        cacert_path (str): The path to the CA certificate.
+        ca_filename (str): The name of the CA certificate.
+
+    Returns:
+        bool: True if the CA certificate exists.
+16	Set line indent.
+17	Composes a sequence of functions.
+18	Generate data for the model
+19	Convert a date string to a datetime.datetime.
+20	Process a drag move event.
+21	Returns the status of a daemon set in a given namespace.
+22	Performs all actions.
+23	Returns the value of `bought_value`.
+24	Retrieve the sum of a file
+25	Selects features from example.
+26	Load a learner from a given path.
+27	Generate parameters from population
+
+        Parameters
+        ----------
+        parameter_id : int
+            The id of the parameter to generate
+
+        Returns
+        -------
+        dict
+            The generated parameters
+28	Get the latents at level `level` from `cond_latents`.
+29	Returns the status of the instrument.
+30	Returns True if the string matches the pattern.
+31	Enable/Disable syslog server
+32	Merge subtokens into a single token.
+33	Create a VGG network with the given number of layers.
+
+    Parameters
+    ----------
+    num_layers : int
+        Number of layers in the VGG network.
+    pretrained : bool, optional
+        Whether to load parameters from a pretrained model.
+    ctx : Context, optional
+        Device context.
+    root : str, optional
+        Path to the root directory of the model.
+    **kwargs : dict
+        Additional keyword arguments passed to the model.
+34	Converts a :class:`Column` of :class:`StringType` to a :class:`Column` of :class:`UTF8String`.
+
+    >>> from pyspark.sql.functions import format_string
+    >>> schema = StructType([
+    ...     StructField("name", StringType(), True),
+    ...     StructField("age", IntegerType(), True)
+    ... ])
+    >>> df = spark.createDataFrame([
+    ...     (1, "Alice"),
+    ...     (2, "Bob"),
+    ...     (3, "Mike")
+    ... ], schema)
+    >>> df.select(format_string("name")).collect()
+    [Row(UTF8String("Alice")), Row(UTF8String("Bob")), Row(UTF8String("Mike"))]
+    """
+
+    sc = SparkContext._active_spark_context
+    return Column(sc._jvm.functions.format_string(format, _to_seq(sc, cols, _to_java_column)))
+35	Ensures that the response is an HTML response.
+
+    Args:
+        url (str): The URL to check.
+        session (PipSession): The session to use.
+36	Return the next chunk of data from the file
+37	Verifies that the log level is valid.
+38	Returns a list of actual targets.
+39	Return the result of the operation.
+40	Refresh the table
+41	Returns a getter that casts to tf.bfloat16.
+42	Convert to a numpy array
+43	Returns a RequestStartLine object.
+44	Calls rekognition DetectFaces, DetectLabels, and IndexFaces APIs.
+
+    Args:
+        bucket (str): The name of the Amazon S3 bucket.
+        key (str): The name of the object in the Amazon S3 bucket.
+45	Retrieve the output of a mine command
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' mine.get <fun>
+46	Flush the index
+47	Create a snapshot of a subvolume.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' btrfs.subvolume_snapshot /volume1/volume2/snap1
+48	CIFAR-4 image transformer.
+49	Enable a systemd service
+50	Returns a fully-qualified signal string.
+51	Generate character statistics from a source tree.
+52	Check label shape is valid.
+53	Normalize a batch of data by L2 norm.
+54	Global average pooling
+55	Returns a dictionary of bounding boxes.
+56	Initialize from class_batches.
+57	Refresh the package database
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' pkg.refresh_db
+58	Returns a CSR sparse matrix.
+59	Update the action to show/hide toolbars.
+60	Extracts the description of a layer.
+
+    Parameters
+    ----------
+    layer : Layer
+        The layer to extract the description from.
+61	Resize multiple images in parallel
+
+    Parameters
+    ----------
+    fnames : list
+        list of filenames
+    targ : str
+        target directory
+    path : str
+        input directory
+    new_path : str
+        output directory
+    resume : bool
+        Whether to resume from where we left off
+    fn : callable
+        Function to apply to each image
+
+    Returns
+    -------
+    path : str
+        output directory
+62	Returns True if a launch configuration with the given name exists in the
+    given region.
+63	Weight decay and noise.
+64	Renders a Genshi template.
+
+    :param genshi_data:
+        A string containing a Genshi template.
+
+    :param saltenv:
+        The environment to use for rendering.
+
+    :param sls:
+        The sls to use for rendering.
+
+    :param method:
+        The method to use for rendering.
+
+    :param **kws:
+        Keyword arguments to pass to the template.
+65	Return the number of dimensions in the tensor.
+66	Move to the next sibling of the current node.
+67	Query job status.
+68	Returns a shortened version of the text.
+69	Cuts a sentence into words.
+
+    Parameters
+    ----------
+    sentence : str
+        The sentence to cut.
+    HMM : bool
+        Whether to use HMM or not.
+70	Decoded output boxes.
+71	Retrieve the value of the chart
+72	Subscribe strategy.
+73	Given a 3x3 board, returns a list of open spaces.
+74	Update the channel.
+75	Evaluate a single data point.
+76	Read audio data from a file.
+
+    Parameters
+    ----------
+    path : str
+        The path to the audio file.
+
+    Returns
+    -------
+    Fs : float
+        The sample rate of the audio data.
+    x : ndarray
+        The audio data.
+77	Calculate the padding and output size.
+78	Save stock info.
+79	Interrupt the kernel
+80	Create a pandas Dataframe from the Avro Rows.
+81	Return True if cursor is on the first line
+82	Hide loading page
+83	Apply map_fn to all inputs and wait for all promises to be fulfilled.
+84	Return an immutable version of the given object.
+85	Returns a set of distribution names from the given URL.
+86	Show details of a subvolume.
+87	Returns a fully-qualified group string.
+88	Round to the given number of decimals.
+89	Get a record from a zone.
+90	Attention within a given block.
+
+  Args:
+    x: input tensor.
+    self_attention_bias: bias for self-attention.
+    hparams: hyperparameters.
+    attention_type: type of attention.
+    q_padding: padding for query.
+    kv_padding: padding for key-value.
+    q_filter_width: filter width for query.
+    kv_filter_width: filter width for key-value.
+91	Cut a sentence into words.
+
+        Parameters
+        ----------
+        sentence : str
+            The sentence to cut.
+        cut_all : bool, optional
+            Whether to cut all words or not.
+        HMM : bool, optional
+            Whether to use HMM or not.
+92	Inverse exponential decay.
+93	Converts a legacy URLsafe string to a :class:`~google.appengine.api.datastore.Reference`.
+94	Returns the number of items in the SArray.
+95	Mutates label by replacing non-alphanumeric characters with underscores and
+        adding a md5 hash to the label.
+96	Retrieve the ID of the image
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' docker.resolve_image_id <image>
+97	Returns True if the key has a value, False otherwise.
+98	Unpack msgpack data into a dict
+99	Purge jobs from the database.
+100	Returns a list of projects.
+101	Sets the path of the application.
+102	Replace the given features with the given new_grist.
+103	Returns a fully-qualified app profile string.
+104	Calculate the spectral flux.
+105	Registered stateful ops without inputs.
+106	Authenticate the user and redirect to the callback URI.
+107	Generates a numpy array from a graph.
+108	Add a distinguished name to a policy.
+109	Update a node
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' docker.update_node
+110	Adds redirects from the mapping in the REDIRECTS_FILE.
+111	Decodes the model.
+112	Check if the member is in the pool
+113	Reset the counter.
+114	Evaluate the model on the test set.
+
+    Args:
+      inc_epoch: Whether to increment the epoch counter.
+
+    Returns:
+      A dictionary containing the evaluation results.
+    """
+    return self.eval_multi(inc_epoch=inc_epoch)
+115	Check if the given path is installable.
+116	Validates that all files specified in resources exist.
+117	Fetches a user's profile from the API.
+
+        Parameters
+        ----------
+        user_id : int
+            The ID of the user to fetch the profile for.
+
+        Returns
+        -------
+        :class:`~discord.User`
+118	Download the audio data.
+119	Convert to numpy array
+120	Delete a reactor.
+121	Replace the suffix of a file.
+122	Compute Pearson's Correlation Coefficient
+
+        Parameters
+        ----------
+        other : DataFrame or Series
+            DataFrame or Series to compute correlation with
+        pairwise : bool
+            Whether to compute pairwise correlation or not
+
+        Returns
+        -------
+        float
+            Pearson's Correlation Coefficient
+123	Returns the number of seconds until expiration.
+124	Remove timeout future.
+125	Orchestrate
+126	Transforms the input data and label.
+127	Start the named jail.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' jail.start myjail
+128	Set properties from resource.
+129	Convert a SparseTensorValue to a list of strings.
+130	Set monitor callback.
+
+        Parameters
+        ----------
+        callback : callable
+            The callback to be called when monitor is triggered.
+        monitor_all : bool
+            Whether to monitor all or not.
+
+        Returns
+        -------
+        None
+131	Clear scope decorations.
+132	Prepare a pandas function to be used in the model.
+133	Set the hostname of the system.
+134	MTF image transformer for CIFAR-100.
+135	Set the device for the model.
+136	Query with bounders.
+137	Gets language modeling inputs.
+138	Get the environment variables to use.
+139	Resize columns to contents
+140	Create a namespaced lease
+141	Convert model from external data.
+142	Build a date from a date or kwargs.
+143	Get the name of the operation.
+144	Run the WinSoftware module.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' win_software.list
+145	Return a text stream for the given name.
+146	Performs an operation on the database.
+147	Returns a `tf.estimator.ServingInputReceiver`.
+148	Set the project's recent files.
+149	Return True if the path is valid.
+150	Returns a list of namespaces.
+151	Authenticate OAuth 2.0 flow.
+152	Cumulative sum along the given axis.
+153	Raise BadParameter exception.
+154	Read the mount cache
+155	Returns the total market value of all accounts.
+156	Remove a pecl extension.
+157	Calculate the diff between two commits.
+
+    :param a_ref: The reference of the first commit.
+    :param target: The reference of the second commit.
+    :param b_ref: The reference of the second commit.
+    :return: The diff between two commits.
+158	Stop an AppPool
+159	Delete a key from Redis.
+160	read_namespaced_deployment_scale
+161	Returns a list of missing flags.
+162	Reindex the DataFrame with the given axes.
+163	Return a list of available kernel modules.
+164	Clean up kwargs
+165	Set values at given locations.
+166	Displays the runner output.
+
+    .. versionadded:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+        Added the ``display`` argument.
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2016.3.0
+
+    .. versionchanged:: 2
+167	Returns the URL of the remote repository.
+168	Delete a vm snapshot.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt-cloud -a vm_snapshot_delete vm_name snapshot_id
+169	Persist the matrix to the underlying storage.
+170	Return the selection range.
+171	Validate the given amount of shares for the given asset.
+172	Cast to string.
+173	Retrieve a value from the daily pricing file.
+174	Returns True if the given function has the given argument.
+175	Create a connection from a URL.
+176	Returns a recursive list of differences between old and new.
+177	Convert a node to a parameter expression.
+178	Replace locals.
+179	Sign up user.
+180	Update the object with the given kwargs.
+181	Retrieve the value of a parameter.
+182	Collect artifacts from S3
+183	Retrieve common parameters from task instance and task class.
+184	Given a list of IDs, return a list of relations.
+185	Returns the cursor at the end of the document.
+186	Return True if a reboot is pending.
+187	Stop the thread.
+188	Update the host/port of the URL.
+189	Rename a file or directory.
+190	Calculate the negative log perplexity.
+191	Get sensor data from IPMI
+192	Validate flags.
+193	Read columns from an HDF5 file.
+
+    Parameters
+    ----------
+    path_or_buf : string or file-like object
+        The path to the HDF5 file or a file-like object to read from.
+    columns : list
+        The columns to read from the HDF5 file.
+    num_splits : int
+        The number of splits to use when reading from the HDF5 file.
+    kwargs : dict
+        Additional keyword arguments passed to pandas.read_hdf().
+194	Try to run a generator.
+
+    Arguments:
+    project: a ProjectTarget
+    name: a basestring or None
+    generator: a Generator
+    target_type: a basestring
+    properties: a property_set.PropertySet
+    sources: a iterable of virtual_target.VirtualTarget
+195	Copy an image from one region to another
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' cloud.copy_image <source_region> <image_id> <name> <profile>
+196	Delete a deployment.
+197	Run a LXC command.
+198	Transformer relative attention.
+199	Clear the screen.
+200	List all vhosts
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' rabbitmq.list_vhosts
+201	Create a Hooks object.
+202	Write a private key to a file.
+203	Returns the PnL (profit/loss) of the trade.
+204	Send a message to pageant.
+
+    :param msg: The message to send.
+    :type msg: bytes
+
+    :return: The response from pageant.
+    :rtype: bytes
+205	Wider next dense layer
+206	Update the model.
+207	Get the context of the center index.
+208	Get the list of servers in a service group.
+209	Returns the quantity of close orders.
+210	Encrypt a password
+
+    :param password: The password to encrypt
+    :return: The encrypted password
+211	Remove a Postgresql cluster
+212	Returns True if the given path is a valid service availability path.
+213	Toggles wrap mode on the editor.
+214	Return the path to the Firefox executable.
+215	Draws an arrow from `start` to `end`.
+216	Collapse a list of IPv4 subnets into a single IPv4 address.
+
+    :param addresses: A list of IPv4 subnets.
+    :return: A single IPv4 address.
+217	Check if a function is running
+218	Scale keypoint.
+219	Retrieve the value of a key from the formula namespace.
+
+    :param key:
+        The key to retrieve.
+
+    :param default:
+        The default value to return if the key is not found.
+
+    :return:
+        The value of the key.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' formula.get foo
+        salt '*' formula.get foo:bar
+        salt '*' formula.get foo:bar:baz
+220	Retrieve the full name of the vCenter version
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' vcenter.get_vcenter_version
+221	Set up logging.
+222	Retrieve the properties of a distributed port group
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' vmware.get_dvportgroup_dict <pg_ref>
+223	Resumes a paused VM.
+224	Get the partition name for the region.
+225	Enable pretty logging.
+226	Returns True if the cell should be split.
+227	订单结算
+
+        :param settle_data: 订单结算数据
+        :type settle_data: dict
+        :return: 订单结算结果
+        :rtype: dict
+        :return: 订单结算结果
+        :rtype: dict
+        :return: 订单结算结果
+        :rtype: dict
+        :return: 订单结算结果
+        :rtype: dict
+        :return: 订单结算结果
+        :rtype: dict
+        :return: 订单结算结果
+        :rtype: dict
+        :return: 订单结算结果
+        :rtype: dict
+        :return: 订单结算结果
+        :rtype: dict
+        :return: 订单结算结果
+        :rtype: dict
+        :return: 订单结算结果
+        :rtype: dict
+        :return: 订单结算结果
+        :rtype: dict
+        :return: 订单结算结果
+        :rtype: dict
+        :return: 订
+228	Add a timedelta-like scalar to a TimedeltaIndex
+
+        Parameters
+        ----------
+        other : timedelta-like
+            Timedelta-like scalar to add to the TimedeltaIndex
+
+        Returns
+        -------
+        TimedeltaIndex
+            The TimedeltaIndex with the timedelta-like scalar added
+
+        Examples
+        --------
+        >>> idx = pd.TimedeltaIndex(['1 day', '2 days', '3 days'])
+        >>> idx + np.timedelta64('1 day', 'D')
+        TimedeltaIndex(['2 days', '3 days'], dtype='timedelta64[D]')
+229	Fold values in the RDD by key
+
+        >>> rdd = sc.parallelize([1, 2, 3, 4, 5])
+        >>> result = rdd.foldByKey(0, add)
+        >>> result.collect()
+        [0, 0, 0, 0, 0]
+230	Send a control character.
+231	Parses a json string into a dictionary.
+232	Finds an AWS Lambda function by its name.
+
+    :type FunctionName: string
+    :param FunctionName: The name of the AWS Lambda function.
+
+    :type Name: string
+    :param Name: The name of the AWS Lambda function.
+
+    :type FunctionVersion: string
+    :param FunctionVersion: The version of the AWS Lambda function.
+
+    :type region: string
+    :param region: The region in which the AWS Lambda function is located.
+
+    :type key: string
+    :param key: The AWS access key.
+
+    :type keyid: string
+    :param keyid: The AWS access key ID.
+
+    :type profile: string
+    :param profile: The AWS profile.
+233	Returns the path to the hparams.json file.
+234	Execute prebuild script
+235	Push the current project.
+236	Rewind request body for redirect.
+237	Returns a pandas.DatetimeIndex of all sessions.
+238	Return True if the class is a final class.
+239	Send a command to the file system.
+
+        :param load: The load to send.
+        :type load: dict
+
+        :param tries: Number of retries.
+        :type tries: int
+
+        :param timeout: Timeout in seconds.
+        :type timeout: int
+240	Create a DenseNet-121 model.
+241	Update splits if they are different.
+242	Alter configs.
+243	Reset window layout to default settings.
+244	Removes the specified entry from the /etc/filesystems file.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' file.rm_filesystems /dev/sda1
+245	QA indicator shadow
+246	Calculate the price by slippage.
+247	Check if the given label satisfies the constraints.
+248	Create a new database.
+
+    Parameters
+    ----------
+    database : str
+        The name of the database to create.
+    containment : str, optional
+        The type of containment for the database.
+    new_database_options : list, optional
+        A list of options for creating the database.
+
+    Returns
+    -------
+    bool
+249	Calculate the smallest size that is at least `smallest_side`.
+250	Minimize constraints
+251	Add a server to a service group
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' netscaler.servicegroup_server_add sg_name s_name s_port
+252	Deploy a new API.
+253	Set extra selections for a given key.
+254	Generate a B-spline representation of the data.
+255	Write a chunk of data to the table.
+
+        Parameters
+        ----------
+        rows : array-like
+            The data to be written.
+        indexes : array-like
+            The indexes of the data to be written.
+        mask : array-like
+            The mask of the data to be written.
+        values : array-like
+            The values of the data to be written.
+256	Create a new salt-cloud profile
+257	Vanilla encoder
+258	Light the image.
+259	Create an Enum class from a list of options.
+
+    Parameters
+    ----------
+    option : int or str
+        The option to store.
+    options : list
+        The list of options.
+
+    Returns
+    -------
+    Enum
+        An Enum class.
+260	Return the encoding of the system
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' get_system_encoding
+261	Return the icon URL.
+262	Retrieve the list of network adapters on the machine
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' vb.get_network_adapters
+263	Kill processes matching the given pattern.
+264	Reset time for all files in the given path.
+
+    :param path: The path to reset time for.
+    :param amt: The time to reset to.
+    :return: None
+265	List the contents of a directory.
+
+        Parameters
+        ----------
+        path : string
+            The directory to list.
+
+        Returns
+        -------
+        list
+            The contents of the directory.
+266	Convert a dict to a PodSpec.
+267	Delete a published repository
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' aptly.delete_published <name> <config_path>
+268	Basic convnet with 4 conv layers and 7 dconv layers.
+269	Returns a list of tuples of the form (model_key, model_value).
+270	Resample the data to a daily frequency
+
+    Parameters
+    ----------
+    day_data : pandas.DataFrame
+        The data to resample
+    type_ : {'w', 'd', 'm', 'q', 'y', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 
+271	Suspend an instance
+272	Describe an event source mapping.
+273	Parses a topic path into its name and project.
+274	Return the parsed command.
+275	Brelu
+276	Retrieve the DVS product info.
+277	Retrieve information about a security group.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' salt-cloud.secgroup_info secgroup_name secgroup_id
+278	Generate a reverse PTR record.
+279	Return a list of :class:`DataIndexable` objects.
+280	Boot a zone
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' zone.boot <zone> <options>
+281	Walk the XML tree and generate SAX events.
+282	Plots the diagrams.
+283	Validate the dispatcher name.
+284	Create an error message for an EnvironmentError.
+
+    :param error: The EnvironmentError instance
+    :param show_traceback: Whether to show the traceback or not
+    :param using_user_site: Whether to use user-site packages or not
+    :return: The error message
+    :rtype: string
+285	Create a router
+286	Remove a log configuration
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' logadm.remove <name>
+287	Returns the squared covariance of x.
+288	Create a tool button with the given action.
+289	Returns a list of keys in the given directory.
+290	Scan the index
+291	Retrieve the tree from the target environment.
+
+        :param tgt_env: The target environment.
+
+        :return: The tree from the target environment.
+292	Generates examples for the model.
+293	Retrieve the details of the esxdatacenter proxy
+294	Set `req.conflicts_with` to `req.satisfied_by`.
+295	Set the document type.
+
+        Parameters
+        ----------
+        doc_type : list
+            List of document types to set.
+        **kwargs : dict
+            Keyword arguments to set.
+296	Create a new :class:`~jinja2.modules.TemplateModule` object.
+
+        .. versionadded:: 2.7
+
+        .. versionchanged:: 2.7
+           Added the `shared` argument.
+
+        .. versionchanged:: 2.7
+           Added the `locals` argument.
+297	Make a Gym environment.
+298	Merge two tables.
+299	AWS SAM template file.
+300	Reboot the VM
+301	Returns True if the given SQL is a valid table definition.
+302	Generate code from a node.
+303	Save a ufunc
+304	Convert a numpy array to a list.
+305	Terminate a VM
+306	Remove a reference to an attribute.
+307	Set backend for Mayavi.
+308	Unpack an sdist into a directory.
+309	Builds the protobuf representation of the query.
+
+        :return: The protobuf representation of the query.
+        :rtype: :class:`~google.cloud.firestore_v1.proto.query.Query.pb`
+310	Constructs a Lambda function.
+
+        :rtype: LambdaFunction
+311	Unset a config value.
+312	Decorator to add ES query parameters to a function
+313	Returns the visual width of a line.
+314	Create a max pooling layer.
+315	Move the item at pos to the root of the heap.
+316	Returns the most frequent value in the given rows.
+317	Merge two sorted lists into one sorted list
+
+    Parameters
+    ----------
+    left : list
+        The left sorted list
+    right : list
+        The right sorted list
+    merged : list
+        The merged sorted list
+318	Calculate the size of a message set item.
+319	Update a host.
+320	Delete a firewall rule
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' firewall.delete_rule my_rule
+321	Print a histogram of ground-truth classes
+322	Returns a list of fields for the model.
+323	Call a Java function.
+324	Set notebook type
+325	Constructs an LSTM cell.
+326	Apply tfms to y
+327	Retrieve portgroup's teaming config.
+328	Activate an API deployment.
+329	Returns True if `self` is a subset of `other`.
+330	Convert timestamps to the local time zone.
+331	Get the item from the cache.
+332	Apply a filter function to the items in the queue.
+
+    Args:
+      filterFn: A function to apply to each item in the queue.
+
+    Returns:
+      The number of items removed from the queue.
+333	Disable a service
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' service.disable <name>
+334	Transformer Tall Pretrain LM TPU.
+335	Open the part file.
+336	Gets a list of load balancers in a resource group.
+337	Calculate RSI indicator.
+338	Returns a broadcasted version of the DataFrame.
+
+    >>> df = spark.createDataFrame([(1, 1), (2, 2)], ["a", "b"])
+    >>> broadcasted = broadcast(df)
+    >>> broadcasted.collect()
+    [Row(a=1, b=1), Row(a=2, b=2)]
+339	Serialize the input to HTML.
+340	Resize the image.
+341	Authenticate a Django user.
+342	Create a saved search
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' splunk.create saved_search_name
+343	Returns the Google Cloud project ID.
+344	Retrieve a dict from the dictionary.
+345	Returns a list of network interfaces for a virtual machine.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' azurearm.list_virtual_machine_scale_set_vm_network_interfaces <scale_set> <vm_index> <resource_group>
+346	Returns the identity matrix.
+
+    Parameters
+    ----------
+    N : int
+        The number of rows of the matrix.
+    M : int, optional
+        The number of columns of the matrix.
+    k : int, optional
+        The number of non-zero elements in the matrix.
+    dtype : str or numpy.dtype, optional
+        The data-type of the matrix.
+
+    Returns
+    -------
+    numpy.ndarray
+        The identity matrix.
+
+    Examples
+    --------
+    >>> from sklearn.utils.extmath import eye
+    >>> eye(3)
+    array([[1, 0, 0],
+           [0, 1, 0],
+           [0, 0, 1]])
+    >>> eye(3, M=2)
+    array([[1, 0, 0, 0],
+           [0, 1, 0, 0],
+           [0, 0, 1, 0]])
+    >>> eye(3, M=2, k=2)
+    array([[1, 0, 0, 0],
+           [0, 1, 0, 0],
+           [0, 0, 1, 0]])
+    >>> eye(3, M=
+347	Parses qstat output to get job state.
+348	Sets the retention period for the policy.
+349	Converts Any message into a protobuf message.
+
+    Args:
+      value: Any message to be converted.
+      message: The protobuf message to store the converted value.
+
+    Raises:
+      ParseError: if @type is missing.
+350	Convert an RFC3339 timestamp string to a datetime.
+351	Gradient helper function.
+352	Add delegate accessors to the class.
+353	Pretraining only the LM.
+354	Open a file.
+355	Update the custom emoji.
+356	Generate output path.
+357	Encode label data.
+358	Return a list of (name, format) tuples.
+359	Formats the content according to the type.
+360	Returns a string containing the environment variables to be set.
+361	Return the detached object.
+362	copy mode
+363	Epoch end callback
+364	Return True if the path is in the given folder.
+365	rlmb_long_stochastic_discrete_simulation_deterministic_starts
+366	Get the popularity baseline.
+367	Yields tuples of (name, value) tuples.
+368	Receive trial result.
+369	Seed the random number generator.
+
+    Parameters
+    ----------
+    range : int, optional (default: 10)
+        The range of the random numbers.
+
+    Returns
+    -------
+    int
+370	Shuffles and batches the data.
+371	Concatenate a list of pandas DataFrames.
+372	Check if the diff is valid.
+373	Create an OpenAI GPT model from a dictionary.
+374	Given a rsync output, return a dictionary of changes.
+375	Add a reshape layer.
+376	Start a service
+377	Returns the progress of the output.
+378	String representation of the model's progress.
+379	Returns a list of all databases on the server.
+380	Write a configuration file.
+381	Returns a list of dictionaries with configuration data.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' lxc.list
+382	Writes the columns to the file.
+383	Calculate the average gradients.
+384	Deletes a container's config item.
+385	Set invalid status.
+386	Roll forward the CustomBusinessDay.
+387	Try to load an object from a name.
+388	Return a list of connected minions
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' minion.list_state
+389	Format response data type.
+390	Prettify an exception.
+391	Convert a map field value.
+
+    Args:
+      value: The map value.
+      message: The message object.
+      field: The field descriptor.
+
+    Returns:
+      The converted value.
+392	Disable a job from the schedule.
+393	Resize an NDArray.
+
+    Parameters
+    ----------
+    src : mx.nd.NDArray
+        The NDArray to be resized.
+    size : mx.uint
+        The new size of the NDArray.
+    interpolation : int
+        Interpolation mode.
+
+    Returns
+    -------
+    NDArray
+        The resized NDArray.
+394	Load a libsvm model from a file path.
+
+    Parameters
+    ----------
+    model_path : string
+        The path to the libsvm model.
+
+    Returns
+    -------
+    model : svm_model
+        The loaded libsvm model.
+395	Get a parameter from the model.
+
+        Parameters
+        ----------
+        name : str
+            The name of the parameter.
+
+        Returns
+        -------
+        symbol.Variable
+            The parameter.
+396	Retrieve a value from the :class:`DataFrame`.
+
+        .. deprecated:: 0.19.0
+            Use :meth:`DataFrame.at` or :meth:`DataFrame.iat` instead.
+397	Write dataframe to excel file.
+398	Apply PAX headers to the object.
+399	Step the environment.
+400	Search for a room with the given name.
+
+    Args:
+        name (str): The name of the room to search for.
+        api_key (str): The API key to use.
+
+    Returns:
+        bool: True if the room is found, False if not.
+401	Write the data to a file.
+402	Validate HDFStore format.
+403	Read a TSV file.
+404	Whether the dtype is a floating point type.
+405	Generate a range vector.
+406	Add an object to the layout.
+407	Run a query and return the first result.
+408	Count the number of non-NA values in each column.
+409	Verify that the IP address of the request is in the whitelist.
+410	Converts a keras layer to a TensorFlow Lite layer.
+
+    Args:
+        builder: A TensorFlow Lite LayerBuilder.
+        layer: A keras layer.
+        input_names: A list of strings.
+        output_names: A list of strings.
+        keras_layer: A keras layer.
+411	Pretrained Polynet model.
+412	Serialize a config object to a string.
+
+    Parameters
+    ----------
+    obj : dict
+        The config object to be serialized.
+    **options : dict
+        Additional options for the serialization.
+
+    Returns
+    -------
+    str
+        The serialized config object.
+413	Iterate over the rows of the DataFrame
+414	Initialize parameters.
+415	Returns a dictionary of download URLs.
+416	Create a new folder with the given name in the given location
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' win_task.create_folder my_new_folder
+417	Augment usage errors with context.
+418	Converts API representation to model.
+419	Find the position of the quote in the text.
+420	Truncate the selection
+421	Process the content of the file.
+422	Prepares the rows for display.
+
+        :param rows: The rows to display.
+        :param labels: The labels for the rows.
+        :param indent: The number of spaces to indent the rows.
+        :param has_header: Whether a header row is present.
+        :return: The prepared rows.
+423	Suppress distutils logging.
+424	Merge custom analyzer definition.
+425	Deselect options with visible text matching the given text.
+426	Import a module from a given path
+427	Returns the output of the shake-shake block.
+428	Set custom interpreters list
+429	Create an IndexRegressionDataset.
+430	Switch gen mode.
+431	Returns the current position of the writer.
+432	Compute the mask offsets.
+433	Save the current cell.
+434	Change the last focused widget
+435	Return the title of the document.
+436	Remove an application from a site.
+437	Set whether to combine stderr output with primary output.
+438	Validate an element.
+439	Connect to AppOptics.
+440	Selects a number from the given list of rows.
+441	Returns a flattened dictionary.
+442	Copies the rows from `ins_rows` to the table `table_bound`.
+443	Colorize an image with a heatmap.
+444	Given a RequirementSet, returns a list of InstallRequirements in topological
+        order.
+445	Gradient and loss function.
+446	Adds a list of experiments to the generator.
+447	Dump the content of the document.
+448	Append an item to the table.
+
+        :param key: The key of the item.
+        :param value: The value of the item.
+        :return: The table.
+449	Retrieve the graph for a given run_key.
+450	Returns the element-wise remainder of two arrays.
+
+    Parameters
+    ----------
+    lhs : array_like
+        First array.
+    rhs : array_like
+        Second array.
+451	Returns the value of the given field for the given sid and date.
+452	Check if a policy exists in a vhost
+453	Check if the given pretrained file name is valid.
+454	Returns a list of all exported entries.
+455	Set the value of a target variable.
+456	Return a list of proxies.
+457	Create a metric.
+458	Installs a missing package from chocolatey
+
+    name
+        The name of the package to install
+
+    version
+        The version of the package to install
+
+    source
+        The source of the package to install
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' chocolatey.install_missing <name> <version> <source>
+459	Returns True if the current file has been updated.
+460	Make a parent object from the given path.
+461	Local attention 1D spatial decoder.
+462	Set a hyperparameter.
+463	Encode the input.
+464	Set the environment of this node.
+465	Returns the best exponent for the given series length.
+466	Returns the set of owners.
+467	Write data to a file.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' file.write_file /path/to/data.txt
+468	Set input buffer.
+469	Return the path of the current executable.
+470	Update a usergroup.
+471	Generate examples for validation.
+472	Returns a list of validated metadata.
+473	Put lifecycle configuration on a bucket.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' boto3.put_lifecycle_configuration bucket_name rules
+474	Returns a caffe symbol for lenet.
+475	Extract the war version from a war file.
+476	Forward pass for hybrid attention.
+477	Returns the transform to apply to the model output.
+478	Schedules a sample from the ground truth.
+479	Computes the area mask for a given feature length.
+480	Validates the name of the AWS Lambda function.
+
+    Args:
+        name (str): The name of the AWS Lambda function.
+        maxlen (int): The maximum length of the name.
+
+    Returns:
+        str: The validated name of the AWS Lambda function.
+481	Rotates an array by k steps
+482	Embedded CSS.
+483	Return the data to the minion
+
+    load
+    load['jid']
+    load['id']
+484	Create a character device
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' cdev.mknod_chrdev /dev/ttyUSB0
+        salt '*' cdev.mknod_chrdev /dev/ttyUSB1
+485	Add a DELETE route.
+486	Retrieve network I/O counters for a given interface
+487	Applies smoothing to the cross entropy loss.
+488	Delete a saved search from Splunk.
+489	Read a proc file
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' proc.read_proc_file /proc/<pid>
+490	Create a GNOME Preferences window.
+
+    Parameters
+    ----------
+    name : str
+        The name of the GNOME Preferences window.
+    user : str, optional
+        The GNOME Preferences window user.
+    action_double_click_titlebar : str, optional
+        The GNOME Preferences window action for double-clicking the
+        window's title bar.
+    action_middle_click_titlebar : str, optional
+        The GNOME Preferences window action for middle-clicking the
+        window's title bar.
+    action_right_click_titlebar : str, optional
+        The GNOME Preferences window action for right-clicking the
+        window's title bar.
+    application_based : bool, optional
+        The GNOME Preferences window application based.
+    audible_bell : bool, optional
+        The GNOME Preferences window audible bell.
+    auto_raise : bool, optional
+        The GNOME Preferences window auto raise.
+    auto_raise_delay : int, optional
+        The GNOME Preferences window auto raise delay.
+    button_layout : str, optional
+        The GNOME Preferences window button layout.
+    disable_workarounds : bool, optional
+        The GNOME Preferences window dis
+491	List all column families in the table.
+492	Reverse a URL.
+493	Returns a function to convert a Keras layer to a TensorFlow layer.
+
+    Args:
+        layer: A Keras layer.
+        add_custom_layers: Whether to add custom layers.
+
+    Returns:
+        A function to convert a Keras layer to a TensorFlow layer.
+494	Delete a service
+495	Close the manager.
+496	Remove double brackets.
+497	Decompress the inputs.
+498	Retrieve the current power settings for the system.
+
+    .. versionadded:: 2016.3.0
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' power.get_powercfg_minute_values scheme guid subguid safe_name
+499	Set up the toolbar.
+500	Post data for a job.
+501	Checks that all instances have the same field names and types.
+502	Format object attributes.
+503	Returns True if the array contains the given substring.
+504	Build the dict of the DVS link discovery protocol
+505	Recursively convert a config object to a dict
+506	Clean shutdown the VM.
+507	Writes model stats.
+508	Returns a string representation of the message.
+509	Declare backward dependencies.
+510	Initialize a parameter.
+511	Returns the index of the row with the maximum value in the given column.
+512	Translate space to depth.
+513	Get business hours in a day
+514	Call specified function to pull redis data
+515	Returns the group id of the given path
+516	Returns a list of IPs that have been reaped.
+
+    :param subset: A subset of IPs to reap.
+    :param show_ip: Whether to show IPs that have been reaped.
+    :param show_ipv4: Whether to show IPv4 or IPv6 IPs that have been reaped.
+    :return: A list of IPs that have been reaped.
+517	Renders the SVG.
+518	Waits for global operation to finish.
+519	Compute the type URL.
+520	Retrieve the current sysctl settings.
+521	Convert string to datetime.
+522	Get the time server from the system.
+523	Check compatibility with other.
+524	Retrieve netinfo for FreeBSD and NetBSD.
+525	Append the metrics to the dataframe.
+526	Retrieve the pkgdb module
+527	Canonize the input dataset.
+528	Close the error dialog
+529	Verify that the hash type is valid.
+530	Prepend the given offset to the current offset.
+531	Create a process worker.
+532	Calculate the similarity between clusters and gold clusters.
+533	Validate any of the given definitions.
+534	Evaluate an XPath expression.
+535	Given a data dict and a function, return a string representation of the data.
+
+        :param data: The data to format.
+        :param function: The function to apply to the data.
+        :param kwargs: Keyword arguments to pass to the function.
+        :return: The formatted data.
+536	Uncombines the initial dims of a tensor
+537	Convert a list of strings to a list of values.
+538	Returns the UID of the user that owns the path
+539	Return a dictionary representation of the counter.
+540	Return the parameters of the model.
+541	Create a secret in the kubernetes cluster
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' kubernetes.create_secret my-secret my-namespace
+542	Apply inference graph.
+543	Returns the mean and standard deviation of the predictive distribution.
+544	Set a key/value pair in a profile.
+
+    :param key: The key to set.
+    :param value: The value to set.
+    :param profile: The profile to set the key/value pair in.
+
+    .. versionadded:: 2016.3.0
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' profile.set key="value"
+545	Generate a string representation of the expression.
+546	Retrieve capability definitions from the profile manager.
+547	Dump the profiles to the given path.
+548	Get an attribute of the model.
+549	Unregister a file from the database.
+
+    Parameters
+    ----------
+    path : str
+        The path of the file to unregister.
+    pkg : str, optional
+        The package of the file to unregister.
+    conn : sqlite3.Connection, optional
+        The sqlite3 connection to use.
+
+    Returns
+    -------
+    bool
+        True if successful.
+550	Make the script executable.
+551	Dump the current state of the database.
+552	Create a disk from a distribution.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' linode.create_disk_from_distro my_linode_vm my_linode_id
+553	Print the documentation for each function.
+554	Returns the input matrix.
+555	Given a list of lines, return a description of the encoding.
+556	Move an object to a CUDA device
+557	Gradient for Guided ReLU.
+558	Return a list of etcd keys for a given bank.
+559	Returns True if the rows are different.
+560	Returns a list of variables.
+561	Validate argsort arguments.
+562	Reshape `a` like `b`.
+563	Abbreviate a string
+564	Return a QIcon from the given name.
+
+    :param name: The name of the icon.
+    :type name: str
+    :param default: The default icon.
+    :type default: QIcon
+    :param resample: Whether to resample the icon.
+    :type resample: bool
+565	Save the current selection to the log file.
+566	访问订单数据
+567	Process a key event.
+568	Check if a ruby version is installed
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' rvm.check_ruby <ruby>
+569	Retrieve a single resource
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' boto3.get_resource
+        salt '*' boto3.get_resources
+570	Parses a requirements file.
+
+    :param file_: The requirements file.
+    :return: The parsed requirements.
+571	Remap UTS 46 data to NFC.
+572	Calls the netmiko method with the given arguments.
+573	Get a diet variable.
+574	Register a coroutine function as an event.
+575	Creates an instance.
+576	Return the login class of a user
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' user.get_loginclass root
+577	Check if a hostname is fully qualified.
+578	Converts an ndarray to an ExtensionArray.
+
+    Parameters
+    ----------
+    values : ndarray
+        The ndarray to convert.
+
+    Returns
+    -------
+    ExtensionArray
+579	Closes the connection to the device.
+580	Create a stream.
+581	Checks if a method is overridden.
+582	Get aligned activations for a layer.
+583	Yields tuples of (data, actions)
+584	Split the symbol mappings into two parts.
+
+    :param df:
+    :param exchanges:
+    :param asset_exchange:
+    :return:
+    :rtype:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+ 
+585	Update the visibility of the plugin
+586	Given a run and a tag_regex_string, return a dictionary with the
+    following keys:
+
+    - _REGEX_VALID_PROPERTY: True/False
+    - _TAG_TO_EVENTS_PROPERTY: {tag: payload}
+587	Returns True if the revision num is included in the given range.
+588	Save the data block.
+589	Expand variables in a template.
+590	Set an attribute on the module.
+591	Profile the model.
+592	Converts a PEM bundle into a Core Foundation array of SecCertificates.
+593	Encode images as PNG.
+594	Returns a list of extra packages to be installed.
+595	Returns the next sibling of the context node.
+596	Retrieve a GPU device by index.
+597	Retrieve a job by id.
+598	Called when the cursor position changes.
+599	Saves the feature's metadata.
+600	Create a SSH connection to the NX-OS device.
+
+    :param opts:
+    :return: None
+601	Handles a POST request.
+602	Returns the batch size.
+603	Cancels the specified operation.
+604	Return a list of shortcuts that can be used in the IPython console.
+605	Return the thread pool.
+606	Retrieve the XML data from a string
+607	Get the signature of the code.
+608	Retrieve the auxiliary data associated with the given index.
+609	Returns a SparseSeries with the given operation applied to each element
+    of the SparseSeries.
+
+    Parameters
+    ----------
+    other : SparseSeries
+        The SparseSeries to apply the operation to
+
+    Returns
+    -------
+    SparseSeries
+610	Add a mapping from a name to a translated name.
+611	Remove NUL bytes from string.
+612	Join a node to the cluster
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' rabbitmq.join_cluster rabbit@127.0.0.1
+613	Normalize an IPv6 address literal.
+
+    :param host: An IPv6 address literal.
+    :param scheme: The scheme of the URL.
+    :return: The normalized IPv6 address literal.
+614	Find and replace a sub-string with another sub-string.
+615	Retrieve the resource config.
+616	Returns the number of non-overlapping matches of pat in arr.
+617	Returns a temporary export directory.
+618	Generate a random uniform distribution.
+
+    Parameters
+    ----------
+    rmin : float, optional
+        The lower bound of the uniform distribution.
+    rmax : float, optional
+        The upper bound of the uniform distribution.
+    dim : int, optional
+        The number of dimensions of the uniform distribution.
+    npuf : bool, optional
+        Whether to generate a numpy array or mxnet.ndarray.
+    type_list : list, optional
+        The type of the uniform distribution.
+
+    Returns
+    -------
+    None
+619	Wrap text to a given width
+620	Return the name of the process
+621	Calculate absolute hinge difference.
+622	Copies a submission to a destination directory.
+
+    Args:
+      src_filename: The source filename.
+      dst_subdir: The destination subdirectory.
+      submission_id: The submission id.
+
+    Returns:
+      None.
+623	Convert tkinter size to Qt size
+624	Returns a list of fields.
+625	Split n into groups of size max_group_size.
+626	Pass-through method.
+627	Update the firmware on the device.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' dracr.update_firmware /path/to/firmware
+628	Write the output to the log file.
+629	Shutdown the executor.
+630	Process a new job event.
+631	Put a task in the task queue.
+632	写入json文件
+633	Execute a command in a subprocess.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' command.execute_cmd
+634	Dump the counters to a file.
+635	Add a list of distinguished names to the policy.
+636	Retrieve the JID for a given minion.
+637	Get or set a hash value.
+
+    :param name:
+        The name of the hash value.
+
+    :param length:
+        The length of the hash value.
+
+    :param chars:
+        The characters used to generate the hash value.
+
+    :return:
+        The hash value.
+
+    :rtype:
+        The hash value.
+638	Augmented tfms.
+639	Pull a document from the server.
+640	Returns a random string of the given length.
+641	Read the contents of a file
+642	Generate the trial page.
+643	Transform the model with tfms.
+644	Delete a route filter.
+645	Install the given requirements.
+
+    :param to_install:
+        A list of :class:`InstallRequirement` objects.
+
+    :param install_options:
+        A list of options to pass to :meth:`install`.
+
+    :param global_options:
+        A list of global options to pass to :meth:`install`.
+
+    :param args:
+        Arguments to pass to :meth:`install`.
+
+    :param kwargs:
+        Keyword arguments to pass to :meth:`install`.
+646	Create a new connection to the remote host.
+647	Returns (scheme, netloc, is_downloadable, is_wheel, compatible, basename)
+648	Return the SRV record name.
+649	Change the format of the dataframe
+650	Extracts data from a path.
+651	Convert to float.
+652	Get the parameters of the model.
+653	Write the exports to the file.
+654	Replace a route table association.
+655	Wider Next Convolutional Layer
+656	Create a new context.
+657	Set up table
+658	Same as :py:meth:`cmd_sync` but returns a list of tuples.
+659	Serve a list of experiments.
+660	Return True if the server is enabled.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' minecraft.server_enabled
+661	Prepend a message to an exception.
+662	Max pooling.
+663	Installs an application on the system
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' tcc.install <app_id> <enable>
+664	Escape a string for use in a URL.
+665	read_namespaced_cron_job
+666	Validate an element.
+667	Returns True if the checkpoint is better than the best checkpoint.
+668	Checks if the selection has changed and updates the actions accordingly.
+669	Add a periodic callback to the server.
+
+        :param callback: The callback to be added.
+        :param period_milliseconds: The period in milliseconds.
+        :return: None
+670	Converts the value field of the message.
+671	Validate IPv4 address.
+672	Add a hash to the class.
+673	Adjusts the property set.
+674	Returns True if the two objects are equal.
+675	Returns a sorted version of `search`.
+676	Retrieve the authentication token from the request
+677	Return a copy of the DataFrame.
+
+        Parameters
+        ----------
+        deep : bool, default True
+            If True, the DataFrame is deeply copied.
+
+        Returns
+        -------
+        DataFrame
+678	Unsqueeze a tensor along an axis
+679	Report an error event.
+680	Run the mapper.
+681	Import the submodules of the given package.
+682	Focus in event handler.
+683	Returns a list of RDDs.
+684	Gather the bootstrap script
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' cloud.gather_bootstrap_script
+685	Returns a list of SessionGroup objects.
+686	Utility functions
+687	Get the focus widget
+688	Get the gradients of inputs.
+689	Validate the metadata of the categorical.
+690	Reduce a 3D array to a 2D array.
+691	Creates a TensorSummary with the given `scalars_layout`.
+692	Returns a dictionary of functions and their argspec.
+
+    Arguments:
+        functions {list} -- list of functions to inspect
+        module {str} -- module to scan for functions
+
+    Returns:
+        ret {dict} -- dict of functions and their argspec
+693	Retrieve the value of a container's parameter
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' lxc.get_parameter <name> <parameter>
+694	Parses a range request header.
+
+    :param range_header: The range request header.
+    :return: A tuple containing the start and end of the range.
+695	Run the luigi server.
+696	Set the number of special tokens
+697	Register a model for a dataset.
+698	Return the attributes of the element.
+699	Adds a capability to the system.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' win_capability.install_capability winrm/config/winrm
+        salt '*' win_capability.install_capability winrm/config/winrm
+        salt '*' win_capability.install_capability winrm/config/winrm
+        salt '*' win_capability.install_capability winrm/config/winrm
+        salt '*' win_capability.install_capability winrm/config/winrm
+        salt '*' win_capability.install_capability winrm/config/winrm
+        salt '*' win_capability.install_capability winrm/config/winrm
+        salt '*' win_capability.install_capability winrm/config/winrm
+        salt '*' win_capability.install_capability winrm/config/winrm
+        salt '*' win_capability.install_capability winrm/config/winrm
+        salt '*' win_capability.install_capability winrm/config/winrm
+        salt '*' win_capability.install_capability winrm/config/winrm
+        salt '*' win_capabil
+700	Retrieve a value from the configuration.
+
+    :param key: The key of the value to retrieve.
+    :param value: The value of the value to retrieve.
+    :param conf_file: The path to the configuration file.
+    :return: The value retrieved from the configuration.
+701	Adjust column widths to fit contents.
+702	Finds the enum type with the given name.
+703	Set the text of a line.
+704	Create a dictionary from a list of tuples.
+705	Returns a fully-qualified security_marks string.
+706	Returns the disk size of the VM
+707	Returns a comma-separated string of allowed HTTP methods for the given path.
+708	Improve the answer span.
+709	Set parameters from kwargs
+710	Retrieve the property values from the instance.
+711	Dense mtr_lm model.
+712	Wipe a block device
+
+    Parameters
+    ----------
+    dev : str
+        Device to wipe
+
+    Returns
+    -------
+    int
+        Number of blocks wiped
+713	Attempts to create the directory if it does not already exist.
+714	Decodes the given output string.
+
+    :param output: The output string to decode.
+    :param target_stream: The stream to decode the output for.
+    :param translation_map: The translation map to use.
+    :return: The decoded output.
+    :rtype: str
+    :raises: UnicodeDecodeError
+    :raises: UnicodeEncodeError
+715	Compute the cumulative product along the given axis.
+716	Aggregate gradients using copy with device selection.
+717	Defragment a btrfs filesystem
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' btrfs.defragment /
+718	Returns True if `name` is a training name.
+719	Unbottlenecks isemhash.
+720	A tiny version of mtf_bitransformer.
+721	Create a dataset version by id
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.datasets_create_version_by_id(id, dataset_new_version_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str id: (required)
+        :param dataset_new_version_request: (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.datasets_create_version_by_id_with_http_info(id, dataset_new_version_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.datasets_create_version_by_id_with_http_info(id, dataset_new_version_request, **kwargs)  # noqa: E501
+            return data
+
+    def datasets_create_version_by_id_with_http_info(self, id, dataset_new_version_request
+722	Add a source
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' image.source_add <source> <source_type>
+723	Apply shortcuts to the given object.
+724	Submit the cluster.
+
+    :param cluster_config_file:
+    :param docker:
+    :param screen:
+    :param tmux:
+    :param stop:
+    :param start:
+    :param cluster_name:
+    :param port_forward:
+    :param script:
+    :param script_args:
+725	Returns the number of matches of the pattern in the source text.
+726	Creates the output of the model.
+727	Convert a Keras layer to CoreML.
+728	Aggregate the elements of this RDD in a multi-stage process.
+
+        In the first stage, the elements of this RDD are mapped
+        to zero. In the second stage, the elements of this RDD are
+        grouped by the output of the first stage, and the elements of
+        each group are aggregated using the given `seqOp` and `combOp`.
+
+        The `seqOp` is applied to the elements of each group, and the
+        `combOp` is applied to the results of the `seqOp` in each group.
+
+        The `seqOp` and `combOp` are both applied to each element of the
+        RDD, so they must be commutative and associative.
+
+        Examples
+        --------
+        >>> rdd = sc.parallelize([1, 2, 3, 4, 5])
+        >>> result = rdd.aggregate(0, lambda x, y: x + y, lambda x, y: x + y)
+        >>> result.collect()
+        [0, 10, 15, 20, 25]
+729	Given a begin_date and an end_date, this function will return a list of
+    tuples, each tuple containing the start and end dates of a quarter.
+730	Rehydrates a skeleton class from a dict.
+731	Retrieve the state of a machine.
+732	if USE_GPU:
+    return x.cuda()
+    else:
+    return x
+733	Unzip a sequence of tuples into a sequence of tuples.
+
+    Parameters
+    ----------
+    seq : sequence of tuples
+        The sequence of tuples to unzip.
+    elem_len : int, optional
+        The length of the tuples in `seq`.
+        If `None`, the length of `seq` is inferred from `seq`.
+
+    Returns
+    -------
+    seq : sequence of tuples
+        The unzipped sequence.
+
+    Examples
+    --------
+    >>> from itertools import unzip
+    >>> unzip(((1, 2, 3), (4, 5, 6)))
+    ((1, 2, 3), (4, 5, 6))
+    >>> unzip(((1, 2, 3), (4, 5, 6)), elem_len=2)
+    ((1, 2), (3, 4, 5), (6, 4, 6))
+    >>> unzip(((1, 2, 3), (4, 5, 6)), 2)
+    ((1, 2), (3, 4, 5), (6, 4, 6))
+    >>> unzip(((1, 2, 3), (4
+734	Check if a port is open or not.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' csf.ports_open <name> <ports> <proto> <direction>
+735	Get a parser for the object.
+736	Split dataset into train and valid sets.
+737	Get attributes from value
+738	Create a database from a protobuf.
+739	Adds properties for extensions.
+740	Convolutional LSTM.
+741	Reset the specified syslog configuration parameters
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' vmware.reset_syslog_config <host> <username> <password> <cmd> <resets>
+742	Check if the FMADM is faulty.
+743	Replace all occurrences of pattern with replacement.
+744	Shuffles records in a tfrecord file.
+745	Return a list of :class:`_table_mod.link.Link` and :class:`_table_mod.table.Table` objects.
+746	Get the padding lengths for each field.
+747	Manage a firewall rule
+748	Complain if the distribution is not found.
+749	Update the git repos
+750	Create a new context.
+751	Copies the data from another NDArray.
+
+        Parameters
+        ----------
+        other : NDArray
+            The NDArray to copy from.
+752	Get the column type for a given kind.
+753	Check for conflicts when installing the given requirements.
+
+    :param to_install: The requirements to install.
+    :return: (PackageSet, CheckResult)
+754	Synchronize matchers.
+755	profile_methods(method_list)
+756	Returns a list of lines that match the regex
+757	Add a policy to a port.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' net.port_add_policy myport mypolicy
+758	Generate schema.org output.
+759	Broadcasts `self` to `shape`.
+760	Returns a fully-qualified any_path string.
+761	Get a bucket by name.
+762	Free resources associated with the given object IDs.
+
+    Args:
+        object_ids: A list of ObjectIDs to free.
+        local_only: If True, only free resources on the local node.
+        delete_creating_tasks: If True, also delete any tasks that are
+                                associated with the given object IDs.
+763	Returns the number of columns in the model.
+764	Get the remainder of the input buffer.
+765	Retrieve set info
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' ipset.find_set_info <set>
+766	Returns a Statement with the confidence of the match.
+767	Normalize an attribute value.
+768	Get group size.
+769	Encode the input string.
+770	Return a copy of the default value.
+771	Sleep until the retry deadline.
+772	Set the HTML content of the rich text field
+773	Connect to xiadan
+774	Check if pillar is valid.
+775	Store the data in the cache
+
+        :param bank:
+        :param key:
+        :param fun:
+        :param loop_fun:
+776	Generate a plot of the local explanation.
+777	Forward
+778	Generate RPN feature map labels and boxes.
+
+    Args:
+        im: input image.
+        boxes: groundtruth bounding boxes.
+        is_crowd: 0 or 1.
+
+    Returns:
+        featuremap_labels: feature map labels.
+        featuremap_boxes: feature map boxes.
+779	Return a JSON string representation of the model.
+780	Toggles a checkable action in the editor stack.
+781	Adds a suffix to the end of the axes.
+782	Set network adapter mapping.
+783	Process presence events
+
+        .. versionadded:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged:: 2016.3.0
+
+        .. versionchanged
+784	Returns True if string_network is a valid CIDR.
+785	Get archive name
+786	Verifies a signature on a message.
+
+    :param pubkey_path: The path to the public key
+    :param message: The message to sign
+    :param signature: The signature to verify
+    :return: True if valid, False if invalid
+787	Build a docstring for the parameters.
+
+    Parameters
+    ----------
+    arg_names : list
+        List of argument names.
+    arg_types : list
+        List of argument types.
+    arg_descs : list
+        List of argument descriptions.
+788	Wake up a list of MACs
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' wollist maclist bcast='255.255.255.255' destport=9
+        salt '*' wollist maclist bcast='255.255.255.255' destport=9
+        salt '*' wollist maclist bcast='255.255.255.255' destport=9
+        salt '*' wollist maclist bcast='255.255.255.255' destport=9
+        salt '*' wollist maclist bcast='255.255.255.255' destport=9
+        salt '*' wollist maclist bcast='255.255.255.255' destport=9
+        salt '*' wollist maclist bcast='255.255.255.255' destport=9
+        salt '*' wollist maclist bcast='255.255.255.255' destport=9
+        salt '*' wollist maclist b
+789	Create a copy of the MultiIndex
+
+        Parameters
+        ----------
+        names : list, optional
+            List of names to copy from
+        dtype : dtype, optional
+            Dtype to copy from
+        levels : list, optional
+            List of levels to copy from
+        codes : list, optional
+            List of codes to copy from
+        deep : bool, default False
+            If True, deep copy of the MultiIndex
+
+        Returns
+        -------
+        MultiIndex
+            A copy of the MultiIndex
+790	Given a list of lines, this function parses each line and returns a
+    (line, in_code, lang, indent) tuple.
+791	Check if a virtual server exists.
+792	Save data to stock_info_tushare collection
+793	Download a file from a URL to a local path.
+
+    Parameters
+    ----------
+    url : str
+        The URL of the file to download.
+    dest : str
+        The local path where the file should be downloaded to.
+    overwrite : bool
+        If True, the destination file will be overwritten if it already exists.
+    pbar : ProgressBar, optional
+        A ProgressBar object to display the progress of the download.
+    show_progress : bool, optional
+        If True, the progress of the download will be displayed.
+    chunk_size : int, optional
+        The size of the chunks to be downloaded in bytes.
+    timeout : int, optional
+        The timeout in seconds for the download.
+    retries : int, optional
+        The number of retries for the download.
+
+    Returns
+    -------
+    None
+794	Evaluate batch normalization layers.
+795	Check if IP address is valid
+
+    :param addr: IP address
+    :param address_family: IP address family
+    :return: True if valid, False if invalid
+    :rtype: bool
+796	Add a timedelta-like scalar to the DatetimeIndex.
+
+        Parameters
+        ----------
+        other : timedelta, np.timedelta64, or Tick
+            The timedelta-like scalar to add.
+
+        Returns
+        -------
+        DatetimeIndex
+            The DatetimeIndex with the timedelta-like scalar added.
+797	Sets the editor's cursor.
+798	Create dataset for lightgbm.
+799	Quantize a symbol.
+
+    Parameters
+    ----------
+    sym : Symbol
+        The symbol to quantize.
+    excluded_symbols : list, optional
+        List of symbols to be excluded from quantization.
+    offline_params : list, optional
+        List of offline parameters.
+    quantized_dtype : str, optional
+        The data type of the quantized symbol.
+
+    Returns
+    -------
+    Symbol
+        The quantized symbol.
+800	Set up logging.
+801	Returns True if the data is binary.
+
+    :param data:
+        The data to check.
+    :return:
+        True if binary, False if not.
+802	Validate dataset string.
+803	Create a random forest classifier.
+804	Set the sleep time for the hard disk in minutes.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' mac.set_harddisk_sleep 30
+805	Remove all snapshots from the VM.
+806	Parses a schema resource and returns a list of SchemaFields.
+807	Adds a range of rows from two keys.
+808	Stop the bcache.
+
+    Parameters
+    ----------
+    dev : str
+        The device to stop.
+
+    Returns
+    -------
+    bool
+        True if the bcache stopped, False if it did not.
+809	Create a new experiment.
+810	Set the system's time.
+811	Adds jitter to the flow.
+812	Retrieve information about the server
+813	Return a new flavor with the given suffix.
+814	Returns the intersection of two field masks.
+815	Returns the subdirectories of the given parent directory.
+816	Returns a list of container names that depend on the given image.
+817	Toggles min/max
+818	Calculate the latent prediction loss.
+819	Validate a template dictionary against a schema.
+
+        :param template_dict: The template dictionary to validate.
+        :param schema: The schema to validate against.
+        :return: The validation errors.
+820	Check if a path is a directory archive.
+821	Returns the minion config for a given VM.
+822	Given a SQL query and a connection object, get the query info.
+
+    :param sql:
+    :param con:
+    :param partition_column:
+    :return:
+    :rtype: tuple
+823	Generates data for a PR curve.
+824	Print a table.
+825	Apply out shaping policy to portgroup.
+826	Calculate the lowest value of mu.
+827	Copies a file.
+828	Retrieve recent activity for a user.
+829	Convert to int
+830	Load data into numpy array
+831	Dilated self-attention.
+832	Return a list of environments to use.
+833	Check if False
+834	Reset the iterator.
+835	Return a list of issue tags.
+836	Create a zone from a template
+837	Convert a path to a flask-friendly format.
+838	Convert bbox from Albumentations format to COCO/Pascal VOC format.
+
+    Parameters
+    ----------
+    bbox : list
+        bbox in Albumentations format.
+    target_format : {'coco', 'pascal_voc'}
+        Target format.
+    rows : int
+        Number of rows in image.
+    cols : int
+        Number of columns in image.
+    check_validity : bool
+        Whether to check validity of bbox.
+
+    Returns
+    -------
+    bbox : list
+        bbox in COCO/Pascal VOC format.
+839	Converts an image to a numpy array.
+840	Returns a :class:`DataFrame` of strings.
+
+        Parameters
+        ----------
+        paths : string or list of string, optional
+            Paths to the text files.
+        wholetext : boolean, optional
+            Whether to read the entire text from each file.
+        lineSep : string, optional
+            The line separator to use.
+
+        Returns
+        -------
+        DataFrame of strings.
+
+        Examples
+        --------
+        >>> df = spark.read.text(["path1.txt", "path2.txt", "path3.txt"])
+        >>> df.collect()
+        [Row(text="..."), Row(text="..."), Row(text="...")]
+
+        >>> df = spark.read.text(["path1.txt", "path2.txt", "path3.txt"], wholetext=True)
+        >>> df.collect()
+        [Row(text="..."), Row(text="..."), Row(text="...")]
+
+        >>> df = spark.read.text(["path1.txt", "path2.txt", "path3.txt"], lineSep="\n")
+        >>> df.collect()
+        [Row(text="..."), Row(text="..."), Row(text="...")]
+
+        >>> df = spark.read.tex
+841	Set the encoding of the document.
+842	Writes the given data to the file.
+843	Formats a filename for display.
+844	Build a URL from a string.
+845	Return a list of fibre channel port WWNs.
+846	Clean kwargs.
+847	Generate a random minion id.
+848	Notify a change in the model.
+849	Get the raw XSRF token.
+850	Return the size in bytes of the object.
+851	Convert to a protocol buffer.
+852	Get the pillar data from the minion
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' minion.ext_pillar <minion_id>
+853	Writes summaries to the given writer.
+854	Adds a PropertySet to the set of added properties.
+855	Disassociate API Key from Stage Keys
+856	Create a snapper post snapshot for the given jid
+857	Generates examples from the given dataset.
+858	Retrieve a list of users.
+859	Show a message to the user.
+
+    :param message:
+    :param msg_type:
+    :param text_color:
+    :param back_color:
+    :param scroll_speed:
+    :return:
+860	Generate a random string with topic.
+
+    Parameters
+    ----------
+    topic : str
+        The topic of the random string.
+    lens : int
+        The length of the random string.
+861	Destroy a zpool
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' zfs.destroy <zpool>
+862	Performs the given operation on each axis of the input.
+863	Reload syslog-ng daemon
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' syslog.reload_
+864	Download images from GCS and store them in target_dir.
+865	Infer the schema from the given row.
+866	Unescape unicode literals.
+867	Convert a string name to a JSON name.
+868	Create an image list from a list of filenames and labels.
+869	Retrieve group information from the system.
+
+    :param refresh: Refresh the group information.
+    :param root: The root of the group hierarchy.
+    :return: The retrieved group information.
+870	Save each RDD as a text file.
+871	Create or update a resource group
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' azurearm.resource_group_create_or_update <name> <location>
+872	Ensure that TensorFlow is installed.
+873	Retrieve an object from persistent storage.
+874	Returns a DataFrame with the components of the timedeltas.
+875	mtf_transformer_paper_lm
+876	Return a list of loaded modules
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' mod.load <mod>
+877	Retrieve a list of tops.
+878	Extract pillar data from a minion
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' pillar.ext_pillar <minion_id> <pillar> <repo> <branch> <root>
+879	Set the keepalive interval in seconds.
+
+        :param interval: The keepalive interval in seconds.
+        :type interval: int
+        :param callback: The callback to call when the keepalive interval is reached.
+        :type callback: function
+880	Calculate the TTA of the model.
+881	Given a set of labels and a set of text files,
+  returns a set of tuples, each containing a set of inputs and a label.
+882	Return a list of column families.
+883	Get indicator value for given time and code.
+884	Unpack a batch response.
+885	Get the current route.
+886	Synchronize the log records with the handlers.
+887	Return True if the graph is legal.
+888	Returns an RDD of IndexedRows.
+889	Set the state of a partition on a device.
+
+    device
+        The device to set the partition on.
+
+    flag
+        The partition flag to set.
+
+    state
+        The partition state to set.
+890	Update batches if needed.
+891	Validate the similarity and analogy dataset names.
+892	Register a plugin.
+893	Reboot a node
+894	Returns True if dispatch is needed, False if not
+
+    Parameters
+    ----------
+    left : DataFrame
+    right : DataFrame
+    op : str
+
+    Returns
+    -------
+    bool
+895	Calculate the difference between input and orig_img.
+896	Rescales the gradients of the model.
+897	Evaluate the model.
+898	Returns the next time.
+899	Set the average session metrics.
+
+  Args:
+    session_group: A SessionGroup object.
+
+  Returns:
+    None.
+900	Run the freebsd-update command
+901	Add a DNS server to the interface
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' net.add_dns <ip> <interface> <index>
+902	Returns the path to the directory containing the sid.
+903	Writes raw text to files.
+904	Check if the env_cache is valid and return the data if it is.
+905	Returns a list of dictionaries with sensor data.
+
+    :param config:
+    :return:
+    :rtype: list
+906	Draw the outline of the patch.
+907	List SELinux booleans
+908	Returns the focus client
+909	Set a boolean value to True or False
+
+    .. versionadded:: 2016.3.0
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' setsebool.setsebools(persist=True)
+        salt '*' setsebool.setsebools(persist=False)
+910	Returns the usage requirements of the main target.
+911	Convert to ASCII
+912	Execute the given logical form.
+913	Request a state from the minion
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' state.request <mods>
+914	Creates a list of tuples from a list of sentences.
+915	Decode image data.
+916	Create a VMFS datastore.
+
+    :param datastore_name:
+    :param disk_id:
+    :param vmfs_major_version:
+    :param safety_checks:
+    :param service_instance:
+917	Return True if running, False if stopped.
+918	Runs the metric.
+919	Create a follower for the given platform.
+920	Create a union of the given RDDs.
+
+        :param rdds: List of RDDs to union.
+        :return: A union of the given RDDs.
+921	Returns the number of columns in the matrix.
+922	Start serving requests.
+923	Returns a PostAggregator.
+924	Return True if `p` is a subproperty of `parent_property`.
+925	Return a list of jids from etcd
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' etcd.get_jids
+926	Pack the message.
+927	Yields chunks of `n` bytes at a time.
+928	Send the sum of two ints.
+929	Return the absolute value of the values.
+930	Return True if the IPv4 address is private.
+931	Given a list of indexes, return a combined index.
+
+    Parameters
+    ----------
+    indexes : list of Index
+        The list of indexes to combine.
+    intersect : bool, optional
+        Whether to intersect or union the indexes.
+    sort : bool, optional
+        Whether to sort the combined index.
+
+    Returns
+    -------
+    Index
+        The combined index.
+932	Split a model into a list of sub-models.
+933	Add a failure to the list of failures.
+934	Retrieve ARP table
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' napalm.arp
+935	This function takes a list of pad widths as input and returns a list of
+    pad widths as output.
+
+    Args:
+        pad_widths: a list of pad widths.
+
+    Returns:
+        pad_widths: a list of pad widths.
+936	Return the job to the external job cache
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' job.returner <id>
+937	Generates the adversarial image.
+938	Split a string into lines, preserving trailing newlines.
+939	Creates a window partitioned by the given columns.
+940	Delete a device from a container
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' container.device_delete my_container my_device
+941	Create a new task.
+
+    :param name: Name of the task.
+    :param tick_script: Tick script.
+    :param task_type: Task type.
+    :param database: Database name.
+    :param retention_policy: Retention policy.
+    :param dbrps: List of dbrps.
+    :return: True if successful.
+    :rtype: bool
+942	Returns the index of the last non-zero element in the condition
+943	Find synonyms for a word.
+944	Build a graph run.
+945	Delete overlay from overlay list.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' overlay.delete overlay_name
+946	Waits for winexe service to start.
+
+    Args:
+        host (str): The hostname of the winexe service.
+        port (int): The port of the winexe service.
+        username (str): The username of the winexe service.
+        password (str): The password of the winexe service.
+        timeout (int): The timeout in seconds to wait for the winexe service.
+
+    Returns:
+        bool: True if the winexe service is connected, False otherwise.
+947	Set up hypermedia handler.
+948	Create a vector of the given size and alignment.
+949	Recursively walk the repository tree.
+950	Set the response status code and reason.
+951	Retrieve the revision ID for the given svnfs remote.
+
+    :param repo: The svnfs remote.
+    :return: The revision ID.
+952	Deselect an option by index.
+953	Cast values to the fillna dtype.
+954	Original PPO World Model.
+955	Add a simple RNN layer to the network.
+956	Create a :class:`.Message` from a :class:`.Message` message.
+957	Validate a tz from a dtype.
+958	Return a list of table names in the database.
+959	Get the graph metadata.
+960	Given a symbol, a list of parameters, and a list of input shapes,
+        returns a list of output shapes.
+961	Swap two axes.
+
+        Parameters
+        ----------
+        axis1 : int
+            The index of the first axis to swap
+        axis2 : int
+            The index of the second axis to swap
+        copy : bool, default True
+            Whether to return a copy or not.
+
+        Returns
+        -------
+        axis1 : int
+            The new index of the first axis
+        axis2 : int
+            The new index of the second axis
+962	Returns the value of the object.
+963	Retrieve the dependencies from the JSON API.
+964	Returns a list of dictionaries containing the diffs for each item.
+965	Returns the preferred submodules.
+966	Adds a service descriptor.
+967	Aggregate values by key.
+968	Add tags to a trail
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt myminion boto3.add_tags trails/Name
+969	Worker loop to process data.
+970	Uninstall python
+971	Setup the reader.
+972	Returns the total number of keys in the database.
+973	Focus in event handler.
+974	Returns a list of styles that match the given style.
+975	Substitute a string in the pattern.
+976	Get additional options for the runtime.
+977	Create a styler from a custom template.
+978	Returns the widths of each block in a column of blocks.
+979	Delete a pod.
+
+    :param name: Name of the pod to delete.
+    :param namespace: Namespace of the pod to delete.
+    :param orphan_dependents: Whether or not to orphan dependents.
+    :param kwargs: Additional arguments for :py:meth:`kubernetes.client.CoreV1Api.delete_namespaced_pod`.
+980	Return feature names.
+981	Return a list of CategoryChannels.
+982	Returns a random boolean array.
+983	Composes a new object from the given sources.
+
+        Args:
+            sources (list): A list of sources to compose from.
+            client (google.cloud.firestore_v1.client.Client): The Firestore client.
+
+        Returns:
+            google.cloud.firestore_v1.model.FirestoreObject: The composed object.
+984	Create or update a user.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' user.present user_name
+985	Given a VM name and a snapshot name, return the ID of the snapshot
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' virt.snapshot_name_to_id vm_name snap_name
+986	Adds methods to the given class.
+987	Convert latents to frames.
+988	Take a given number of instances from the dataset.
+989	Discount the rewards.
+990	Returns a list of items that pass the given function.
+991	Stop a trial.
+992	Toggle the visibility of the dock widget.
+993	Returns the server info.
+994	Create a QPixmap from the given figure.
+995	Returns the permission overwrites for the given object.
+996	Retrieve a value from the dictionary.
+997	Returns a new RDD containing elements from this RDD and the given RDD.
+
+        >>> rdd1 = sc.parallelize([1, 2, 3])
+        >>> rdd2 = sc.parallelize([4, 5, 6])
+        >>> rdd3 = rdd1.union(rdd2)
+        >>> rdd3.collect()
+        [1, 2, 3, 4, 5, 6]
+998	Returns a dictionary containing the diffs of the specified paths.
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' pkg.diff <path1> <path2>
+999	Save the dataset to a binary file.

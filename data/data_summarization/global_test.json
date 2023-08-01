@@ -1,0 +1,14 @@
+[
+    {
+        "instruction": "Summarizing the code.",
+        "input": "def _get_encoding(self):\n        \"\"\"\"\"\"\n        enco = 'utf-8'\n\n        #  Currently only cp1252 is allowed?\n        if WIN:\n            import ctypes\n            codepage = to_text_string(ctypes.cdll.kernel32.GetACP())\n            # import locale\n            # locale.getpreferredencoding()  # Differences?\n            enco = 'cp' + codepage\n        return enco",
+        "output": "Return the encoding/codepage to use.",
+        "category": "Python"
+    },
+    {
+        "instruction": "Summarizing the code.",
+        "input": "def decode(self, ids, strip_extraneous=False):\n    \"\"\"\n    \"\"\"\n    del strip_extraneous\n    return \" \".join([str(i) for i in ids])",
+        "output": "Transform sequence of float values into string (float values).\n\n    Args:\n      ids: array of floats to be converted.\n      strip_extraneous: unused\n\n    Returns:\n      String having space separated float values.\n\n    Raises:\n      ValueError: if the ids are not of the appropriate size.",
+        "category": "Python"
+    }
+]

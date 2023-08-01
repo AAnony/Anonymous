@@ -1,0 +1,70 @@
+{"completion": "class Car:\n    def __init__(self, make, model, year):\n        self.make = make\n        self.model = model\n        self.year = year\n    \n    def get_price(self):\n        return self.make + \" \" + self.model + \" \" + str(self.year)"}
+{"completion": "A string can be converted to a list in Python using the str.split() method. For example, the following code will convert the string \"Hello World\" to a list:\n\nstring = \"Hello World\"\nlist = str.split(string)\nprint(list)\n\nOutput: ['Hello', 'World']"}
+{"completion": "age = 17"}
+{"completion": "def reverse_list(head): \n  prev = None\n  curr = head \n  while curr: \n    next = curr.next\n    curr.next = prev \n    prev = curr \n    curr = next\n  head = prev\n  return head"}
+{"completion": "import random\nimport string\n\ndef generate_password():\n    chars = string.ascii_lowercase + string.ascii_uppercase + string.ascii_numbers + string.ascii_special_chars\n    return ''.join(random.choice(chars) for x in range(10))"}
+{"completion": "string = ', '.join(list)"}
+{"completion": "def myFunc(): \n    print(2) \n    return 1"}
+{"completion": "lst = [1, 2, 3, 4, 5]"}
+{"completion": "8"}
+{"completion": "list = [0, 1, 4, 5, 7]"}
+{"completion": "def find_substring(string, sub):\n    for i in range(len(string)):\n        if string[i] == sub:\n            return i\n    return -1"}
+{"completion": "rm -rf /root/folder"}
+{"completion": "['John', 'Paul', 'George']"}
+{"completion": "def find_pythagorean_triplets(n): \n    # initialize a list to store the triplets \n    triplets = [] \n\n    # loop through all numbers from 0 to n-1 \n    for i in range(1,n+1): \n        # loop through all numbers from 0 to sqrt(i) \n        for j in range(0, math.sqrt("}
+{"completion": "import keras\nfrom keras.models import Sequential\nfrom keras.layers import Dense\n\n# define the model\nmodel = Sequential()\nmodel.add(Dense(128, input_dim=4, activation='relu'))\nmodel.add(Dense(1, activation='sigmoid'))\n\n# compile the model\nmodel.compile(loss='binary_crossentropy', optimizer='Ad"}
+{"completion": "def delete_duplicates(string): \n    unique_string = \"\" \n    for char in string: \n        if char not in unique_string: \n            unique_string += char \n    return unique_string"}
+{"completion": "def generate_random_number():\n    return random.randint(0, 1000)"}
+{"completion": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n-1)"}
+{"completion": "def get_day_of_week(date):\n    from datetime import datetime\n    date_formatted = datetime.strptime(date, '%Y-%m-%d')\n    day_of_week = date_formatted.strftime(\"%A\")\n    return day_of_week\n\nprint(get_day_of_week('2020-12-30'))\n\n# Output\nThursday"}
+{"completion": "The 'break' keyword in a loop structure in Python is used to terminate the loop. It will cause the loop to stop executing the rest of the statements in the loop and proceed to the next iteration of the loop."}
+{"completion": "def square_array(arr):\n    sq_arr = [x**2 for x in arr]\n    return sq_arr"}
+{"completion": "age > 18"}
+{"completion": "def generate_random_string():\n    chars = string.ascii_lowercase + string.ascii_uppercase + string.ascii_numbers + string.ascii_punctuation\n    return ''.join(random.choice(chars) for x in range(5))"}
+{"completion": "def celsius(temp_in_fahrenheit):\n    temp_celsius = (temp_in_fahrenheit - 32) * 5/9\n    return temp_celsius"}
+{"completion": "def is_anagram(s1, s2):\n    s1 = sorted(s1.lower())\n    s2 = sorted(s2.lower())\n    return s1 == s2"}
+{"completion": "This code will print the numbers 0 to 99 on separate lines."}
+{"completion": "def create_multiplication_table(n):\n    table = [[1, 0, 0, 0, 0]\n           [0, 1, 2, 3, 4]\n           [0, 0, 5, 10, 15]\n           [0, 0, 0, 0, 0]]\n    return table"}
+{"completion": "def sort_words(words): \n    sorted_words = words.sort() \n    return sorted_words"}
+{"completion": "The code is correct and there is nothing to debug."}
+{"completion": "def trim_string(s):\n    return s[:5]"}
+{"completion": "def combine_lists(list1, list2):\n    return list(set(list1).union(list2))"}
+{"completion": "A good design pattern to solve this problem is the Data Access Object (DAO) pattern. The DAO pattern provides an abstraction layer for accessing data from multiple data sources, allowing the system to access the data without having to know the details of the underlying data sources."}
+{"completion": "print(\"The results of the election are: A - 55 votes, B - 43 votes, C - 21 votes.\")"}
+{"completion": "The longest increasing subsequence is [21,41,60]."}
+{"completion": "def replace_element(lst, old_element, new_element):\n    for i in range(len(lst)):\n        if lst[i] == old_element:\n            lst[i] = new_element\n    return lst"}
+{"completion": "import random\nimport string\n\ndef generate_password():\n    chars = string.ascii_lowercase + string.ascii_uppercase + string.ascii_numbers\n    return ''.join(random.choice(chars) for x in range(8))"}
+{"completion": "def camelCase(string):\n    return 'thisIsAString'"}
+{"completion": "def find_index(str, char):\n    for i in range(len(str)):\n        if str[i] == char:\n            return i\n    return -1"}
+{"completion": "def add_two_numbers(a, b):\n    return a + b"}
+{"completion": "def unique_list(list1, list2):\n    unique_list = []\n    for x in list1:\n        if x not in unique_list and x in list2:\n            unique_list.append(x)\n    return unique_list"}
+{"completion": "def selection_sort(list):\n    for i in range(len(list) - 1):\n        min_index = i\n        for j in range(i + 1, len(list)):\n            if list[j] < list[min_index]:\n                min_index = j\n        list[i], list[min_index] = list[min_index], list[i]\n    return list"}
+{"completion": "list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"}
+{"completion": "def minL(list1, list2): \n    return min(list1, list2)"}
+{"completion": "name_dict = {\n    'John': 'J',\n    'Max': 'M',\n    'Alice': 'A'\n}"}
+{"completion": "[1, 2, 4, 5]"}
+{"completion": "2 + 3 = 5"}
+{"completion": "def list_sum(lst):\n    return sum(lst)"}
+{"completion": "def min_value(arr):\n    min_val = arr[0]\n    for i in range(1, len(arr)):\n        if arr[i] < min_val:\n            min_val = arr[i]\n    return min_val"}
+{"completion": "import pandas as pd\n\ndf = pd.DataFrame()"}
+{"completion": "def is_palindrome(s):\n    rev = ''.join(reversed(s))\n    if s == rev:\n        return True\n    else:\n        return False"}
+{"completion": "string1\nstring2\nstring3\nstring4\nstring5\nstring6\nstring7\nstring8\nstring9\nstring10"}
+{"completion": "class CustomerContactDetails:\n    def __init__(self, name, address, phone_number, email):\n        self.name = name\n        self.address = address\n        self.phone_number = phone_number\n        self.email = email\n    \n    def get_name(self):\n        return self.name\n    \n    def get_address(self):\n        return self.address\n    \n    def get_phone_num"}
+{"completion": "list_of_num = [25, 118, 200]"}
+{"completion": "def is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, n):\n        if n % i == 0:\n            return False\n    return True"}
+{"completion": "def repeat(string, repeats): \n    try: \n        for i in range(repeats): \n            print(string) \n    except TypeError: \n        print(\"Incorrect input\")"}
+{"completion": "50"}
+{"completion": "import requests\n\nresponse = requests.get('http://example.com')\nprint(response.text)"}
+{"completion": "class Circle(Shape):\n    def __init__(self, radius):\n        self.radius = radius\n    \n    def area(self):\n        return math.pi * self.radius**2\n\nclass Rectangle(Shape):\n    def __init__(self, length, width):\n        self.length = length\n        self.width = width\n    \n    def area(self):\n        return (self.length * self.width"}
+{"completion": "3"}
+{"completion": "def longest_word(data):\n    words = data.split()\n    longest_word = \"\"\n    for word in words:\n        if len(word) > len(longest_word):\n            longest_word = word\n    return longest_word"}
+{"completion": "list1 = [\"cat\", \"dog\", \"apple\", \"banana\"]"}
+{"completion": "list = [x**2 for x in range(1,51)]"}
+{"completion": "def search_word(word, string):\n    for i in range(len(string)):\n        if string[i] == word:\n            return i\n    return -1"}
+{"completion": "def convert_to_string(num):\n    return str(num)"}
+{"completion": "for i in range(1, 11):\n    if i % 7 == 0:\n        print(i)"}
+{"completion": "def caesar_cipher(text, key):\n    encrypted_text = \"\"\n    for char in text:\n        encrypted_text += chr(ord(char) + key)\n    return encrypted_text\n\nprint(caesar_cipher(\"This is a secret message\", 3))"}
+{"completion": "Rock, paper, scissors is a two-player game where each player makes a hand sign for either rock, paper, or scissors. Rock beats scissors, scissors beat paper, and paper beats rock. The player that wins the most rounds is the winner."}
+{"completion": "string1 = \"foo\"\nstring2 = \"bar\"\n\nconcatenated_string = string1 + string2\n\nprint(concatenated_string) # prints \"foobar\""}
+{"completion": "In Python, you can iterate a list in reverse order using the reverse() function. For example:\n\nmy_list = [1, 2, 3, 4, 5]\n\nfor i in range(len(my_list)-1, -1, -1):\n    print(my_list[i])"}
+{"completion": "def tokenize(sentence):\n    tokens = sentence.split()\n    return tokens"}

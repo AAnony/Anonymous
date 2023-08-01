@@ -1,0 +1,2505 @@
+0	def auth_user_process_url(url):
+	url_qs = dict(it.chain.from_iterable(
+		urlparse.parse_qsl(v) for v in [url.query, url.fragment] ))
+	if url_qs.get('error'):
+		raise APIAuthError(
+			'{} :: {}'.format(url_qs['error'], url_qs.get('error_description')) )
+	self.auth_code = url_qs['code']
+	return self.auth_code
+1	def _format(self, object, stream, indent, allowance, context, level):
+    """
+    Formats the given object according to the given context and level.
+    
+    :param object: The object to be formatted.
+    :param stream: The stream where the output should be written.
+    :param indent: The indentation level for the output.
+    :param allowance: The maximum number of characters allowed for the output.
+    :param context: The context of the formatting.
+    :param level: The level of indentation for the output.
+    """
+    try:
+        PrettyPrinter._format(self, object, stream, indent, allowance, context, level)
+    except Exception as e:
+        stream.write(_format_exception(e))
+2	This function adds an item to a queue, blocking if necessary until the queue is not full.
+3	This code defines a function called _require which takes a list of names of modules or packages to be imported. If any of the modules are not found, an UnmetDependency exception is raised.
+4	streamlink.start_http_session()
+5	def highlight_text(needles, haystack, cls_name='highlighted', words=False, case=False):
+    """  """
+
+    if not needles:
+        return haystack
+    if not haystack:
+        return ''
+
+    if words:
+        pattern = r"(%s)" % "|".join(['\\b{}\\b'.format(re.escape(n)) for n in needles])
+    else:
+        pattern = r"(%s)" % "|".join([re.escape(n) for n in needles])
+
+    if case:
+        regex = re.compile(pattern)
+    else:
+        regex = re.compile(pattern, re.I)
+
+    i, out = 0, ""
+    for m in regex.finditer(haystack):
+        out += "".join([haystack[i:m.start()], '<span class="%s">' % cls_name,
+            haystack[m.start():m.end()], "</span>"])
+        i = m.end()
+    return mark_safe(out + haystack[i:])
+6	def get_conversation_members(self, context):
+    try:
+        if not context.activity.service_url:
+            raise TypeError('BotFrameworkAdapter.get_conversation_members(): missing service_url')
+        if not context.activity.conversation or not context.activity.conversation.id:
+            raise TypeError('BotFrameworkAdapter.get_conversation_members(): missing conversation or '
+                            'conversation.id')
+        service_url = context.activity.service_url
+        conversation_id = context.activity.conversation.id
+        client = self.create_connector_client(service_url)
+        return client.conversations.get_conversation_members(conversation_id)
+7	This function deletes a group from the API. It requires a valid group ID as an input and verifies that the group ID is valid before proceeding. It then constructs a URL to the API endpoint for the group and deletes the resource at that endpoint. Finally, it returns True to indicate success.
+8	def normalize_onsets(onsets):
+    """Normalizes onsets to have a mean of 0 and a standard deviation of 1.
+
+    Parameters
+    ----------
+    onsets : array-like
+        Array of onsets to normalize.
+
+    Returns
+    -------
+    normalized_onsets : array-like
+        Array of normalized onsets.
+    """
+    norm = onsets.std(ddof=1)
+    if norm > 0:
+        onsets = onsets / norm
+    return onsets
+9	def get( station, interval ):
+    '''
+    Returns a tuple containing the current wind gust speed and direction
+    from the given station.
+    '''
+    rec = station.fields['Archive']
+    if rec:
+        threshold = station.fields['WindSpeed10Min'] + GUST_MPH_MIN
+        if rec['WindHi'] >= threshold:
+            return (rec['WindHi'], rec['WindHiDir'])
+        else:
+            return (self.NO_VALUE, self.NO_VALUE)
+10	def f_to_dict(self, fast_access=False, short_names=False, nested=False,
+                  copy=True, with_links=True):
+    """
+    Returns a dictionary representation of the neural network.
+
+    Parameters
+    ----------
+    fast_access : bool
+        Whether to return a shallow copy or not.
+    short_names : bool
+        Whether to use short names or not.
+    nested : bool
+        Whether to return a nested structure or not.
+    copy : bool
+        Whether to return a copy or not.
+    with_links : bool
+        Whether to include links or not.
+
+    Returns
+    -------
+    dict
+        A dictionary representation of the neural network.
+    """
+    return self._nn_interface._to_dict(self, fast_access=fast_access,
+                                       short_names=short_names,
+                                       nested=nested,
+                                       copy=copy, with_links=with_links)
+11	This code is a method of the `CoverageOptionParser` class, which is a superclass of the `OptionParser` class. It is used to parse command-line arguments and options. The method takes two parameters, `args` and `options`, which are both optional. If `args` is None, it means that the user did not specify any arguments, and if `options` is None, it means that the user did not specify any options. If both `args` and `options` are not None, the method will attempt to parse the arguments and options, and return a boolean value, `True` if the parsing was successful, or `False` if it was not.
+12	This function returns the duration of a given number of channels.
+13	def get_signing_address(hash, v, r, s):
+    encoded_64_address = ecrecover_to_pub(hash, v, r, s)
+    return checksum_encode(sha3(encoded_64_address)[-20:])
+14	def get_supplied_positional_parameter_names(fn, args):
+  arg_spec = get_cached_arg_spec(fn)
+  return arg_spec.args[:len(args)]
+15	This function pops a value from a dictionary and returns it, or returns a default value if the key is not found in the dictionary.
+16	def startswith(string):
+    """Checks if a string starts with a given string.
+
+    :param string: The string to check
+    :param value: The value to check
+    :return: True if the string starts with the given string, False otherwise
+    """
+    validate(text, value)
+    if not value.startswith(string):
+        raise ValueError("'{0}' does not start with '{1}'".format(value, string))
+    return True
+17	def _serialize(cls, data):
+    if hasattr(data, "__hash__") and callable(data.__hash__):
+        return data
+    elif isinstance(data, list):
+        return tuple(cls._serialize(item) for item in data)
+    elif isinstance(data, dict):
+        return tuple(
+            (key, cls._serialize(value)) for key, value in data.items()
+        )
+    else:
+        raise TypeError("Unable to freeze {} data type.".format(type(data)))
+18	This function switches to a different image stored in the dictionary self.imgs. If the name of the image is not found in the dictionary, a ValueError is raised. If the current image stored in the dictionary is equal to the given name, the function will not do anything. Otherwise, it will set the current image to the given name and call the on_redraw() method to redraw the image.
+19	def formatFailure(self, test, err):
+    """
+    This function is used to format a failure in a test case.
+    It takes the test case, the exception, and the traceback as inputs,
+    and returns a tuple with the exception code, a description of the exception,
+    and the traceback.
+    """
+    ec, ev, tb = err
+    tbinfo = inspect_traceback(tb)
+    test.tbinfo = tbinfo
+    return (ec, '\n'.join([str(ev), tbinfo]), tb)
+20	def download(self):
+    """"""
+    import shutil
+    import zipfile
+
+    if self._check_exists():
+        return
+
+    makedir_exist_ok(self.raw_folder)
+    makedir_exist_ok(self.processed_folder)
+
+    # download files
+    filename = self.url.rpartition('/')[2]
+    file_path = os.path.join(self.raw_folder, filename)
+    download_url(self.url, root=self.raw_folder, filename=filename, md5=None)
+
+    print('Extracting zip archive')
+    with zipfile.ZipFile(file_path) as zip_f:
+        zip_f.extractall(self.raw_folder)
+    os.unlink(file_path)
+    gzip_folder = os.path.join(self.raw_folder, 'gzip')
+    for gzip_file in os.listdir(gzip_folder):
+        if gzip_file.endswith('.gz'):
+            self.extract_gzip(gzip_path=os.path.join(gzip_folder, gzip_file))
+
+    # process and save as torch files
+    for split in self.splits:
+        print('Proces
+21	True
+22	<ul>
+    <li>Decimal</li>
+    <li>DecimalZero</li>
+    <li>Upper Roman</li>
+    <li>Lower Roman</li>
+    <li>Upper Letter</li>
+    <li>Lower Letter</li>
+    <li>Ordinal</li>
+    <li>Cardinal Text</li>
+    <li>Ordinal Text</li>
+</ul>
+23	This function reads the response from an API call and extracts the specified field from the response. It then returns the value of the field.
+24	def clopper_pearson_confidence_interval(samples, error_rate):
+  if optimize is None or stats is None:
+    raise ValueError("Scipy is required for computing Clopper-Pearson confidence intervals")
+  if len(samples.shape) != 1:
+    raise ValueError("Batch semantics not implemented")
+  n = len(samples)
+  low = np.amin(samples)
+  high = np.amax(samples)
+  successes = np.count_nonzero(samples - low)
+  failures = np.count_nonzero(samples - high)
+  if successes + failures != n:
+    uniques = np.unique(samples)
+    msg = ("Purportedly Bernoulli distribution had distinct samples"
+           " {}, {}, and {}".format(uniques[0], uniques[1], uniques[2]))
+    raise ValueError(msg)
+  low_p = optimize.brentq(
+      p_small_enough, float(successes) / n, 1., rtol=1e-9)
+  high_p = optimize.brentq(
+      p_big_enough, 0., float(successes) / n, rtol=1e-9)
+  low_interval = low + (hi
+25	def exception_traceback(exc_info):
+    """
+    This function prints a traceback message for the given exception info.
+    
+    Parameters:
+    exc_info (tuple): A tuple containing the exception type, exception value, and exception traceback.
+    
+    Returns:
+    A string containing the traceback message.
+    """
+    excout = StringIO()
+    traceback.print_exception(exc_info[0], exc_info[1], exc_info[2], file=excout)
+    return excout.getvalue()
+26	def generate_latex_source(circuit, filename=None,
+                           scale=0.7, style=None, reverse_bits=False,
+                           plot_barriers=True, justify=None):
+    """
+    """
+    qregs, cregs, ops = utils._get_layered_instructions(circuit,
+                                                        reverse_bits=reverse_bits,
+                                                        justify=justify)
+
+    qcimg = _latex.QCircuitImage(qregs, cregs, ops, scale, style=style,
+                                 plot_barriers=plot_barriers,
+                                 reverse_bits=reverse_bits)
+    latex = qcimg.latex()
+    if filename:
+        with open(filename, 'w') as latex_file:
+            latex_file.write(latex)
+
+    return latex
+27	def open(path, convert=False, shuffle=False, copy_index=True, *args, **kwargs):
+    """
+    Open a file and return a DataFrame.
+
+    Parameters
+    ----------
+    path : str
+        The path to the file to open.
+    convert : bool, optional
+        Whether to convert the file to a DataFrame.
+    shuffle : bool, optional
+        Whether to shuffle the DataFrame.
+    copy_index : bool, optional
+        Whether to copy the index of the DataFrame.
+    args : tuple, optional
+        Additional arguments to pass to the open function.
+    kwargs : dict, optional
+        Additional keyword arguments to pass to the open function.
+
+    Returns
+    -------
+    DataFrame
+        The opened DataFrame.
+    """
+    return open(path, convert=convert, shuffle=shuffle, copy_index=copy_index, *args, **kwargs)
+28	def get_affinity_group_properties(affinity_group_name):
+    return self.get_affinity_group_properties(affinity_group_name)
+29	This function posts data to a URL with the given path and parameters. The path should be prefixed with the URL of the API, and the parameters should be sent in the form of a dictionary in the data key of the post request.
+30	def add_variable(self, name, expression, overwrite=True, unique=True):
+    """
+    Adds a new variable to the model. If unique is True, the name must be unique within the model.
+
+    Parameters
+    ----------
+    name : str
+        The name of the variable.
+    expression : any
+        The value of the variable.
+    overwrite : bool
+        If True, the variable will be added even if it already exists.
+    unique : bool
+        If True, the name must be unique within the model.
+
+    Returns
+    -------
+    str
+        The name of the added variable.
+    """
+    if unique or overwrite or name not in self.variables:
+        existing_names = self.get_column_names(virtual=False) + list(self.variables.keys())
+        name = vaex.utils.find_valid_name(name, used=existing_names)
+        self.variables[name] = expression
+        self.signal_variable_changed.emit(self, name, "add")
+        if unique:
+            return name
+31	def initialWinProb(line):
+    """
+    Calculates the probability of a win or a tie for a given line.
+    
+    Parameters:
+    line (float): The line score of the game.
+    
+    Returns:
+    probWin (float): The probability of a win.
+    probTie (float): The probability of a tie.
+    """
+    
+    probWin = 1. - norm.cdf(0.5, -line, 13.86)
+    probTie = norm.cdf(0.5, -line, 13.86) - norm.cdf(-0.5, -line, 13.86)
+    return 100. * (probWin + 0.5 * probTie)
+32	This code defines a blueprint function which takes in a URL rule and returns the endpoint of the rule. If the rule has a '.' in it, it will split the rule into its components and return the first component.
+33	def make_clean_visible_file(i_chunk, clean_visible_path):
+    _clean = open(clean_visible_path, 'wb')
+    for idx, si in enumerate(i_chunk):
+        if si.stream_id is None:
+            # create the FILENAME element anyway, so the ordering
+            # remains the same as the i_chunk and can be aligned.
+            stream_id = ''
+        else:
+            stream_id = si.stream_id
+        doc = lxml.etree.Element("FILENAME", stream_id=stream_id)
+        if si.body and si.body.clean_visible:
+            try:
+                # is UTF-8, and etree wants .text to be unicode
+                doc.text = si.body.clean_visible.decode('utf8')
+            except ValueError:
+                doc.text = drop_invalid_and_upper_utf8_chars(
+                    si.body.clean_visible.decode('utf8'))
+            except Exception, exc:
+                # this should never ever fail, because if it does,
+                # then it means that clean_visible (or more likely
+                # clean_html) is not what it is supposed to be.
+                # Therefore, do not take it lightly:
+                logger.crit
+34	def get_bundles_from_transaction_hashes(
+        adapter,
+        transaction_hashes,
+        inclusion_states,
+):
+    my_bundles = get_bundles_from_transactions(
+        adapter,
+        transaction_hashes,
+        inclusion_states,
+    )
+    return my_bundles
+35	This code defines a function called `finalize` which takes in a context and a result. It then calls the `finalize` method of each extension in the list self.exts, passing in a debugger instance. The result of each extension's finalize method is then combined and returned.
+36	def kill_zombies(zombies, session=None):
+    """
+    Mark zombie jobs as failed and remove them from the database.
+
+    :param zombies: list of zombie jobs
+    :param session: database session
+    """
+    from airflow.models.taskinstance import TaskInstance  # Avoid circular import
+
+    for zombie in zombies:
+        if zombie.dag_id in session.query(models.DagModel).filter(models.DagModel.dag_id == zombie.dag_id).all():
+            dag = session.query(models.DagModel).filter(models.DagModel.dag_id == zombie.dag_id).one()
+            if zombie.task_id in dag.task_ids:
+                task = dag.get_task(zombie.task_id)
+                ti = TaskInstance(task, zombie.execution_date)
+                # Get properties needed for failure handling from SimpleTaskInstance.
+                ti.start_date = zombie.start_date
+                ti.end_date = zombie.end_date
+                ti.try_number = zombie.try_number
+                ti.state = zombie.state
+                ti.test_mo
+37	def update(webhookId, name=None, targetUrl=None, request_parameters=None):
+    """
+    Update a webhook.
+
+    :param webhookId: The webhook ID.
+    :param name: The webhook name.
+    :param targetUrl: The webhook target URL.
+    :param request_parameters: The request parameters.
+    :return: A webhook object created from the response JSON data.
+    """
+    return Webhook(webhookId, name, targetUrl, request_parameters)
+38	def append_item(self, item):
+    """
+    Append a new item to the menu.
+    
+    Parameters
+    ----------
+    item : object
+        The item to be added to the menu.
+    
+    Returns
+    -------
+    bool
+        True if the item was added to the menu, False if an exit was detected.
+    """
+    did_remove = self.remove_exit()
+    item.menu = self
+    self.items.append(item)
+    if did_remove:
+        self.add_exit()
+    if self.screen:
+        max_row, max_cols = self.screen.getmaxyx()
+        if max_row < 6 + len(self.items):
+            self.screen.resize(6 + len(self.items), max_cols)
+        self.draw()
+39	def save_cookies(self, cookie_filter=None, default_expires=60 * 60 * 24 * 7):
+    """
+    Saves cookies to the session's cache.
+    
+    Parameters:
+    cookie_filter: A function that takes a cookie and returns True if it should be saved.
+    default_expires: The number of seconds before the cookie expires.
+    
+    Returns:
+    A list of cookie names that were saved.
+    """
+    saved_cookies = []
+    if not self.session or not self.cache:
+        raise RuntimeError("Cannot cache cookies in unbound plugin")
+
+    for cookie in filter(cookie_filter, self.session.http.cookies):
+        cookie_dict = {}
+        for attr in ("version", "name", "value", "port", "domain", "path", "secure", "expires", "discard",
+                     "comment", "comment_url", "rfc2109"):
+            cookie_dict[attr] = getattr(cookie, attr, None)
+        expires = default_expires
+        if cookie_dict['expires']:
+            expires = int(cookie_dict['expires'] - time.time())
+        key = "__cookie:{0}:
+40	This code is a function that replaces tracks in a playlist. It takes a playlist as an argument and a list of tracks as input. The function then joins the tracks together with a comma and passes the resulting string to the http.replace_playlist_tracks function, which replaces the tracks in the playlist.
+41	This function gets a string and replaces any invalid characters with an empty string, before returning the string with a trailing period removed.
+42	This code is a decorator that wraps a given function and removes any nodes that are not at the root of the AST. It also updates any child calls that were removed.
+43	def _validator_load_scheme(self, field, value):
+    if self.document['load_type'] in 'stpd_file':
+        return
+
+    PRIMARY_RE = r'(step|line|const)\((.+?)\)'
+    N_OF_ARGS = {
+        'step': 4,
+        'line': 3,
+        'const': 2,
+    }
+    matches = re.findall(PRIMARY_RE, value)
+    if len(matches) == 0:
+        self._error(field, 'Should match one of the following patterns: step(...) / line(...) / const(...)')
+    else:
+        for match in matches:
+            curve, params_str = match
+            params = [v.strip() for v in params_str.split(',')]
+            # check number of arguments
+            if not len(params) == N_OF_ARGS[curve]:
+                self._error(field, '{} load scheme: expected {} arguments, found {}'.format(curve,
+                                                                                    N_OF_ARGS[curve],
+                                                                                    len(params)))
+            # check arguments' types
+            for param in params[:-1]:
+                if not self.is_number(param):
+                    
+44	def write_byte_data(self, addr, cmd, val):
+    """
+    Write a byte to a specific address on the SMBus.
+    
+    Parameters
+    ----------
+    addr : int
+        The SMBus address to write to
+    cmd : byte
+        The command to send
+    val : byte
+        The data to send
+
+    Returns
+    -------
+    None
+    """
+    self._set_addr(addr)
+    if SMBUS.i2c_smbus_write_byte_data(self._fd, cmd, val) == -1:
+        raise IOError(ffi.errno)
+45	def updateSchemaContent(self, schemaId, schemaFile):
+    """
+    Updates the content of a schema.
+
+    :param schemaId: The ID of the schema to update.
+    :param schemaFile: The content of the schema to update.
+    :return: The updated schema content.
+    """
+    req = ApiClient.oneSchemaContentUrl % (self.host, "/draft", schemaId)
+    body = {"schemaFile": schemaFile}
+    resp = requests.put(req, auth=self.credentials, headers={"Content-Type":"application/json"},
+                       data=json.dumps(body),  verify=self.verify)
+    if resp.status_code == 200:
+        self.logger.debug("Schema content updated")
+    else:
+        raise ibmiotf.APIException(resp.status_code, "HTTP error updating schema content", resp)
+    return resp.json()
+46	def timestamp():
+    """
+    Returns the current time in seconds since the epoch.
+    """
+    return int(time.time())
+47	def call_api(
+    self,
+    method,
+    url,
+    headers=None,
+    params=None,
+    data=None,
+    files=None,
+    timeout=None,
+):
+    """
+    Call the API with the given parameters and return the response.
+
+    :param method: The HTTP method to use for the API call.
+    :param url: The URL of the API to call.
+    :param headers: The headers to send with the API call.
+    :param params: The parameters to send with the API call.
+    :param data: The data to send with the API call.
+    :param files: The files to send with the API call.
+    :param timeout: The timeout for the API call.
+    :return: The response from the API call.
+    """
+    r, status_code = self.call_api_wrapper(
+        method,
+        url,
+        headers,
+        params,
+        data,
+        files,
+        timeout
+    )
+    return r, status_code
+48	def unique(self):
+    """
+    Returns a list of tuples, each containing the primary key and its corresponding thickness.
+    """
+    all_rx = set([iv.primary for iv in self])
+    table = {r: 0 for r in all_rx}
+    for iv in self:
+        table[iv.primary] += iv.thickness
+    return sorted(table.items(), key=operator.itemgetter(1), reverse=True)
+49	def json_dict(json_data):
+    """
+    Converts a given string or object into a dictionary.
+
+    Parameters
+    ----------
+    json_data : object
+        The object to be converted.
+
+    Returns
+    -------
+    dict
+        The converted dictionary.
+    """
+    if isinstance(json_data, dict):
+        return json_data
+    elif isinstance(json_data, basestring):
+        return json.loads(json_data, object_hook=OrderedDict)
+    else:
+        raise TypeError(
+            "'json_data' must be a dictionary or valid JSON string; "
+            "received: {!r}".format(json_data)
+        )
+50	def login(self, *login_args, **login_kwargs):
+    """
+    Authenticates the user and stores the session in the database.
+    
+    :param login_args: Arguments to be passed to the decorated function
+    :param login_kwargs: Keyword arguments to be passed to the decorated function
+    :return: The result of the decorated function
+    """
+    adapter = WerkzeugAdapter(request, self.response)
+    login_kwargs.setdefault('session', session)
+    login_kwargs.setdefault('session_saver', self.session_saver)
+    self.result = super(FlaskAuthomatic, self).login(
+        adapter,
+        *login_args,
+        **login_kwargs)
+    return self.result
+51	This code defines a main() function which takes a context object and any additional keyword arguments as inputs. The function then runs the provided code and exits the program if the result is not successful.
+52	def handle_options(options):
+    result = []
+    for option in options:
+        if self.aggressive:
+            result.extend(
+                [
+                    x
+                    for x in option.split("|")
+                    if x and not x.startswith("~")
+                ]
+            )
+        else:
+            return True
+53	def copy(self):
+    """Returns a copy of the bidict.
+
+    This function creates a copy of the bidict instance by using the __new__ method of the bidict class,
+    which bypasses the __init__ method and makes a whole copy of the backing mappings, avoiding the
+    need to copy items one at a time.
+
+    Returns:
+        A copy of the bidict instance.
+    """
+    return self.__class__(self._fwdm.copy(), self._invm.copy())
+54	def make_grid(tensor, nrow=8, padding=2, normalize=False, range=None, scale_each=False, pad_value=0):
+    """
+    Makes a grid of images from a tensor of images.
+
+    Parameters
+    ----------
+    tensor : torch.Tensor
+        A tensor of images.
+    nrow : int
+        The number of rows in the grid.
+    padding : int
+        The amount of padding between images in the grid.
+    normalize : bool
+        Whether to normalize the images in the grid.
+    range : tuple (min, max)
+        The range of the images in the grid.
+    scale_each : bool
+        Whether to scale each image in the grid.
+    pad_value : float
+        The value to pad the grid with.
+
+    Returns
+    -------
+    torch.Tensor
+        A grid of images.
+    """
+    if not (torch.is_tensor(tensor) or
+            (isinstance(tensor, list) and all(torch.is_tensor(t) for t in tensor))):
+        raise TypeError('tensor or list of tensors expected, got {}'.format(type(tensor)))
+
+    # if list of tensors, convert to a 4D mini-batch Te
+55	def tempo(y=None, sr=22050, onset_envelope=None, hop_length=512, start_bpm=120,
+          std_bpm=1.0, ac_size=8.0, max_tempo=320.0, aggregate=np.mean):
+    """
+    Estimate the tempo of a signal given its autocorrelation.
+
+    Parameters
+    ----------
+    y : array-like
+        The signal to estimate the tempo from.
+    sr : int
+        Sample rate of the signal.
+    onset_envelope : float or None
+        The envelope of the onset of the signal.
+    hop_length : int
+        The length of the hop in samples.
+    start_bpm : int
+        The initial tempo of the signal.
+    std_bpm : float
+        The standard deviation of the tempo of the signal.
+    ac_size : int
+        The size of the autocorrelation window.
+    max_tempo : int
+        The maximum tempo of the signal.
+    aggregate : callable
+        A callable to aggregate the autocorrelation values.
+
+    Returns
+    -------
+    float
+        The estimated tempo of the signal.
+    """
+    if start_bp
+56	def draw_y_labels(self):
+	if not self.show_y_labels:
+		return
+
+	labels = self.get_y_labels()
+	count = len(labels)
+
+	start = int(not self.step_include_first_y_label)
+	labels = itertools.islice(labels, start, None, self.step_y_labels)
+	self.draw_y_label(labels)
+	self.draw_y_guidelines(self.field_height(), count)
+57	This code defines a method called `print_annotation` which prints the annotation values for each path in the annotation dictionary.
+58	This function gets the last n lines from the log file and returns them.
+59	def newick(self):
+    """
+    Returns a Newick string representing the tree structure of the given node.
+    If the node has a name, it is added to the Newick string as a label.
+    If the node has descendants, a comma-separated list of their Newick strings is added.
+    """
+    label = self.name or ''
+    if self._length:
+        label += ':' + self._length
+    descendants = ','.join([n.newick for n in self.descendants])
+    if descendants:
+        descendants = '(' + descendants + ')'
+    return label + descendants
+60	This function retrieves an album from Spotify by providing its ID and optional market parameter.
+61	def create_complete_files(climan, path, cmd, *cmds, zsh_sourceable=False):
+    """
+    """
+    path = pathlib.Path(path)
+    zsh_dir = path / 'zsh'
+    if not zsh_dir.exists():
+        zsh_dir.mkdir(parents=True)
+    zsh_file = zsh_dir / '_{}.sh'.format(cmd)
+    bash_dir = path / 'bash'
+    if not bash_dir.exists():
+        bash_dir.mkdir(parents=True)
+    bash_file = bash_dir / '{}.sh'.format(cmd)
+    climan.zsh_complete(zsh_file, cmd, *cmds, sourceable=zsh_sourceable)
+    climan.bash_complete(bash_file, cmd, *cmds)
+62	def call_tip(oinfo, format_call=True):
+    """
+    """
+    # Get call definition
+    argspec = oinfo.get('argspec')
+    if argspec is None:
+        call_line = None
+    else:
+        # Callable objects will have 'self' as their first argument, prune
+        # it out if it's there for clarity (since users do *not* pass an
+        # extra first argument explicitly).
+        try:
+            has_self = argspec['args'][0] == 'self'
+        except (KeyError, IndexError):
+            pass
+        else:
+            if has_self:
+                argspec['args'] = argspec['args'][1:]
+
+        call_line = oinfo['name']+format_argspec(argspec)
+
+    # Now get docstring.
+    # The priority is: call docstring, constructor docstring, main one.
+    doc = oinfo.get('call_docstring')
+    if doc is None:
+        doc = oinfo.get('init_docstring')
+    if doc is None:
+        doc = oinfo.get('docstring','')
+
+    return call_line, doc
+63	This function clears a Google Doc by writing a comma to an empty file and then uploading it to the Google Doc.
+64	def hpss(y, **kwargs):
+    stft = core.stft(y)
+    stft_harm, stft_perc = decompose.hpss(stft, **kwargs)
+    y_harm = util.fix_length(core.istft(stft_harm, dtype=y.dtype), len(y))
+    y_perc = util.fix_length(core.istft(stft_perc, dtype=y.dtype), len(y))
+    return y_harm, y_perc
+65	This function creates a new reserved IP address with the given name, label, and location.
+66	This code defines a function called parameterized_config which takes a template string as an argument and returns a string which is the result of replacing all occurrences of variables in the template with their corresponding values. The variables are taken from both the global and local dictionaries.
+67	def check_association_integrity(m, rel_id):
+    res = 0
+    for ass in m.associations:
+        if rel_id in [ass.rel_id, None]:
+            res += check_link_integrity(m, ass.source_link)
+            res += check_link_integrity(m, ass.target_link)
+    return res
+68	This code is a definition for a visit_functiondef() method, which is used to count the number of methods and check for dangerous default values.
+69	This function checks if a directory exists and creates it if it does not. It will raise an exception if the directory already exists but has a different permission.
+70	def clean_year_month(year, month, month_orig):
+    if month_orig not in xrange(1, 13) and month_orig is not None:
+        month = now.month
+        error = error_msg
+    # This takes care of 'next' query strings making month > 12
+    while month > 12:
+        month -= 12
+        year += 1
+    # This takes care of 'prev' query strings making month < 1
+    while month < 1:
+        month += 12
+        year -= 1
+    year, month, error = _check_year(year, month, error, error_msg)
+    return year, month, error
+71	This function revokes a user's access token and updates the database to mark the token as revoked. It also sends a message to the user notifying them of the revocation.
+72	def format_row(headers, row):
+    """This function formats a row of data according to a given set of headers.
+
+    Arguments:
+    headers {list} -- A list of column headers
+    row {list} -- A list of data
+
+    Returns:
+    str -- The formatted row
+    """
+    formatted_row = [' | '.join(field) for field in zip(headers, row)]
+    return '\n'.join(formatted_row)
+73	def connect(self):
+    """Creates a connection to the given host and port using the given protocol factory, and returns a Task that will complete when the connection is made.
+
+    Parameters:
+    protocol_factory: A function that creates an instance of the protocol to be used for the connection.
+    host: The host to connect to.
+    port: The port to connect to.
+    ssl: A boolean indicating whether to use SSL for the connection.
+
+    Returns:
+    A Task that will complete when the connection is made.
+    """
+    if self.loop is None:  # pragma: no cover
+        self.loop = asyncio.get_event_loop()
+    t = asyncio.Task(
+        self.loop.create_connection(
+            protocol_factory,
+            host, port,
+            ssl=ssl,
+            loop=self.loop),
+        loop=self.loop)
+    t.add_done_callback(self.connection_made)
+    return t
+74	def get_topic(self, topic_name):
+    try:
+        topic = self.mgmt_client.get_topic(topic_name)
+    except requests.exceptions.ConnectionError as e:
+        raise ServiceBusConnectionError("Namespace: {} not found".format(self.service_namespace), e)
+    except AzureServiceBusResourceNotFound:
+        raise ServiceBusResourceNotFound("Specified topic does not exist.")
+75	def constant_value_as_shape(tensor):  # pylint: disable=invalid-name
+  """
+  """
+  shape = tf.get_static_value(tensor)
+  if shape is not None:
+    return [None if dim == -1 else dim for dim in shape]
+  return tensor_util.constant_value_as_shape(tensor)
+  """
+  """
+  """
+  shape = tf.get_static_value(tensor)
+  if shape is not None:
+    return [None if dim == -1 else dim for dim in shape]
+  return tensor_util.constant_value_as_shape(tensor)
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+  """
+ 
+76	This function updates the user's information in the database if the user's information URL is provided. If the user's information URL is not provided, the function will not update the user's information. The function first accesses the user's information from the URL and then updates the user's information in the database with the retrieved information.
+77	def load_config_from_json(self):
+    """"""
+    self.log.debug("loading config from JSON")
+    # load from engine config
+    fname = os.path.join(self.profile_dir.security_dir, self.engine_json_file)
+    self.log.info("loading connection info from %s", fname)
+    with open(fname) as f:
+        cfg = json.loads(f.read())
+    key = cfg['exec_key']
+    # json gives unicode, Session.key wants bytes
+    self.Session.key = key.encode('ascii')
+    xport,addr = cfg['url'].split('://')
+    self.HubFactory.engine_transport = xport
+    ip,ports = addr.split(':')
+    self.HubFactory.engine_ip = ip
+    self.location = cfg['location']
+    if not self.engine_ssh_server:
+        self.engine_ssh_server = cfg['ssh']
+    # load client config
+    fname = os.path.join(self.profile_dir.security_dir, self.client_json_file)
+    self.log.info("loading connection info from %s", fname)
+    with open(fname) a
+78	def compile(marker):
+    """
+    Compiles a given marker into a function that can be used to execute the
+    given marker in a given environment. If the marker does not contain any
+    instructions, it will return a function that always returns True.
+    """
+    try:
+        return _cache[marker]
+    except KeyError:
+        pass
+    if not marker.strip():
+        def marker_fn(environment=None, override=None):
+            """"""
+            return True
+    else:
+        compiled_marker = compile_marker(parse_marker(marker))
+        def marker_fn(environment=None, override=None):
+            """override updates environment"""
+            if override is None:
+                override = {}
+            if environment is None:
+                environment = default_environment()
+            environment.update(override)
+            return eval(compiled_marker, environment)
+    marker_fn.__doc__ = marker
+    _cache[marker] = marker_fn
+    return _cache[marker]
+79	def sanitize_for_archive(url, headers, payload):
+    """
+    Sanitizes the given URL, headers, and payload for archiving.
+
+    :param url: The URL to be sanitized
+    :param headers: The headers to be sanitized
+    :param payload: The payload to be sanitized
+    :return: The sanitized URL, headers, and payload
+    """
+    if BugzillaRESTClient.PBUGZILLA_LOGIN in payload:
+        payload.pop(BugzillaRESTClient.PBUGZILLA_LOGIN)
+
+    if BugzillaRESTClient.PBUGZILLA_PASSWORD in payload:
+        payload.pop(BugzillaRESTClient.PBUGZILLA_PASSWORD)
+
+    if BugzillaRESTClient.PBUGZILLA_TOKEN in payload:
+        payload.pop(BugzillaRESTClient.PBUGZILLA_TOKEN)
+
+    return url, headers, payload
+80	This code defines a function called "t_LESSTHAN" which takes a token object as an argument and returns a token object. The function modifies the lexical position of the token by adding the length of the token's value to its lexical position.
+81	This code creates a checkpoint of a notebook by encoding the notebook in base64, saving it to a remote database, and encrypting it with the user's encryption key. The checkpoint is then stored at the given path.
+82	def prepare_response(request, cached):
+    """
+    Prepare a response from a cache entry.
+
+    :param request: The request object.
+    :param cached: The cache entry.
+    :return: The prepared response.
+    """
+    if "*" in cached.get("vary", {}):
+        return
+
+    # Ensure that the Vary headers for the cached response match our
+    # request
+    for header, value in cached.get("vary", {}).items():
+        if request.headers.get(header, None) != value:
+            return
+
+    body_raw = cached["response"].pop("body")
+
+    try:
+        body = io.BytesIO(body_raw)
+    except TypeError:
+        # This can happen if cachecontrol serialized to v1 format (pickle)
+        # using Python 2. A Python 2 str(byte string) will be unpickled as
+        # a Python 3 str (unicode string), which will cause the above to
+        # fail with:
+        #
+        #     TypeError: 'str' does not support the buffer interface
+        body = io.BytesIO(body_raw.encode('utf8'))
+
+    return HTTPResponse(
+        body=body,
+        preload_content=False,
+       
+83	def output_args(f):
+    """
+    """
+    args = [
+        magic_arguments.argument('-r', action="store_const", dest='groupby',
+            const='order',
+            help="collate outputs in order (same as group-outputs=order)"
+        ),
+        magic_arguments.argument('-e', action="store_const", dest='groupby',
+            const='engine',
+            help="group outputs by engine (same as group-outputs=engine)"
+        ),
+        magic_arguments.argument('--group-outputs', dest='groupby', type=str,
+            choices=['engine', 'order', 'type'], default='type',
+            help="""Group the outputs in a particular way.
+            
+            Choices are:
+            
+            type: group outputs of all engines by type (stdout, stderr, displaypub, etc.).
+            
+            engine: display all output for each engine together.
+
+            order: like type, but individual displaypub output from each engine is collated.
+                For example, if multiple plots are generated by each engine, the first
+                figure of each engine will be displayed, then the second of each, etc.
+            """
+        ),
+        magic_arguments.argument('-o', '--out', dest='save_name', type=
+84	def process_url(url, key):
+    """
+    Fetches DOE CODE JSON from the given URL and yields each record in the response.
+    
+    Arguments:
+    url {str} -- The URL of the DOE CODE API endpoint.
+    key {str} -- The DOE CODE API key.
+
+    Returns:
+    generator -- A generator that yields each record in the response.
+    """
+
+    logger.debug('Fetching DOE CODE JSON: %s', url)
+
+    if key is None:
+        raise ValueError('DOE CODE API Key value is missing!')
+
+    response = requests.get(url, headers={"Authorization": "Basic " + key})
+    doecode_json = response.json()
+
+    for record in doecode_json['records']:
+        yield record
+85	def get_regions(self):
+    return self._perform_get(
+        self._get_path('services/serviceBus/Regions/', None),
+        None)
+86	def get_process_gids(pid):
+    real, effective, saved = _psutil_bsd.get_process_gids(pid)
+    return nt_gids(real, effective, saved)
+87	This function gets the type of a given value. If the value is None, it will return the type of None. If the value is an integer, it will return an int. If the value is a float, it will return a float. If the value is a binary type, it will return a binary type. If the value is a text type, it will return a text type.
+88	def raw_input(prompt=''):
+    """
+    """
+    # Code run by the user may have modified the readline state.
+    # We must ensure that our readline is back in place.
+    if self.has_readline:
+        self.set_readline_completer()
+
+    # raw_input expects str, but we pass it unicode sometimes
+    prompt = py3compat.cast_bytes_py2(prompt)
+
+    try:
+        line = py3compat.str_to_unicode(self.raw_input_original(prompt))
+    except ValueError:
+        warn("\n********\nYou or a %run:ed script called sys.stdin.close()"
+             " or sys.stdout.close()!\nExiting IPython!\n")
+        self.ask_exit()
+        return ""
+
+    # Try to be reasonably smart about not re-indenting pasted input more
+    # than necessary.  We do this by trimming out the auto-indent initial
+    # spaces, if the user's actual input started itself with whitespace.
+    if self.autoindent:
+        if num_ini_spaces(line) > self.indent_current_nsp:
+            line = line[self.indent_current_nsp:]
+            self.ind
+89	def _compute_distance_matrix(self):
+    """
+    Computes the distance matrix of the coupling graph.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    cmap : ndarray
+        The distance matrix of the coupling graph.
+    """
+    if not self.is_connected():
+        raise CouplingError("coupling graph not connected")
+    lengths = nx.all_pairs_shortest_path_length(self.graph.to_undirected(as_view=True))
+    lengths = dict(lengths)
+    size = len(lengths)
+    cmap = np.zeros((size, size))
+    for idx in range(size):
+        cmap[idx, np.fromiter(lengths[idx].keys(), dtype=int)] = np.fromiter(
+            lengths[idx].values(), dtype=int)
+    self._dist_matrix = cmap
+90	def mkdirs(target):
+    """Creates a directory and any necessary parent directories.
+
+    :param target: The path to the directory to be created.
+    :return: None
+    """
+    path = os.path.dirname(target)
+    if path and path != PATH_SEP and not os.path.isdir(path):
+      # Multi-threading means there will be intervleaved execution
+      # between the check and creation of the directory.
+      try:
+        os.makedirs(path)
+      except OSError as ose:
+        if ose.errno != errno.EEXIST:
+          raise Failure('Unable to create directory (%s)' % (path,))
+91	def tryReduceAnd(sig, val):
+    """
+    Attempts to reduce a signal by masking out any values that are equal to 0.
+    
+    Parameters
+    ----------
+    sig : Signal
+        The signal to reduce
+    val : Signal
+        The value to compare against
+
+    Returns
+    -------
+    Signal
+        The reduced signal
+    """
+    m = sig._dtype.all_mask()
+    v = val.val
+    if v == m:
+        return sig
+    elif v == 0:
+        return val
+    else:
+        return sig
+92	def as_dict(self, attrs=[], ad_value=None):
+    """
+    Returns a dictionary representation of the object.
+
+    :param attrs: list of attributes to include in the dictionary
+    :param ad_value: value to use if an attribute is not found
+    :return: dictionary representation of the object
+    """
+    excluded_names = set(['send_signal', 'suspend', 'resume', 'terminate',
+                          'kill', 'wait', 'is_running', 'as_dict', 'parent',
+                          'get_children', 'nice'])
+    retdict = dict()
+    for name in set(attrs or dir(self)):
+        if name.startswith('_'):
+            continue
+        if name.startswith('set_'):
+            continue
+        if name in excluded_names:
+            continue
+        try:
+            attr = getattr(self, name)
+            if callable(attr):
+                if name == 'get_cpu_percent':
+                    ret = attr(interval=0)
+                else:
+                    ret = attr()
+            else:
+                ret = attr
+        except AccessDenied:
+            ret = ad_value
+        except NotImplementedError:
+            # in case of not implemented functionality (may ha
+93	. 1010101000000 10 10 100 1.1.1110110110 101000000101010101010010100101011.1.11. 1 1 1 1111  is  is is is is is is is is is is is is is 1 10 10 10 10 1010010101101 1 1111 1 1 1 1 1 1  is  is ,  is in, is in, is in, is  is in 10 10 is 1 1 10 1 1 10 1 1 1 10 10 1 1 1  1 1  #  #  # 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 11 1 1 1 1 1 1  c    
+94	This function creates a KeyId object, which is used to identify a key in a vault. It takes in a vault, a name, and optionally a version. The function will return the newly created KeyId object.
+95	def naive(seqs, f=None, start=None, key=lambda x: x):
+    """
+    """
+    history = {}
+    for step, value in enumerate(seqs[0]):
+        keyed = key(value)
+        if keyed in history:
+            raise CycleDetected(
+                first=history[keyed], period=step - history[keyed])
+        history[keyed] = step
+        yield value
+96	def create_random_seq(character, action_metadata, direction, length):
+  start = tf.random.uniform(shape=[], maxval=action_metadata[1], dtype=tf.int32)
+  return create_seq(character, action_metadata, direction, length, start)
+97	This function splits a given string into three parts: the part before the first delimiter (DEL_START), the part between the two delimiters (including the delimiter itself) and the part after the second delimiter (DEL_END).
+98	def segments_are_adjacent(seg1, seg2):
+    """
+    Returns True if two segments are adjacent.
+    
+    Parameters
+    ----------
+    seg1 : list
+        The first segment
+    seg2 : list
+        The second segment
+
+    Returns
+    -------
+    bool
+        True if the segments are adjacent, False otherwise
+    """
+    lsf1, lss1 = seg1
+    lsf2, lss2 = seg2
+    for i, f1 in enumerate(lsf1):
+        for j, f2 in enumerate(lsf2):
+            if f1 <= f2 + 1 and f1 >= f2 - 1:
+                # Frequencies are a match, are samples?
+                if lss1[i] <= lss2[j] + 1 and lss1[i] >= lss2[j] - 1:
+                    return True
+    return False
+99	This function retrieves an object from the database by its ID and the ID of the user who sent the request.
+100	def _process_ssh_dss(data):
+    data_fields = {}
+    current_position = 0
+    for item in ("p", "q", "g", "y"):
+        current_position, value = self._unpack_by_int(data, current_position)
+        data_fields[item] = self._parse_long(value)
+
+    q_bits = self._bits_in_number(data_fields["q"])
+    p_bits = self._bits_in_number(data_fields["p"])
+    if q_bits != self.DSA_N_LENGTH:
+        raise InvalidKeyError("Incorrect DSA key parameters: bits(p)=%s, q=%s" % (self.bits, q_bits))
+    if self.strict_mode:
+        min_length = self.DSA_MIN_LENGTH_STRICT
+        max_length = self.DSA_MAX_LENGTH_STRICT
+    else:
+        min_length = self.DSA_MIN_LENGTH_LOOSE
+        max_length = self.DSA_MAX_LENGTH_LOOSE
+    if p_bits < min_length:
+        raise TooShortKeyError("%s key can not be shorter than %s bits (was %s)" % (
+101	def real_nvp_default_template(hidden_layers,
+                              shift_only=False,
+                              activation=tf.nn.relu,
+                              name=None,
+                              *args,  # pylint: disable=keyword-arg-before-vararg
+                              **kwargs):
+  """
+  """
+  with tf.compat.v2.name_scope(name or "real_nvp_default_template"):
+
+    def _fn(x, output_units, **condition_kwargs):
+      """Fully connected MLP parameterized via `real_nvp_template`."""
+      if condition_kwargs:
+        raise NotImplementedError(
+            "Conditioning not implemented in the default template.")
+
+      if tensorshape_util.rank(x.shape) == 1:
+        x = x[tf.newaxis, ...]
+        reshape_output = lambda x: x[0]
+      else:
+        reshape_output = lambda x: x
+      for units in hidden_layers:
+        x = tf.compat.v1.layers.dense(
+            inputs=x,
+            units=units,
+            activation=activation,
+            *args,  # pylint: disable=keyword-arg-bef
+102	def map_array(self, start, end):
+    if self._array is None:
+        self._map, skip = self.map_words(1, self.free - 1)
+        assert skip == 0
+        self._array = ndarray(self.free - 1, self.endian + 'd', self._map)
+    return self._array[start - 1 : end]
+103	def add_virtual_columns_rotation(self, x, y, xnew, ynew, angle_degrees, propagate_uncertainties=False):
+    """
+    This function rotates two columns of a matrix by an angle specified in degrees.
+    
+    Parameters
+    ----------
+    x : string
+        The name of the first column to rotate
+    y : string
+        The name of the second column to rotate
+    xnew : string
+        The name of the rotated version of the first column
+    ynew : string
+        The name of the rotated version of the second column
+    angle_degrees : float
+        The angle in degrees to rotate the columns by
+    propagate_uncertainties : bool
+        Whether to propagate the uncertainties of the rotated variables
+        
+    Returns
+    -------
+    None
+    """
+    matrix = np.array([[np.cos(angle_degrees), -np.sin(angle_degrees)], [np.sin(angle_degrees), np.cos(angle_degrees)]])
+    m = matrix_name = x + "_" + y + "_rot"
+    for i in range(2):
+        for j in range(2):
+            self.set_variable(m 
+104	This function initializes a new instance of the StackExchangeClient class, which allows access to the Stack Exchange API. The instance can be customized with parameters such as the site, tagged, API token, maximum number of questions, and whether to use an archive.
+105	def convert_to_string(productions):
+    """
+    Convert a list of productions to a string.
+
+    Parameters
+    ----------
+    productions : list
+        A list of productions.
+
+    Returns
+    -------
+    string : str
+        The string representation of the list of productions.
+    """
+    symbols = []
+    for production in productions:
+        lhs, rhs = self.production_rules[tf.argmax(input=production, axis=-1)]
+        if not symbols:  # first iteration
+            if lhs != self.start_symbol:
+                raise ValueError("`productions` must begin with `self.start_symbol`.")
+        symbols = rhs
+    string = "".join(symbols)
+    return string
+106	print_kernel_info(output_file=sys.stdout)
+107	def create_dashboard_from_template(newdashname, view, filter, shared, public):
+    dashboard = {
+        'name': newdashname,
+        'views': [view],
+        'filter': filter,
+        'shared': shared,
+        'public': public
+    }
+    return dashboard
+108	assertions = _maybe_validate_distributions(distributions, dtype_override, validate_args)
+  return assertions
+109	def convert_annotations(annotations):
+    return zipkin_pb2.AnnotationList(annotations=annotations)
+110	This code defines a method called `nvert` which takes an element from the `self.elements` list and applies the corresponding function from the `ELEMENTS` dictionary to it. The returned value is then returned from the method.
+111	def list_sessions(self, updated_since=None, max_results=100, skip=0):
+    """
+    Returns a list of sessions.
+
+    :param updated_since: The last-updated time of the sessions to be returned.
+    :param max_results: The maximum number of sessions to be returned.
+    :param skip: The number of sessions to skip.
+    :return: A list of sessions.
+    """
+    if int(max_results) < 1:
+        raise ValueError("max_results must be 1 or greater.")
+
+    self._can_run()
+    message = {
+        'last-updated-time': updated_since or datetime.datetime.utcfromtimestamp(0),
+        'skip': skip,
+        'top': max_results,
+    }
+    return self._mgmt_request_response(
+        REQUEST_RESPONSE_GET_MESSAGE_SESSIONS_OPERATION,
+        message,
+        mgmt_handlers.list_sessions_op)
+112	def barrier(self, qargs):
+    """"""
+    if not qargs:  # None
+        for qreg in self.qregs:
+            for j in range(qreg.size):
+                yield (qreg, j)
+
+    for qarg in qargs:
+        if isinstance(qarg, (QuantumRegister, list)):
+            if isinstance(qarg, QuantumRegister):
+                for j in range(qarg.size):
+                    yield (qarg, j)
+            else:
+                for qbit in qarg:
+                    yield (qarg, j)
+        else:
+            yield qarg
+
+    return self.append(Barrier(len(qargs)), qargs, [])
+113	def get_defining_component(pe_pe):
+    if pe_pe is None:
+        return None
+    
+    if pe_pe.__class__.__name__ != 'PE_PE':
+        pe_pe = xtuml.navigate_one(pe_pe).PE_PE[8001]()
+    
+    ep_pkg = xtuml.navigate_one(pe_pe).EP_PKG[8000]()
+    if ep_pkg:
+        return get_defining_component(ep_pkg)
+    
+    return xtuml.navigate_one(pe_pe).C_C[8003]()
+114	if response.status_code == 200:
+            return None
+        elif response.status_code == 204:
+            return None
+115	def delete_file(file_id):
+    """
+    Delete a file from the storage service.
+
+    :param file_id: The UUID of the file to delete
+    :type file_id: str
+    :return: None
+    """
+    if not is_valid_uuid(file_id):
+        raise StorageArgumentException('Invalid UUID for file_id: {0}'.format(file_id))
+
+    self._authenticated_request.to_endpoint('file/{}/'.format(file_id)).delete()
+116	def get_digests(self):
+    digests = []
+    if not hasattr(self, 'manifests'):
+        bot.error('Please retrieve manifests for an image first.')
+        sys.exit(1)
+
+    reverseLayers = False
+    schemaVersions = list(self.manifests.keys())
+    schemaVersions.reverse()
+
+    # Select the manifest to use
+    for schemaVersion in schemaVersions:
+
+        manifest = self.manifests[schemaVersion]
+
+        if manifest['schemaVersion'] == 1:
+            reverseLayers = True
+
+        # version 2 indices used by default
+        layer_key = 'layers'
+        digest_key = 'digest'
+
+        # Docker manifest-v2-2.md#image-manifest
+        if 'layers' in manifest:
+            bot.debug('Image manifest version 2.2 found.')
+            break
+
+        # Docker manifest-v2-1.md#example-manifest  # noqa
+        elif 'fsLayers' in manifest:
+            layer_key = 'fsLayers'
+            digest_key = 'blobSum'
+            bot.debug('Image manifest version 2.1 found.')
+            break
+
+        else:
+            msg
+117	def fromPy(cls, val, typeObj, vldMask=None):
+    """
+    Converts a Python object to a value of the given type.
+    
+    Parameters
+    ----------
+    cls : type
+        The type of the value to be created.
+    
+    val : object
+        The value to be converted.
+    
+    typeObj : type
+        The type of the value to be created.
+    
+    vldMask : int
+        The value of the least significant bits of the value.
+    
+    Returns
+    -------
+    value : value
+        The converted value.
+    """
+    assert not isinstance(val, Value)
+    if val is None:
+        vld = 0
+        val = 0
+        assert vldMask is None or vldMask == 0
+    else:
+        allMask = typeObj.all_mask()
+        w = typeObj.bit_length()
+        if isinstance(val, bytes):
+            val = int.from_bytes(
+                val, byteorder="little", signed=bool(typeObj.signed))
+        else:
+            try:
+                val = int(val)
+            except TypeError as e:
+                if isinstance(val, enum.Enum):
+                    val = int(val.v
+118	def visit_import(node):
+    """Checks that an import statement is valid.
+
+    :param node: The AST node of the import statement.
+    :return: None
+    """
+    self._check_reimport(node)
+    self._check_import_as_rename(node)
+
+    modnode = node.root()
+    names = [name for name, _ in node.names]
+    if len(names) >= 2:
+        self.add_message("multiple-imports", args=", ".join(names), node=node)
+
+    for name in names:
+        self._check_deprecated_module(node, name)
+        self._check_preferred_module(node, name)
+        imported_module = self._get_imported_module(node, name)
+        if isinstance(node.parent, astroid.Module):
+            # Allow imports nested
+            self._check_position(node)
+        if isinstance(node.scope(), astroid.Module):
+            self._record_import(node, imported_module)
+
+        if imported_module is None:
+            continue
+
+        self._check_relative_import(modnode, node, imported_module, name)
+        self._add_imported_module(node, imported_mo
+119	def __fn_args_to_py_ast(
+    ctx: GeneratorContext, params: Iterable[Binding], body: Do
+) -> Tuple[List[ast.arg], Optional[ast.arg], List[ast.AST]]:
+    """"""
+    fn_args, varg = [], None
+    fn_body_ast: List[ast.AST] = []
+    for binding in params:
+        assert binding.init is None, ":fn nodes cannot have bindint :inits"
+        assert varg is None, "Must have at most one variadic arg"
+        arg_name = genname(munge(binding.name))
+
+        if not binding.is_variadic:
+            fn_args.append(ast.arg(arg=arg_name, annotation=None))
+            ctx.symbol_table.new_symbol(
+                sym.symbol(binding.name), arg_name, LocalType.ARG
+            )
+        else:
+            varg = ast.arg(arg=arg_name, annotation=None)
+            safe_local = genname(munge(binding.name))
+            fn_body_ast.append(
+                ast.Assign(
+                    targets=[ast.Name(id=safe_local, ctx=ast.Store())],
+                    va
+120	def unsubscribe(self, stream, transform=""):
+    """Unsubscribes from a stream and its associated transform.
+
+    Args:
+        stream (str): The name of the stream to unsubscribe from.
+        transform (str): The transform associated with the stream, or None to unsubscribe from all transforms.
+
+    Returns:
+        bool: True if the unsubscribe was successful, False if the client is not connected.
+    """
+    if self.status is not "connected":
+        return False
+    logging.debug("Unsubscribing from %s", stream)
+    self.send(
+        {"cmd": "unsubscribe",
+         "arg": stream,
+         "transform": transform})
+    self.subscription_lock.acquire()
+    del self.subscriptions[stream + ":" + transform]
+    if len(self.subscriptions) is 0:
+        self.subscription_lock.release()
+        self.disconnect()
+    else:
+        self.subscription_lock.release()
+    return True
+121	def get_params(self):
+    """
+    Returns a dictionary with the following keys:
+    sample, ratio_params, despike_params, autorange_params, bkgcorrect_params
+    """
+    outputs = ['sample',
+              'ratio_params',
+              'despike_params',
+              'autorange_params',
+              'bkgcorrect_params']
+
+    out = {}
+    for o in outputs:
+        out[o] = getattr(self, o)
+
+    out['filter_params'] = self.filt.params
+    out['filter_sequence'] = self.filt.sequence
+    out['filter_used'] = self.filt.make_keydict()
+
+    return out
+122	def parse_notifier_name(name):
+    if isinstance(name, str):
+        return [name]
+    elif name is None:
+        return ['anytrait']
+    elif isinstance(name, (list, tuple)):
+        for n in name:
+            assert isinstance(n, str), "names must be strings"
+        return name
+123	This function truncates the database tables for the given app label and schema editor, and then proceeds to migrate the data from the from_state to the to_state.
+124	This code defines a function called `find_vpid` which takes in a URL and an optional `res` argument. If `res` is not provided, the function will retrieve the page from the given URL and search for the `vpid` element within the page's content. The `vpid` element is then returned.
+125	def check_api_limits(gh_session, api_required=250, sleep_time=15):
+    """
+    Checks the rate limit of the Github API and sleeps if necessary.
+    
+    Parameters:
+    gh_session: A Github API session object.
+    api_required: The number of requests required to be made before sleeping.
+    sleep_time: The amount of time to sleep in seconds.
+    
+    Returns:
+    None.
+    """
+    api_rates = gh_session.rate_limit()
+
+    api_remaining = api_rates['rate']['remaining']
+    api_reset = api_rates['rate']['reset']
+    logger.debug('Rate Limit - %d requests remaining', api_remaining)
+
+    if api_remaining > api_required:
+        return
+
+    now_time = time.time()
+    time_to_reset = int(api_reset - now_time)
+    logger.warn('Rate Limit Depleted - Sleeping for %d seconds', time_to_reset)
+
+    while now_time < api_reset:
+        time.sleep(10)
+        now_time = time.time()
+126	This function reads an ndarray from a given start index to an end index, which is inclusive of both indices. It reads 8 bytes of data from the file for each element in the ndarray.
+127	This function gets evaluations for a given prefix. The input is a prefix parameter, which is used to filter the results. The output is a JSON object containing the evaluations.
+128	def right_pad(x, final_rank):
+  """
+  """
+  padded_shape = tf.concat(
+      [tf.shape(input=x),
+       tf.ones(final_rank - tf.rank(x), dtype=tf.int32)],
+      axis=0)
+  static_padded_shape = None
+  if x.shape.is_fully_defined() and isinstance(final_rank, int):
+    static_padded_shape = x.shape.as_list()
+    extra_dims = final_rank - len(static_padded_shape)
+    static_padded_shape.extend([1] * extra_dims)
+
+  padded_x = tf.reshape(x, static_padded_shape or padded_shape)
+  return padded_x
+129	This code creates a list of DagRun objects from a given DAG, a list of execution dates, and a given state. It finds out if any new DagRuns need to be created, and if so, it creates them and adds them to a list.
+130	def sitetree_menuNode(tree_alias, tree_branches, use_template):
+    if use_template:
+        return TemplateNode(tree_alias, tree_branches)
+    else:
+        return Node(tree_branches)
+131	<nooutput>
+132	This function takes in a template file, a destination file, and any desired keyword arguments. It replaces any instances of "{}" in the template text with the given keyword argument, and writes the result to the destination file.
+133	def profile_function(self):
+    """"""
+    with _CodeHeatmapCalculator() as prof:
+        result = self._run_object(*self._run_args, **self._run_kwargs)
+    code_lines, start_line = inspect.getsourcelines(self._run_object)
+
+    source_lines = []
+    for line in code_lines:
+        source_lines.append(('line', start_line, line))
+        start_line += 1
+
+    filename = os.path.abspath(inspect.getsourcefile(self._run_object))
+    heatmap = prof.heatmap[filename]
+    run_time = sum(time for time in heatmap.values())
+    return {
+        'objectName': self._object_name,
+        'runTime': run_time,
+        'result': result,
+        'timestamp': int(time.time()),
+        'heatmaps': [{
+            'name': self._object_name,
+            'heatmap': heatmap,
+            'executionCount': prof.execution_count[filename],
+            'srcCode': source_lines,
+            'runTime': run_time
+        }]
+    }
+134	This function prints a table in a tab-separated format to the screen or a file. It takes a table as an argument, a string that separates each record in the table, and an optional argument for the file where the output should be printed.
+135	def refactor_step(old_text, new_text, move_param_from_idx):
+    diffs = refactor_step(old_text, new_text, move_param_from_idx)
+    return diffs[0]
+136	def set_version(self, new_version):
+    """
+    Updates the version number in the given file.
+
+    :param new_version: The new version number.
+    :return: None
+    """
+    try:
+        f = open(self.file_path, 'r')
+        lines = f.readlines()
+        f.close()
+
+        for idx, line in enumerate(lines):
+            if self.magic_line in line:
+                start = len(self.magic_line)
+                end = len(line) - self.strip_end_chars
+
+                start_str = line[0:start]
+                end_str = line[end:]
+                lines[idx] = start_str + new_version + end_str
+
+        try:
+            f = open(self.file_path, 'w')
+            f.writelines(lines)
+            f.close()
+        except Exception as e:
+            print(str(e))
+137	def accept_reflected_fn(simplex,
+                         objective_values,
+                         worst_index,
+                         reflected,
+                         objective_at_reflected):
+  if accept_reflected(simplex, objective_values, worst_index, reflected,
+                      objective_at_reflected):
+    return True, simplex, objective_values, 0
+  else:
+    return False, simplex, objective_values, 0
+138	def _prepare_args_with_initial_vertex(objective_function,
+                                       initial_vertex,
+                                       step_sizes,
+                                       objective_at_initial_vertex,
+                                       batch_evaluate_objective):
+  """
+  """
+  if objective_at_initial_vertex is None:
+    objective_at_initial_vertex = objective_function(initial_vertex)
+
+  if batch_evaluate_objective is None:
+    batch_evaluate_objective = False
+
+  return (objective_function,
+          initial_vertex,
+          step_sizes,
+          objective_at_initial_vertex,
+          batch_evaluate_objective)
+139	This function declares a statement, which is a sequence of tokens with an optional semicolon at the end. If there is no semicolon, an exception is raised.
+140	import_modules() imports modules from the import service and attempts to import each module. It prints a log message indicating the modules that were successfully imported, as well as any ImportError exceptions that were raised.
+141	This function queries the API with the given parameters and returns a SearchResult object containing the results.
+142	def open(path, mode=gdalconst.GA_ReadOnly):
+    """
+    Open a raster from a given path.
+
+    Parameters
+    ----------
+    path : str
+        The path to the raster file.
+    mode : gdalconst.GA_ReadOnly
+        The mode of access to the raster.
+
+    Returns
+    -------
+    Raster
+        The opened raster.
+    """
+    try:
+        return Raster(vsiprefix(path), mode)
+    except AttributeError:
+        try:
+            imgdata = path.read()
+        except AttributeError:
+            raise TypeError('Not a file-like object providing read()')
+        else:
+            imgio = MemFileIO(delete=False)
+            gdal.FileFromMemBuffer(imgio.name, imgdata)
+            return Raster(imgio, mode)
+    raise ValueError('Failed to open raster from "%r"' % path)
+143	def check_void(result, func, cargs):
+    if not result:
+        s = rt.Error_GetLastErrorMsg().decode()
+        msg = 'Error in "%s": %s' % (func.__name__, s)
+        rt.Error_Reset()
+        raise RTreeError(msg)
+    return result
+144	def frames_to_samples(frames, hop_length=512, n_fft=None):
+    """
+    This function converts a sequence of frames into a set of samples.
+    
+    Arguments:
+    frames {list} -- A list of frames.
+    hop_length {int} -- The hop length.
+    n_fft {int} -- The length of the FFT.
+    
+    Returns:
+    samples {list} -- A list of samples.
+    
+    """
+    
+    if n_fft is None:
+        n_fft = len(frames) // 2
+    
+    samples = (np.asanyarray(frames) * hop_length + offset).astype(int)
+    samples = samples[:n_fft]
+    return samples
+145	def list_overlay_names(self):
+    """Returns a list of overlay names from the given UUID.
+
+    :param uuid: UUID of the object to get overlay names from
+    :return: list of overlay names
+    """
+    overlay_names = []
+    for blob in self._blobservice.list_blobs(uuid, prefix=self.overlays_key_prefix):
+        overlay_file = blob.name.rsplit('/', 1)[-1]
+        overlay_name, ext = overlay_file.split('.')
+        overlay_names.append(overlay_name)
+    return overlay_names
+146	def run(cls, name, desc):
+    """
+    Run a Toil pipeline with the given name and description.
+
+    :param name: The name of the Toil pipeline.
+    :param desc: A short description of the Toil pipeline.
+    :return: None
+    """
+    wrapper = cls(name, desc)
+    mount_path = wrapper._get_mount_path()
+    # prepare parser
+    arg_parser = wrapper._create_argument_parser()
+    wrapper._extend_argument_parser(arg_parser)
+    # prepare config file
+    empty_config = wrapper.__get_empty_config()
+    config_yaml = ruamel.yaml.load(empty_config)
+    wrapper.__populate_parser_from_config(arg_parser, config_yaml)
+    args = arg_parser.parse_args()
+    for k,v in vars(args).items():
+        k = k.replace('_', '-')
+        if k in config_yaml:
+            config_yaml[k] = v
+    config_path = wrapper._get_config_path()
+    with open(config_path, 'w') as writable:
+        ruamel.yaml.dump(config_yaml, stream=writable)
+    # prepare workdir
+    workdir_pa
+147	def bind_cache_grant(app, provider, current_user, config_prefix='OAUTH2'):
+    """Binds the grant token with the configured cache system.
+
+    :param app: The application object
+    :param provider: The provider object
+    :param current_user: The current user
+    :param config_prefix: The prefix for the configuration variables
+    """
+    cache = Cache(app, config_prefix)
+
+    @provider.grantsetter
+    def create_grant(client_id, code, request, *args, **kwargs):
+        """Sets the grant token with the configured cache system"""
+        grant = Grant(
+            cache,
+            client_id=client_id,
+            code=code['code'],
+            redirect_uri=request.redirect_uri,
+            scopes=request.scopes,
+            user=current_user(),
+        )
+        log.debug("Set Grant Token with key %s" % grant.key)
+        cache.set(grant.key, dict(grant))
+
+    @provider.grantgetter
+    def get(client_id, code):
+        """Gets the grant token with the configured cache system"""
+        grant = Grant(cache, client_id=client_id, code=code)
+       
+148	This function sets the name of the object to the given string. It returns a boolean value indicating whether the operation was successful.
+149	def read_points(self, vlrs):
+    """
+    Reads points from a VLR file.
+
+    Parameters
+    ----------
+    vlrs : list
+        A list containing one or more VLR records.
+
+    Returns
+    -------
+    points : list
+        A list containing the points read from the VLR file.
+    """
+    points = []
+    for vlr in vlrs:
+        try:
+            extra_dims = vlr.get("ExtraBytesVlr")[0].type_of_extra_dims()
+        except IndexError:
+            extra_dims = None
+
+        point_format = PointFormat(self.header.point_format_id, extra_dims=extra_dims)
+        if self.header.are_points_compressed:
+            laszip_vlr = vlr.pop("LasZipVlr")
+            points.append(self._read_compressed_points_data(laszip_vlr, point_format))
+        else:
+            points.append(record.PackedPointRecord.from_stream(vlr, point_format, self.header.point_count))
+    return points
+150	gene_obj = build_gene(gene_info, adapter)
+151	This function parses a date from a given string and returns a datetime.date object. It accepts a string in the format yyyy-mm-dd or mm/dd/yyyy and attempts to parse it into a date. If the string cannot be parsed, it will return a ValueError exception.
+152	The `mark` method of the `Derive` class sets the value of the `last` attribute to the given value, and if the value is less than or equal to the given value, it will set the value of `last` to the given value minus the current value of `last`. It then calls the superclass's `mark` method with the new value.
+153	def load(path, sr=22050, mono=True, offset=0.0, duration=None,
+         dtype=np.float32, res_type='kaiser_best'):
+    """
+    Load audio data from a file and resample if necessary.
+
+    Parameters
+    ----------
+    path : str
+        The path to the audio file.
+    sr : float
+        The sampling rate of the audio data.
+    mono : bool
+        Whether the audio data is mono or not.
+    offset : float
+        The offset in samples to start from.
+    duration : float
+        The duration of the audio data in samples.
+    dtype : dtype
+        The data type of the audio data.
+    res_type : str
+        The type of resampling to use.
+
+    Returns
+    -------
+    y : ndarray
+        The audio data, resampled if necessary.
+    sr : float
+        The sampling rate of the resampled audio data.
+
+    Raises
+    ------
+    RuntimeError
+        If the audio data cannot be loaded.
+    """
+    try:
+        with sf.SoundFile(path) as sf_desc:
+            if offset:
+                # Seek to the start of the target read
+                sf_des
+154	This function saves changes to the database if a session is open, or warns if one is not.
+155	This function asserts that there is no text matching the given query in the given scope. It waits for the query to be resolved and then checks if the count of text matches the options, or if it is 0 or None. If it matches, it raises an ExpectationNotMet exception with the given negative failure message.
+156	def load_privatekey(type, buffer, passphrase=None):
+    """
+    Load a private key from a buffer.
+    
+    Parameters
+    ----------
+    type : str
+        The type of private key to load. Must be either `FILETYPE_PEM` or `FILETYPE_ASN1`.
+    buffer : bytes
+        The buffer containing the private key data.
+    passphrase : bytes, optional
+        The passphrase to use when loading a PEM private key.
+
+    Returns
+    -------
+    :class:`PKey`
+        The loaded private key.
+    """
+    if isinstance(buffer, _text_type):
+        buffer = buffer.encode("ascii")
+
+    bio = _new_mem_buf(buffer)
+
+    helper = _PassphraseHelper(type, passphrase)
+    if type == FILETYPE_PEM:
+        evp_pkey = _lib.PEM_read_bio_PrivateKey(
+            bio, _ffi.NULL, helper.callback, helper.callback_args)
+        helper.raise_if_problem()
+    elif type == FILETYPE_ASN1:
+        evp_pkey = _lib.d2i_PrivateKey_bio(bio, _ffi.NULL)
+    
+157	def roc_auc_score(y_true: List[List[float]], y_pred: List[List[float]]) -> float:
+    """
+    Computes the Receiver Operating Characteristic (ROC) AUC score for a binary classification problem.
+    
+    Parameters
+    ----------
+    y_true : list of lists of floats, y_pred : list of lists of floats
+      
+    Returns
+    -------
+    float
+      
+    Examples
+    --------
+    >>> import numpy as np
+    >>> y_true = np.array([[0, 1], [1, 0]])
+    >>> y_pred = np.array([[0, 1], [1, 0]])
+    >>> from sklearn.metrics import roc_auc_score
+    >>> roc_auc_score(y_true, y_pred)
+    0.9
+    """
+    try:
+        return sklearn.metrics.roc_auc_score(np.squeeze(np.array(y_true)),
+                                             np.squeeze(np.array(y_pred)), average="macro")
+    except ValueError:
+        return 0.
+158	def get_item_objects(self, query_params=None):
+    """
+    Returns a list of ChecklistItem objects based on the given query parameters.
+    
+    Args:
+        query_params (str): A string containing the query parameters to search for.
+    
+    Returns:
+        list: A list of ChecklistItem objects.
+    """
+    
+    card = self.get_card()
+    checklistitems_list = []
+    for checklistitem_json in self.get_items(query_params):
+        checklistitems_list.append(self.create_checklist_item(card.id, self.id, checklistitem_json))
+    
+    return checklistitems_list
+159	This function reads data from a file. It takes a size argument which specifies the number of bytes to read. If the size is negative or greater than the remaining bytes in the file, the function will read the entire remaining bytes in the file. The file must be open before the function can be called. The function returns a string containing the read data.
+160	This function replaces values at a given index in a tensor with another value. It takes in a tensor, an index, and a replacement value, and returns a new tensor with the values replaced at the given index with the replacement value.
+161	def prepare_user_module(user_module=None, user_ns=None):
+    """
+    If user_module is None and user_ns is not None:
+        user_ns.setdefault("__name__", "__main__")
+        class DummyMod(object):
+            "A dummy module used for IPython's interactive namespace."
+            pass
+        user_module = DummyMod()
+        user_module.__dict__ = user_ns
+    
+    If user_module is None:
+        user_module = types.ModuleType("__main__",
+            doc="Automatically created module for IPython interactive environment")
+    
+    # We must ensure that __builtin__ (without the final 's') is always
+    # available and pointing to the __builtin__ *module*.  For more details:
+    # http://mail.python.org/pipermail/python-dev/2001-April/014068.html
+    user_module.__dict__.setdefault('__builtin__', builtin_mod)
+    user_module.__dict__.setdefault('__builtins__', builtin_mod)
+    
+    if user_ns is None:
+        user_ns = user_module.__dict__
+    
+    return user_module, user_ns
+162	This function checks if two sequences are equal, ignoring the order of elements. It works by creating a list of unmatched elements from the second sequence and then removing them from the first sequence. If there are no unmatched elements in the first sequence, the two sequences are considered equal.
+163	This function adds a volume to the system. It takes a volume object as an argument, containing the name and configs of the volume to be added. The volume is then added to the system with the given name and configs.
+164	def process_data(data, number_to_keep):
+    result = dict()
+
+    if number_to_keep != 0:
+        data_temp = dict(Counter(data).most_common(number_to_keep))
+        data_temp['rest'] = sum(data.values()) - sum(data_temp.values())
+        data = data_temp
+
+    labels = data
+    values = np.array([data[key] for key in labels], dtype=float)
+    pvalues = values / sum(values)
+    for position, label in enumerate(labels):
+        result[label] = round(pvalues[position], 5)
+
+    return result
+165	def prepare_revisions(self, latest_only):
+    """Prepare revisions from the given data.
+
+    Args:
+        latest_only (bool): If True, only the latest revision will be prepared.
+
+    Returns:
+        list: The prepared revisions.
+    """
+    self.revisions = []
+    if latest_only:
+        it = [self.data['record'][0]]
+    else:
+        it = self.data['record']
+    for i in it:
+        self.revisions.append(self._prepare_revision(i))
+    return self.revisions
+166	def update_filenames(self):
+    """
+    Updates the filenames used in the code
+    """
+    self.project_file = self.project_name + '.txt'
+    self.ds_name = self.project_name + '_ds.txt'
+    self.water_surface_file = self.project_name + '_water_surface.txt'
+    self.attenuation_file = self.project_name + '_attenuation.txt'
+    self.scattering_file = self.project_name + '_scattering.txt'
+    self.phase_function_file = self.project_name + '_phase_function.txt'
+    self.sky_type = self.project_name + '_sky_type.txt'
+    self.sky_azimuth = self.project_name + '_sky_azimuth.txt'
+    self.sky_zenith = self.project_name + '_sky_zenith.txt'
+    self.sky_C = self.project_name + '_sky_C.txt'
+    self.sky_r_dif = self.project_name + '_sky_r_dif.txt'
+    self.iface_type = self.project_name + '_iface_type.txt'
+    
+167	def deploy_proxy_factory_contract(deployer_account, deployer_private_key):
+    return deploy_proxy_factory_contract(deployer_account=deployer_account, deployer_private_key=deployer_private_key).result()
+168	This function creates a new blob from the given key and contents. It uses the blob service to store the contents.
+169	def discrete_ksD(data, xmin, alpha):
+    """
+    Returns the Kolmogorov-Smirnov distance between a data set and a model distribution.
+    
+    Parameters
+    ----------
+    data : array-like
+        The data set.
+    xmin : float
+        The minimum value of the data set.
+    alpha : float
+        The shape parameter of the model distribution.
+
+    Returns
+    -------
+    float
+        The Kolmogorov-Smirnov distance between the data set and the model distribution.
+    """
+    zz = np.sort(data[data >= xmin])
+    nn = float(len(zz))
+    if nn < 2:
+        return np.inf
+    #cx = np.arange(nn, dtype='float')/float(nn)
+    #cf = 1.0-(zz/xmin)**(1.0-alpha)
+    model_cdf = 1.0-(zz.astype('float')/float(xmin))**(1.0-alpha)
+    data_cdf = np.searchsorted(zz,zz,side='left')/(float(nn))
+
+    ks = max(abs(model_cdf-data_cdf))
+    return ks
+170	<nooutput>
+171	This code defines a function called `enums()` which returns a dictionary that maps schema names to sets of enum values. It does this by iterating over the schemas in the `schemas()` function and for each schema, it iterates over the fields and if the field type is "enum", it adds the values to the set associated with the schema name.
+172	def validate_bands(bands):
+    """"""
+    valid_bands = ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10', 'B11', 'B12', 'BQA']
+    for band in bands:
+        if band not in valid_bands:
+            raise Exception('Invalid band: %s' % band)
+173	This function reads the user's holiday dates, monthly tariffs and schedules, and returns a boolean success flag.
+174	def enrichment_score_tensor(gene_mat, cor_mat, gene_sets, weighted_score_type, nperm,
+                             rs, single, scale):
+    """
+    Compute enrichment scores with gene set permutation
+    
+    Parameters
+    ----------
+    gene_mat : ndarray
+        gene expression matrix
+    cor_mat : ndarray
+        correlation matrix
+    gene_sets : list
+        list of gene sets
+    weighted_score_type : str
+        weighted score type (e.g. 'weighted_zscore', 'weighted_tscore', etc)
+    nperm : int
+        number of gene set permutations
+    rs : RandomState
+        RandomState object
+    single : bool
+        whether to use single gene set or not
+    scale : bool
+        whether to scale the enrichment scores or not
+    
+    Returns
+    -------
+    es : ndarray
+        enrichment scores
+    esnull : ndarray
+        enrichment nulls
+    hit_ind : ndarray
+        hit indices
+    RES : ndarray
+        enrichment significance
+    
+    """
+    
+    gene_sets = list(gene_sets)
+    if single:
+        gene_sets = [
+175	def available_discounts(cls, user, categories, products):
+    discounts = cls.available_discounts(user, categories, products)
+    return discounts
+176	if self.anidata.get("length",self.anidata.get("length",self.anidata.get("frombones.anidata.get("tobones.anidata.get("tobones.anidata("frombones.get("from bones.get("from data.get("frombones.get("from data("from bones.get("from data.get(from bones.from data.get(from data.get(from data.get(from data.get(from bones.get(from bones.get("from bones.get("from b.get(from b.get(from bones.get(from b.get(from b.get(from b.get(from b.get(from b.get("from b("from b("from b("from b("from b("from b is("from b can be is(b is(from b("from b.get(from b.get(b.get(from b.get(from b.get(from b.get(from b.get(from b(from b is returns the output returns the output will returns. The output. The output is()t.
+The output.get(t. The output. The output.
+177	def build_institute(internal_id, display_name, sanger_recipients=None,
+                    coverage_cutoff=None, frequency_cutoff=None):
+    institute_obj = build_institute(internal_id, display_name, sanger_recipients, coverage_cutoff, frequency_cutoff)
+    return institute_obj
+178	def delayed(f):
+    '''
+    '''
+
+    def wrapped(*args, **kwargs):
+        # print "calling", f, "with", kwargs
+        # key_values = kwargs.items()
+        key_promise = list([(key, promisify(value)) for key, value in kwargs.items()])
+        # key_promise = [(key, promisify(value)) for key, value in key_values]
+        arg_promises = list([promisify(value) for value in args])
+        kwarg_promises = list([promise for key, promise in key_promise])
+        promises = arg_promises + kwarg_promises
+        for promise in promises:
+            def echo_error(exc, promise=promise):
+                print("error with ", promise, "exception is", exc)
+                # raise exc
+
+            def echo(value, promise=promise):
+                print("done with ", repr(promise), "value is", value)
+            # promise.then(echo, echo_error)
+
+        # print promises
+        allarguments = aplus.listPromise(*promises)
+
+        def call(_):
+            kwargs_real = {key: promise.get() for key, promise in key_prom
+179	def naverage(wave, indep_min=None, indep_max=None):
+    ret = copy.copy(wave)
+    _bound_waveform(ret, indep_min, indep_max)
+    delta_x = ret._indep_vector[-1] - ret._indep_vector[0]
+    return np.trapz(ret._dep_vector, x=ret._indep_vector) / delta_x
+180	def scoring_history(self):
+    """
+    Returns a DataFrame containing the scoring history of the model.
+    
+    Returns
+    -------
+    DataFrame
+    """
+    model = self._model_json["output"]
+    if "scoring_history" in model and model["scoring_history"] is not None:
+        return model["scoring_history"].as_data_frame()
+181	def parameters(self) -> List['Parameter']:
+    """Returns a list of all parameters in the code.
+
+    :return: A list of :class:`Parameter` objects.
+    """
+    _lststr = self._lststr
+    _type_to_spans = self._type_to_spans
+    return [
+        Parameter(_lststr, _type_to_spans, span, 'Parameter')
+        for span in self._subspans('Parameter')]
+182	This code defines a function called `conditional_entropy` which takes three arguments, `X`, `Y` and `base`. It then calculates the entropy of the joint distribution of `X` and `Y` and subtracts the entropy of `Y` alone to get the conditional entropy.
+183	def main():
+    """
+    Search files using n-grams.
+
+    Parameters:
+    path (str): where to search
+    update (bool): update the index
+    filetype (str): any, images, documents, code, audio, video
+    verbose (int): extended output
+    query (str): what to search
+    results (int): number of results to display
+    """
+    import argparse
+    import Files
+    import Index
+    import Handler
+
+    parser = argparse.ArgumentParser(description="search files using n-grams")
+    parser.add_argument('--path', dest='path', help="where to search", nargs=1, action="store")
+    parser.add_argument('--update', dest='update', help="update the index", action='store_true', default=True)
+    parser.add_argument('--filetype', dest='filetype', help="any, images, documents, code, audio, video", nargs=1, action="store")
+    parser.add_argument('--verbose', dest='verbose', help="extended output", action='store_true', default=False)
+    parser.add_argument('--results', dest='results', help="number of results to display", action="store")
+    args = parser.parse_ar
+184	def size_converter(size):
+    if size.endswith("KB"):
+        return float(size.rstrip("KB")) / 1024
+    elif size.endswith(" B"):
+        return float(size.rstrip("B")) / 1024 / 1024
+    elif size.endswith("MB"):
+        return float(size.rstrip("MB"))
+    elif size.endswith("GB"):
+        return float(size.rstrip("GB")) * 1024
+    elif size.endswith("TB"):
+        return float(size.rstrip("TB")) * 1024 * 1024
+    else:
+        return float(size)
+185	This code wraps the given function with an exception handler that will either return a 200 OK response with the output of the wrapped function or a 500 Internal Server Error response with an 'error' key containing the exception.
+186	def tomography_set(meas_qubits, meas_basis='Pauli',
+                   prep_qubits=None, prep_basis='SIC'):
+    """
+    Performs tomography on a set of qubits.
+    
+    Parameters
+    ----------
+    meas_qubits : list of qubits
+        The qubits to measure.
+    meas_basis : str
+        The basis to measure the qubits in.
+    prep_qubits : list of qubits, optional
+        The qubits to prepare.
+    prep_basis : str, optional
+        The basis to prepare the qubits in.
+    
+    Returns
+    -------
+    tomography : list of tuples
+        The tomography of the qubits.
+    """
+    if prep_qubits is None:
+        prep_qubits = []
+    
+    if meas_qubits is None:
+        meas_qubits = []
+    
+    if meas_basis != 'Pauli':
+        meas_basis = {'X': 0, 'Y': 1, 'Z': 2}
+    
+    if prep_basis != 'SIC':
+        prep_basis = {'X': 0, 'Y': 1, 'Z': 2}
+    
+    tomography 
+187	def annotate_image(request, retry=None, timeout=None):
+    """
+    Annotates an image using the Google Cloud Vision API.
+
+    Args:
+        request (dict): The request to send to the API.
+        retry (int): The number of times to retry the request if it fails.
+        timeout (int): The number of seconds to wait for the request to complete.
+
+    Returns:
+        dict: The response from the API.
+    """
+    client = self.annotator_client
+    self.log.info('Annotating image')
+    response = client.annotate_image(request=request, retry=retry, timeout=timeout)
+    self.log.info('Image annotated')
+    return MessageToDict(response)
+188	This function reads a character from the stream and returns True if it is the end of the stream, or False if it is not. It also saves and restores the context of the stream in order to detect when the end of the stream has been reached.
+189	def buglist(self, from_date=DEFAULT_DATETIME):
+    """
+    Retrieve a list of bugs from the server.
+
+    :param from_date: The date from which to retrieve bugs.
+    :type from_date: datetime.datetime
+    :return: A list of bugs.
+    :rtype: list
+    """
+    if not self.version:
+        self.version = self.__fetch_version()
+
+    if self.version in self.OLD_STYLE_VERSIONS:
+        order = 'Last+Changed'
+    else:
+        order = 'changeddate'
+
+    date = from_date.strftime("%Y-%m-%d %H:%M:%S")
+
+    params = {
+        self.PCHFIELD_FROM: date,
+        self.PCTYPE: self.CTYPE_CSV,
+        self.PLIMIT: self.max_bugs_csv,
+        self.PORDER: order
+    }
+
+    response = self.call(self.CGI_BUGLIST, params)
+
+    return response
+190	This code creates a list of two nodes, where the first node is an IdList containing the second node, which is marked as a bit. The second node's is_bit flag is also updated.
+191	def _line_mode_cell_append(self, lines):
+    """
+    """
+    # Only store the raw input.  Lines beyond the first one are only only
+    # stored for history purposes; for execution the caller will grab the
+    # magic pieces from cell_magic_parts and will assemble the cell body
+    self._store(lines, self._buffer_raw, 'source_raw')
+    self.cell_magic_parts.append(lines)
+    # Find out if the last stored block has a whitespace line as its
+    # last line and also this line is whitespace, case in which we're
+    # done (two contiguous blank lines signal termination).  Note that
+    # the storage logic *enforces* that every stored block is
+    # newline-terminated, so we grab everything but the last character
+    # so we can have the body of the block alone.
+    last_block = self.cell_magic_parts[-1]
+    self._is_complete = last_blank(last_block) and lines.isspace()
+    return self._is_complete
+192	def reduce_in_chunks(fn, iterable, initializer, chunk_size=0):
+    """
+    This function reduces an iterable by applying a function to each chunk of a given size.
+    
+    Arguments:
+    fn -- a function to apply to each chunk
+    iterable -- an iterable to reduce
+    initializer -- an initial value for the reduction
+    chunk_size -- the size of the chunks
+    
+    Returns:
+    A reduced iterable with the results of applying the given function to each chunk of the given size.
+    """
+    if len(iterable) == 0:
+        return initializer
+    if chunk_size == 0:
+        chunk_size = len(iterable)
+    return reduce(fn, chunks(iterable, chunk_size), initializer)
+193	Model fields: {
+    "__name__": "string",
+    "__age__": "integer",
+    "__address__": "string",
+    "__city__": "string",
+    "__state__": "string",
+    "__zip__": "integer"
+}
+
+Fields agregates: {
+    "__name__": {
+        "__first__": "string",
+        "__last__": "string"
+    },
+    "__age__": {
+        "__min__": "integer",
+        "__max__": "integer"
+    },
+    "__address__": {
+        "__street__": "string",
+        "__city__": "string"
+    },
+    "__state__": {
+        "__abbr__": "string"
+    },
+    "__zip__": {
+        "__first__": "integer",
+        "__last__": "integer"
+    }
+194	def registerEventHandlers(self):
+    """
+    Registers event handlers for the player's controls.
+    
+    Attaches a function to the player's crouch/fly down and jump/fly up keys.
+    """
+    self.peng.keybinds.add(self.peng.cfg["controls.controls.crouch"],"peng3d:actor.%s.player.controls.crouch"%self.actor.uuid,self.on_crouch_down,False)
+    self.peng.keybinds.add(self.peng.cfg["controls.controls.jump"],"peng3d:actor.%s.player.controls.jump"%self.actor.uuid,self.on_jump_down,False)
+    pyglet.clock.schedule_interval(self.update,1.0/60)
+195	def expQsds(self, s):
+    return self.v.dot(np.diag(2.0*self._exp_lt(s**2)*self.eigenvals*s).dot(self.v_inv))
+196	def raster(path, size, bandtype=gdal.GDT_Byte):
+    """
+    Create a raster dataset from a given size and bandtype.
+    
+    Parameters
+    ----------
+    path : str
+        The path to the raster dataset.
+    size : tuple
+        The size of the raster dataset.
+    bandtype : int
+        The bandtype of the raster dataset.
+        
+    Returns
+    -------
+    Raster
+        The created raster dataset.
+    """
+    try:
+        is_multiband = len(size) > 2
+        nx, ny, nbands = size if is_multiband else size + (1,)
+    except (TypeError, ValueError) as exc:
+        exc.args = ('Size must be 2 or 3-item sequence',)
+        raise
+    if nx < 1 or ny < 1:
+        raise ValueError('Invalid raster size %s' % (size,))
+    # Do not write to a non-empty file.
+    if not self._is_empty(path):
+        raise IOError('%s already exists, open with Raster()' % path)
+    ds = self.Create(path, nx, ny, nbands, bandt
+197	def kill_kernel(self):
+    """
+    Attempt to kill the kernel if it is running.
+
+    If the kernel is not running, raise a RuntimeError.
+    """
+    if self.has_kernel:
+        # Pause the heart beat channel if it exists.
+        if self._hb_channel is not None:
+            self._hb_channel.pause()
+
+        # Attempt to kill the kernel.
+        try:
+            self.kernel.kill()
+        except OSError, e:
+            # In Windows, we will get an Access Denied error if the process
+            # has already terminated. Ignore it.
+            if sys.platform == 'win32':
+                if e.winerror != 5:
+                    raise
+            # On Unix, we may get an ESRCH error if the process has already
+            # terminated. Ignore it.
+            else:
+                from errno import ESRCH
+                if e.errno != ESRCH:
+                    raise
+        self.kernel = None
+198	def insert_chunk(self, id_):
+    """
+    Inserts a new chunk into the AIFF file.
+
+    :param id_: A four-character ASCII identifier for the chunk.
+    """
+    if not isinstance(id_, text_type):
+        id_ = id_.decode('ascii')
+
+    if not is_valid_chunk_id(id_):
+        raise KeyError("AIFF key must be four ASCII characters.")
+
+    self.seek(self.next_offset)
+    self.write(pack('>4si', id_.ljust(4).encode('ascii'), 0))
+    self.seek(self.next_offset)
+    chunk = IFFChunk(self.fileobj, self.FORM)
+    self.FORM.resize(self.FORM.data_size + chunk.size)
+
+    self.chunks[id_] = chunk
+    self.next_offset = chunk.offset + chunk.size
+199	def BCR(conf_matrix):
+  """
+  Returns the Brier score for a confusion matrix.
+  """
+  parts = []
+  for true_response, guess_dict in conf_matrix.items():
+    error = 0.0
+    total = 0.0
+    for guess, count in guess_dict.items():
+      if true_response != guess:
+        error += count
+      total += count
+    parts.append(error/total)
+  BER = sum(parts)/len(parts)
+  return 1 - BER

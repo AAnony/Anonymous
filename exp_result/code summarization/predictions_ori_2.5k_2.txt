@@ -1,0 +1,2005 @@
+0	Integrating plugins.
+1	"""
+        Returns a list of recent conversations.
+        """
+        return self.recent()
+2	def sgn_prod(p1, p2):
+    phase = Pauli._prod_phase(p1, p2)
+    new_pauli = p1 * p2
+    return new_pauli, phase
+3	import win32api
+import os
+
+if __name__ == '__main__':
+    print(win32api.FindCmd('python'))
+4	def get_data(environment_title_or_num=-1, frequency=None):
+    """
+    Retrieve data from a given environment.
+    
+    Parameters
+    ----------
+    environment_title_or_num : int or str
+        Environment title or environment number.
+    frequency : int
+        Frequency of the data to retrieve.
+        
+    Returns
+    -------
+    pandas.DataFrame
+        Dataframe containing the desired data.
+    """
+    
+    return get_data(environment_title_or_num, frequency)
+
+def get_data(environment_title_or_num=-1, frequency=None):
+    """
+    Retrieve data from a given environment.
+    
+    Parameters
+    ----------
+    environment_title_or_num : int or str
+        Environment title or environment number.
+    frequency : int
+        Frequency of the data to retrieve.
+    
+    Returns
+    -------
+    pandas.DataFrame
+        Dataframe containing the desired data.
+    """
+    
+    if isinstance(environment_title_or_num, int):
+        environment_title = tuple(self._raw_environments.keys())[environment_title_or_num]
+    else:
+        environment_title = environment_title_or_num
+    
+    if environ
+5	def raise_server_error(self):
+    """
+    Raise a ServerError exception if the server has an error.
+    """
+    if self.server and self.server.error:
+        try:
+            if capybara.raise_server_errors:
+                raise self.server.error
+        finally:
+            self.server.reset_error()
+6	def optimal_marginal_branch_length(node, tol=1e-10):
+    '''
+    Compute the optimal marginal branch length for a given node.
+    
+    Parameters
+    ----------
+    node : TreeNode
+        The node to compute the marginal branch length for.
+    tol : float
+        The tolerance for the optimization.
+        
+    Returns
+    -------
+    float
+        The optimal marginal branch length.
+    '''
+    
+    if node.up is None:
+        return self.one_mutation
+    
+    pp, pc = self.marginal_branch_profile(node)
+    return self.gtr.optimal_t_compressed((pp, pc), self.multiplicity, profiles=True, tol=tol)
+7	def get_storage_name(self, names, remove_dir=False):
+    '''
+    '''
+    storage_folder = os.path.dirname(names['storage'])
+    
+    # If the client doesn't have a database, default to PWD
+    if not hasattr(self, 'storage'):
+        return os.path.basename(names['storage'])
+    
+    storage_folder = "%s/%s" %(self.storage, storage_folder)
+    mkdir_p(storage_folder)
+    file_name = names['storage'].replace('/','-')
+    storage_path = "%s/%s" %(self.storage, file_name)
+    if remove_dir is True:
+        return file_name
+    return storage_path
+8	True
+9	return clusters
+10	def check_frame_id(destination_frame):
+    if destination_frame is None:
+        return
+    if isinstance(destination_frame, H2OFrame):
+        return
+    if isinstance(destination_frame, str):
+        destination_frame = H2OFrame(destination_frame)
+    if isinstance(destination_frame, list):
+        destination_frame = H2OFrame(destination_frame)
+    if isinstance(destination_frame, dict):
+        destination_frame = H2OFrame(destination_frame)
+    assert isinstance(destination_frame, H2OFrame)
+11	return self.states[ids]
+12	<nooutput>
+13	def marginal_branch_profile(node):
+    """
+    Compute the marginal branch profile of a given node.
+
+    Parameters
+    ----------
+    node : Node
+        The node to compute the marginal branch profile of.
+
+    Returns
+    -------
+    pp : list
+        The marginal branch profile of the given node.
+    """
+    if node.is_leaf():
+        return [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+14	class AnnotatedMetadata(object):
+    def __init__(self, func, name):
+        self.func = func
+        self.name = name
+        self.annotations = []
+
+    def add_annotation(self, annotation):
+        self.annotations.append(annotation)
+
+    def get_annotations(self):
+        return self.annotations
+15	def call(self, *args, **kwargs):
+    """
+    """
+    return self.environment.call(self, *args, **kwargs)
+16	<nooutput>
+17	def kl_beta_beta(d1, d2):
+  with tf.name_scope("kl_beta_beta"):
+    return _kl_beta_beta(d1, d2)
+18	"""
+    """
+    for ensembl_info in parse_ensembl_gene_request(result):
+        print(ensembl_info)
+19	<nooutput>
+20	def test_good_prefix():
+    prefixes = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8, 'i': 9, 'j': 10}
+    prefix = good_prefix(max_error=0.01, round_length=2, min_prefix='a', max_prefix=None)
+    assert prefix == 'a'
+    prefix = good_prefix(max_error=0.01, round_length=2, min_prefix='b', max_prefix=None)
+    assert prefix == 'b'
+    prefix = good_prefix(max_error=0.01, round_length=2, min_prefix='c', max_prefix=None)
+    assert prefix == 'c'
+    prefix = good_prefix(max_error=0.01, round_length=2, min_prefix='d', max_prefix=None)
+    assert prefix == 'd'
+    prefix = good_prefix(max_error=0.01, round_length=2, min_prefix='e', max_prefix=None)
+    assert prefix == 'e'
+    prefix = good_prefix(max_er
+21	def connection_lost(self, exc):
+    """
+    Called when a worker connection is lost.
+    
+    :param exc: The exception that caused the connection to be lost.
+    :type exc: Exception
+    """
+    self.logger.debug("worker connection lost")
+    self._worker.close()
+    self._workers.remove(self._worker)
+22	def search_parse(self, language_shortname, text, settings):
+    """
+    Parses the given text and returns a list of dates.
+    
+    :param language_shortname: The language of the text
+    :param text: The text to parse
+    :param settings: The settings of the search
+    :return: A list of dates
+    """
+    
+    if language_shortname == 'en':
+        text = text.lower()
+    else:
+        text = text.decode(language_shortname)
+    
+    dates = self.search.search(text, settings)
+    return dates
+23	def _onIncomingMessageReceived(self, conn, message):
+    """
+    Called when a message is received from a connected node.
+    """
+    node = self._connFromNode(conn)
+    self._onNodeConnected(node)
+    self._onMessageReceived(node, message)
+24	<nooutput>
+25	def setPos(self, sx, sy, ex, ey):
+        """
+        Sets the position of the widget
+        """
+        self.widget.pos = [sx, sy]
+        self.widget.size = [ex, ey]
+26	"""
+        Returns a dictionary containing the parameters and their values.
+        """
+        return self.parms
+27	# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Output:
+# Out
+28	return config
+29	def profile_function(self):
+        """"""
+        with _StatProfiler() as prof:
+            result = self._run_object(*self._run_args, **self._run_kwargs)
+
+        call_tree = prof.call_tree
+        return {
+            'objectName': self._object_name,
+            'sampleInterval': _SAMPLE_INTERVAL,
+            'runTime': prof.run_time,
+            'callStats': call_tree,
+            'totalSamples': call_tree.get('sampleCount', 0),
+            'result': result,
+            'timestamp': int(time.time())
+        }
+30	return ensembl_info
+31	def align_end_hierarchies(hier1, hier2, thres=0.5):
+    """
+    """
+    # Make sure we have correctly formatted hierarchies
+    dur_h1 = hier1[0][-1]
+    for hier in hier1:
+        assert hier[-1] == dur_h1, "hier1 is not correctly " \
+            "formatted {} {}".format(hier[-1], dur_h1)
+    dur_h2 = hier2[0][-1]
+    for hier in hier2:
+        assert hier[-1] == dur_h2, "hier2 is not correctly formatted"
+
+    # If durations are different, do nothing
+    if abs(dur_h1 - dur_h2) > thres:
+        return
+
+    # Align h1 with h2
+    for hier in hier1:
+        hier[-1] = dur_h2
+    return hier1
+32	<nooutput>
+33	def object_to_primitive(obj):
+    return json.dumps(obj)
+34	def prune_by_names(self, leaf_names, inverse=False):
+    """
+    Prunes the tree by removing nodes whose name is in the given list of leaf names.
+    
+    Parameters
+    ----------
+    leaf_names : list
+        List of leaf names to keep in the tree.
+    inverse : bool
+        Whether to remove nodes whose name is in the given list or not.
+        
+    Returns
+    -------
+    NodeTree
+        The pruned tree.
+    """
+    if inverse:
+        return self.prune(leaf_names)
+    else:
+        return self.prune([l for l in self.walk() if l.name in leaf_names])
+35	def is_virtual(value):
+    if value is None or isinstance(value, tuple):
+        if len(value) == 2 and isinstance(value[0], Register) and isinstance(value[1], int):
+            return True
+    else:
+        return False
+36	"""
+        Returns the combined credits of a user.
+        """
+        return response.json()
+37	class BackwardPassState:
+  def __init__(self, backward_mean, backward_cov, timestep):
+    self.backward_mean = backward_mean
+    self.backward_cov = backward_cov
+    self.timestep = timestep
+38	<nooutput>
+39	def __resolve_namespaced_symbol(
+    ctx: ParserContext, form: Union[MaybeClass, MaybeHostForm, VarRef]
+) -> Union[MaybeClass, MaybeHostForm, VarRef]:
+    """"""
+    if isinstance(form, sym.Symbol):
+        if form.ns is not None:
+            return form
+        else:
+            return __resolve_bare_symbol(ctx, form)
+    elif isinstance(form, MaybeClass):
+        if form.ns is None:
+            return form
+        else:
+            return __resolve_class(ctx, form.ns, form.name)
+    elif isinstance(form, MaybeHostForm):
+        if form.ns is None:
+            return form
+        else:
+            return __resolve_host(ctx, form.ns, form.name)
+    elif isinstance(form, VarRef):
+        if form.ns is None:
+            return form
+        else:
+            return __resolve_var(ctx, form.ns, form.name)
+40	<nooutput>
+41	def read_word_data(self, addr):
+        """
+        """
+        assert self._device is not None, 'Bus must be opened before operations are made against it!'
+        # Read the data from the device.
+        data = self._device.read(4)
+        return struct.unpack('=BH', data)[0]
+42	"""
+Extracts a set of features from a given dataset or audio file and saves them
+into the 'features' folder of the dataset or the specified single file.
+"""
+
+def process(in_path, out_file=None, n_jobs=4, framesync=False):
+    """
+    Extracts a set of features from a given dataset or audio file and saves
+    them into the 'features' folder of the dataset or the specified single
+    file.
+
+    Parameters
+    ----------
+    in_path : str
+        Path to the dataset or audio file.
+    out_file : str, optional
+        Path to the output file.
+    n_jobs : int, optional
+        Number of jobs (only for collection mode).
+    framesync : bool, optional
+        Use frame-synchronous features.
+    """
+
+    if out_file is None:
+        out_file = os.path.join(os.path.dirname(in_path), 'features')
+
+    if not os.path.isdir(out_file):
+        os.mkdir(out_file)
+
+    if framesync:
+        extract_framesync(in_path, out_file, n_jobs)
+    else:
+        extract_async(in_path, out_fil
+43	<noinput>
+44	return self._server
+45	def guess_type(path, allow_directory):
+    if path.endswith('.ipynb'):
+        return 'notebook'
+    elif allow_directory and self.dir_exists(path):
+        return 'directory'
+    else:
+        return 'file'
+46	def refactor_step(old_text, new_text):
+    return refactor_step(old_text, new_text, 0)
+47	class JobNotCreated(Exception):
+    def __init__(self, message):
+        self.message = message
+    
+    def __str__(self):
+        return self.message
+48	<nooutput>
+49	def midi_to_note(midi):
+    return midi_to_note(midi, octave=True, cents=False)
+50	<nooutput>
+51	<noinput>
+52	def afterContext(self):
+        """
+        """
+        self._mod_stack.pop()
+        return mods
+53	def get_functions(expr):
+    return _get_functions(expr)
+54	<noinput>
+55	"""
+        Execute a list of DML statements in a transaction.
+
+        :param instance_id: The ID of the instance to execute the DML statements on.
+        :param database_id: The ID of the database to execute the DML statements in.
+        :param queries: A list of DML statements to execute.
+        :param project_id: The ID of the project to execute the DML statements in.
+        :return: None
+        """
+        self._get_client(project_id=project_id).instance(instance_id=instance_id).\
+            database(database_id=database_id).run_in_transaction(
+            lambda transaction: self._execute_sql_in_transaction(transaction, queries))
+56	return counts
+57	return o
+58	def ensure_wrappability(fn):
+  return _ensure_wrappability(fn)
+59	<nooutput>
+60	Closing the RPC system.
+61	def recv_sub(self, id_, name, *params):
+    """Subscribes the user to a specific topic.
+
+    :param id_: The ID of the subscription.
+    :param name: The name of the subscription.
+    :param params: The parameters of the subscription.
+    """
+    self.api.sub(id_, name, *params)
+62	def ucd_find(self, ucds, exclude=[]):
+    """
+    Returns a list of column names that match the given regular expression.
+    """
+    if isinstance(ucds, six.string_types):
+        ucds = [ucds]
+    if len(ucds) == 1:
+        ucd = ucds[0]
+        if ucd[0] == "^":  # we want it to start with
+            ucd = ucd[1:]
+            columns = [name for name in self.get_column_names() if self.ucds.get(name, "").startswith(ucd) and name not in exclude]
+        else:
+            columns = [name for name in self.get_column_names() if ucd in self.ucds.get(name, "") and name not in exclude]
+    else:
+        columns = [self.ucd_find([ucd], exclude=exclude) for ucd in ucds]
+    return None if None in columns else columns
+63	Write the default configuration to the given file.
+64	def receiver_blueprints():
+    """ 
+    """
+    blueprints = {
+        'blueprint1': Blueprint('blueprint1', __name__),
+        'blueprint2': Blueprint('blueprint2', __name__)
+    }
+    return blueprints
+65	def list_classes(mname, cls_filter=None):
+    """
+    List all classes in a module.
+    
+    :param mname: The name of the module to list classes from.
+    :param cls_filter: A function that takes a class and returns True if it should be included in the list.
+    :return: A list of classes found in the module.
+    """
+    found = list()
+    module = import_module(mname)
+    if inspect.ismodule(module):
+        for cls in _list_classes(module, cls_filter):
+            if cls_filter(cls):
+                found.append(cls)
+    return found
+66	def _register_stements(statements, default):
+    for statement in statements:
+        default.append(statement)
+    return default
+67	def transpile(experiments,
+                basis_gates=None,
+                coupling_map=None,
+                backend_properties=None,
+                initial_layout=None,
+                seed_transpiler=None,
+                optimization_level=None,
+                backend=None,
+                pass_manager=None,
+                seed_mapper=None,  # deprecated
+                config=None,
+                circuits=None,
+                **run_config):
+    """
+    Transpiles the given circuits to the given backend
+    """
+    if circuits is None:
+        circuits = transpile_circuits(experiments,
+                                     basis_gates=basis_gates,
+                                     coupling_map=coupling_map,
+                                     backend_properties=backend_properties,
+                                     initial_layout=initial_layout,
+                                     seed_transpiler=seed_transpiler,
+                                     optimization_level=optimization_level,
+                                     backend=backend,
+                                     pass_manager=pass_manager,
+                                     seed_mapper=seed_mapper,  # deprecated
+                                     config=config)
+    return circuits
+68	<nooutput>
+69	def count_words(self, filter_preds):
+    '''
+    '''
+    num_words = defaultdict(int)
+    for hit in self._scan():
+        for filter_pred in filter_preds:
+            if filter_pred(did(hit['_id'])):
+                num_words[filter_pred] += len(hit['_source']['words'])
+    return num_words
+70	def _get_gene_set_by_name(self, libname, gene_set_name):
+        """ """
+        genesets_dict = self._download_libraries(libname)
+        if gene_set_name in genesets_dict:
+            return genesets_dict[gene_set_name]
+        else:
+            return None
+71	def get_newline_positions(text):
+  """
+  """
+  pos = []
+  for i, c in enumerate(text):
+    if c == "\n":
+      pos.append(i)
+  return
+72	def read(self, input_buffer):
+        super(ValidationInformation, self).read(input_buffer)
+
+        if self.is_tag_next(enums.Tags.VALIDATION_AUTHORITY_TYPE, input_buffer):
+            validation_authority_type = primitives.Enumeration(
+                enums.ValidationAuthorityType,
+                tag=enums.Tags.VALIDATION_AUTHORITY_TYPE
+            )
+            validation_authority_type.read(input_buffer)
+            self._validation_authority_type = validation_authority_type
+
+        if self.is_tag_next(enums.Tags.VALIDATION_AUTHORITY_COUNTRY, input_buffer):
+            validation_authority_country = primitives.TextString(
+                tag=enums.Tags.VALIDATION_AUTHORITY_COUNTRY
+            )
+            validation_authority_country.read(input_buffer)
+            self._validation_authority_country = validation_authority_country
+
+        if self.is_tag_next(enums.Tags.VALIDATION_VERSION_MAJOR, input_buffer):
+            validation_version_major = primitives.Integer(
+                tag=enums.Tags.VALIDATION_VERSION_M
+73	def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-h', '--help', action='help')
+    parser.add_argument('-v', '--version', action='version')
+    args = parser.parse_args()
+    print(args)
+
+if __name__ == '__main__':
+    main()
+74	"""
+        Returns a list of albums for the given artist.
+
+        Parameters:
+            limit (int): The maximum number of albums to return.
+            offset (int): The index of the first album to return.
+            include_groups (bool): Whether to include group albums.
+            market (str): The market where the albums belong to.
+        """
+        return self.get_albums(limit=limit, offset=offset, include_groups=include_groups, market=market)
+75	return self.url_file
+76	self.load_plugins()
+77	def decode(self, z, layer=None, **kwargs):
+    '''
+    '''
+    key = self._find_output(layer)
+    if key not in self._functions:
+        regs = regularizers.from_kwargs(self, **kwargs)
+        outputs, updates = self.build_graph(regs)
+        self._functions[key] = theano.function(
+            [outputs[key]],
+            [outputs[self.layers[-1].output_name]],
+            updates=updates)
+    return self._functions[key](z)[0]
+78	def hash_token(application, token):
+    return _hash_token(application, token)
+79	<nooutput>
+80	<nooutput>
+81	<nooutput>
+82	GRAPH DOT:
+
+digraph G {
+    node [
+        label = "Godot"
+        style = "filled"
+    ]
+    node [
+        label = "Godot"
+        style = "filled"
+    ]
+    node [
+        label = "Godot"
+        style = "filled"
+    ]
+    node [
+        label = "Godot"
+        style = "filled"
+    ]
+    node [
+        label = "Godot"
+        style = "filled"
+    ]
+}
+
+XDOT DATA:
+
+digraph G {
+    node [
+        label = "Godot"
+        style = "filled"
+    ]
+    node [
+        label = "Godot"
+        style = "filled"
+    ]
+    node [
+        label = "Godot"
+        style = "filled"
+    ]
+    node [
+        label = "Godot"
+        style = "filled"
+    ]
+    node [
+        label = "Godot"
+        style = "filled"
+    ]
+}
+83	def write_entry(self, entry):
+        """
+        Writes an entry to the cache.
+
+        :param entry: The entry to be written.
+        :return: None
+        """
+        file_path = os.path.join(self.EXTRACTION_CACHE_PATH, entry['file_name'])
+        joblib.dump(entry, file_path)
+84	def _make_etree_ns_attr_name(ns, name):
+    if ns is None:
+        return name
+    return '%s:%s' % (ns, name)
+85	# pylint: enable=missing-docstring
+86	This function sends a given data to the server. If the connection is registered, the data is sent immediately. If not, the data is buffered and sent when the connection is registered.
+87	Pipeline(head, funcs=tail)
+88	def initialize_bars(self, sender=None, **kwargs):
+    for bar in self.bars.values():
+        for initializer in bar.initializers:
+            initializer(self)
+89	"""
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+       
+90	class MySplitter(QtGui.QSplitter):
+    def __init__(self, *args, **kwargs):
+        super(MySplitter, self).__init__(*args, **kwargs)
+        self.setOrientation(QtCore.Qt.Horizontal)
+        self.setResizeMode(QtGui.QSplitter.ResizeProportionally)
+
+    def sizeHint(self):
+        return self.widthHint()
+
+    def widthHint(self):
+        return self.sizeHint().width()
+
+    def heightHint(self):
+        return self.sizeHint().height()
+91	chmod(path, mode, recursive=True)
+92	"""
+    """
+
+    def __init__(self):
+        """
+        """
+
+        self.mining = Mining()
+        self.inactive_database = InactiveDatabase()
+        self.auto_continue = AutoContinue()
+        self.percentage = Percentage()
+        self.colorify_logo = ColorifyLogo()
+
+    def reset_counters(self):
+        """
+        """
+
+        self.mining.reset_counters()
+        self.inactive_database.reset_counters()
+        self.auto_continue.reset_counters()
+        self.percentage.reset_counters()
+        self.colorify_logo.reset_counters()
+93	<html>
+    <head>
+    </head>
+    <body>
+    </body>
+</html>
+94	class ConsumerGroupsOperations(object):
+    def __init__(self, client, config, serializer, deserializer):
+        self.client = client
+        self.config = config
+        self.serializer = serializer
+        self.deserializer = deserializer
+95	def fetch_issue_data(self, issue_id):
+    return self.client.issue(issue_id)
+96	def write_confirm(self, prompt, default):
+    """ """
+    self.write(prompt)
+    reply = self.readline('').strip().lower()
+    if reply in ('y', 'yes'):
+        return True
+    elif reply in ('n', 'no'):
+        return False
+    else:
+        self.msg("Please answer y or n.")
+        pass
+97	class SlowTransport(Transport):
+    def deliver(self, sender, receiver, packet, add_delay):
+        to = ConsensusManager.round_timeout
+        assert to > 0
+        print "in slow transport deliver"
+        super(SlowTransport, self).deliver(sender, receiver, packet, add_delay=to)
+98	def disconnect():
+        """"""
+        self.socket.close()
+99	def get_params(self, pnames):
+    """ 
+    """
+    if pnames is None:
+        return self.params
+    else:
+        return self.params[pnames]
+100	return new_pages
+101	def _pack_accumulated(blocked_tuple, dtypes):
+    """"""
+    if len(blocked_tuple) == 0:
+        return blocked_tuple
+    else:
+        return tuple(dtype(x) for x in blocked_tuple)
+102	""""""
+        _LOGGER.info("Closed.")
+103	def cli_get_container_listing(context, path):
+    """
+    Retrieve a listing of objects in a container.
+
+    :param context:
+    :param path:
+    :return:
+    """
+    with context.client_manager.with_client() as client:
+        status, reason, headers, contents = client.get_container(
+            path, query=context.query, cdn=context.cdn)
+        if status // 100 != 2:
+            if status == 404 and context.ignore_404:
+                return
+            if hasattr(contents, 'read'):
+                contents.read()
+            raise ReturnCode('listing container: %s %s' % (status, reason))
+104	def ugettext(message, context=None):
+    """"""
+    stripped = strip_whitespace(message)
+
+    message = add_context(context, stripped) if context else stripped
+
+    ret = django_ugettext(message)
+
+    # If the context isn't found, we need to return the string without it
+    return stripped if ret == message else ret
+105	def read_array(self, name):
+    """
+    Reads an array from the summary file.
+
+    Parameters
+    ----------
+    name : str
+        Name of the array to be read.
+
+    Returns
+    -------
+    array : ndarray
+        The array read from the summary file.
+    """
+    f = self.file
+    scs = self.summary_control_struct
+
+    record_number = self.bward
+    data = bytearray(self.read_record(record_number))
+    next_record, previous_record, n_summaries = scs.unpack(data[:24])
+
+    if n_summaries < self.summaries_per_record:
+        summary_record = record_number
+        name_record = summary_record + 1
+        data[:24] = scs.pack(next_record, previous_record, n_summaries + 1)
+        self.write_record(summary_record, data)
+    else:
+        summary_record = ((self.free - 1) * 8 + 1023) // 1024 + 1
+        name_record = summary_record + 1
+        data[:24] = scs.pack(summary_re
+106	def lookup(self, key):
+    """
+    Lookup a key in a hash table.
+    
+    Parameters
+    ----------
+    key : bytes
+        The key to lookup.
+    
+    Returns
+    -------
+    int
+        The value associated with the key, or -1 if not found.
+    """
+    return self._lookup(key)
+107	import_module(mname)
+108	def attr(ob, *args, **kwargs):
+    return wrap_ob(ob)(*args, **kwargs)
+109	def write_fcs(filename, chn_names, data,
+                endianness="big",
+                compat_chn_names=True,
+                compat_copy=True,
+                compat_percent=True,
+                compat_max_int16=10000):
+    """
+    Write a Flexible Character Set (FCS) file.
+
+    Parameters
+    ----------
+    filename : str
+        The name of the file to write to.
+    chn_names : list
+        The names of the channels in the data.
+    data : ndarray
+        The data to write.
+    endianness : str
+        The endianness of the data.
+    compat_chn_names : bool
+        Whether to use compatibility mode for channel names.
+    compat_copy : bool
+        Whether to copy the data if requested.
+    compat_percent : bool
+        Whether to scale values between 0 and 1 to percent.
+    compat_max_int16 : int
+        The maximum value of int16.
+
+    Returns
+    -------
+    None
+    """
+    write_fcs(filename, chn_names, data, endianness="big",
+              compat_chn_names=compat_chn_names,
+              compat_copy=compat_c
+110	def _find_link(from_instance, to_instance, rel_id, phrase):
+    if from_instance is to_instance:
+        raise RelateException(from_instance, to_instance, rel_id, phrase)
+    
+    ass = Relation(from_instance, to_instance, rel_id, phrase)
+    ass.source_link.connect(from_instance, to_instance)
+    ass.target_link.connect(to_instance, from_instance)
+    return ass
+111	class C(cls):
+    pass
+    C.__module__ = module
+    C.__name__ = cls.__name__
+    return C
+112	def build_class(self, callable_, args):
+    """
+    Build a class from the given callable and arguments.
+    
+    Parameters
+    ----------
+    callable_ : callable
+        The callable to be built as a class.
+    args : list
+        The arguments to be passed to the callable.
+    
+    Returns
+    -------
+    Callable
+        The built class.
+    """
+    return self.build_class_from_code(callable_, args)
+113	Create a new class event node.
+114	return -b.log_prob(a.loc)
+115	class Spinner:
+    def __init__(self, interval=1):
+        self._stop_spinning = threading.Event()
+        self._spin = threading.Thread(target=self.spin)
+        self._spin.start()
+
+    def spin(self):
+        while not self._stop_spinning.is_set():
+            print('Spinning...')
+            time.sleep(1)
+116	def loadFromArray(dtype: HdlType, bitAddr: int) -> int:
+    """
+    Load data from an array.
+    
+    Parameters
+    ----------
+    dtype : HdlType
+        The data type of the array.
+    bitAddr : int
+        The bit address of the array.
+    
+    Returns
+    -------
+    int
+        The value at the bit address.
+    """
+    return TransTmpl(dtype).loadFromArray(bitAddr)
+117	def is_time_older():
+    """
+    Returns True if the current time is older than the expiration date.
+    """
+    return is_time_older(self)
+118	def _get_client_creds_from_request(self, request):
+        client_id = request.get('client_id', None)
+        client_secret = request.get('client_secret', None)
+        return client_id, client_secret
+119	<noinput>
+120	def subsample_osw(infile, outfile, subsample_ratio, test):
+    """
+    Subsamples a given file by a given ratio.
+    
+    Parameters
+    ----------
+    infile : str
+        The input file.
+    outfile : str
+        The output file.
+    subsample_ratio : int
+        The subsample ratio.
+    test : bool
+        Whether to test the output file.
+    
+    Returns
+    -------
+    None
+    """
+    
+    with open(infile, 'r') as fin, open(outfile, 'w') as fout:
+        for line in fin:
+            if test:
+                fout.write(line)
+            else:
+                subsample(line, subsample_ratio)
+                fout.write(line)
+121	<nooutput>
+122	{"username": "enedis",
+ "password": "password",
+ "data": [
+     {
+         "id": 1,
+         "name": "John Doe",
+         "age": 25
+     },
+     {
+         "id": 2,
+         "name": "Jane Doe",
+         "age": 27
+     }
+ ]}
+123	return response.json()
+124	print(msg % args)
+125	# pylint: enable=too-many-branches
+126	"""
+        Returns the 3D coordinate of the point.
+        """
+        return self._context.get_coord(self)
+127	def is_known_type(self, type_name):
+        """
+        """
+
+        type_name = str(type_name)
+        if type_name in self.known_types:
+            return True
+
+        return False
+128	<noinput>
+129	"""
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+   
+130	def _get_field(kernel_results, field_name):
+  """"""
+  if hasattr(kernel_results, field_name):
+    return getattr(kernel_results, field_name)
+  if hasattr(kernel_results, 'accepted_results'):
+    return getattr(kernel_results.accepted_results, field_name)
+  raise TypeError('Cannot extract %s from %s' % (field_name, kernel_results))
+131	def diagonal_filter(window, n, slope=1.0, angle=None, zero_mean=False):
+    '''
+    '''
+
+    if angle is None:
+        angle = np.arctan(slope)
+
+    win = np.diag(get_window(window, n, fftbins=False))
+
+    if not np.isclose(angle, np.pi/4):
+        win = scipy.ndimage.rotate(win, 45 - angle * 180 / np.pi,
+                                   order=5, prefilter=False)
+
+    np.clip(win, 0, None, out=win)
+    win /= win.sum()
+
+    if zero_mean:
+        win -= win.mean()
+
+    return win
+132	def verify_md5(i_content_md5, data, other_errors):
+    """
+    Verifies the md5 of the data against the expected value.
+
+    :param i_content_md5: The md5 of the data as a string.
+    :param data: The data to verify.
+    :param other_errors: Any other errors that may have occurred.
+    :return: True if the md5s match, False if they don't.
+    """
+    expected_md5 = hashlib.md5(i_content_md5).hexdigest()
+    if expected_md5 != data:
+        if other_errors:
+            other_errors.append('MD5 mismatch: expected "%s", got "%s"' % (expected_md5, data))
+        else:
+            return False
+    return True
+133	# Output:
+# {'AIRFLOW_CONTEXT_DAG_ID': None,
+#  'AIRFLOW_CONTEXT_TASK_ID': None,
+#  'AIRFLOW_CONTEXT_EXECUTION_DATE': None,
+#  'AIRFLOW_CONTEXT_DAG_RUN_ID': None}
+134	def blocking(indices, block_size):
+    return blocking(indices, block_size, 0)
+135	"""
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+       
+136	def syncState(self, method, url, params={}, **kwargs):
+    """
+    Synchronize the given URL with the given parameters.
+    
+    :param method: The HTTP method to use for the request.
+    :param url: The URL to synchronize.
+    :param params: The parameters to send with the request.
+    :param kwargs: Any other parameters to send with the request.
+    :return: The response from the request.
+    """
+    return self.syncStateCall(method, url, params, **kwargs)
+137	class BotoInstance(object):
+    def __init__(self, name, private_ip, public_ip, instance_type, instance_id, hostname, stack_id, stack_name, logical_id, security_groups, launch_time, ami_id, tags):
+        self.name = name
+        self.private_ip = private_ip
+        self.public_ip = public_ip
+        self.instance_type = instance_type
+        self.instance_id = instance_id
+        self.hostname = hostname
+        self.stack_id = stack_id
+        self.stack_name = stack_name
+        self.logical_id = logical_id
+        self.security_groups = security_groups
+        self.launch_time = launch_time
+        self.ami_id = ami_id
+        self.tags = tags
+138	def adapter(data, headers, **kwargs):
+    """"""
+    for row in chain((headers,), data):
+        yield "\t".join((replace(r, (('\n', r'\n'), ('\t', r'\t')) for r in row))).strip()
+139	"""
+        Shuffles the playback state of the device.
+
+        Parameters
+        ----------
+        state : Optional[bool]
+            Whether or not to shuffle the playback state.
+        device : Optional[SomeDevice]
+            The device to shuffle.
+        """
+        await self.__user.http.shuffle_playback(state, device)
+140	def update_clinvar_submission(self, submission_id, submission_objects):
+    """
+    Updates a clinvar submission
+    """
+    updated_submission = self.clinvar_submission_collection.find_one_and_update( {'_id':submission_id}, { '$set' : {'updated_at': datetime.now()} }, return_document=pymongo.ReturnDocument.AFTER )
+    return updated_submission
+141	char_to_length = calculate_character_to_length_mapping(text_measurer, characters)
+142	def get_dirname(self, path):
+    '''
+    '''
+    if path[-1] == PATH_SEP:
+      path = path[:-1]
+    return os.path.dirname(path)
+143	<nooutput>
+144	<nooutput>
+145	def get_pid_list():
+    """
+    Returns a list of PIDs of all running processes.
+    """
+    return list(map(os.getpid, list(map(os.getppid, list(map(os.getpid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, list(map(os.getppid, l
+146	def update_path(board, color, path):
+    """ Updates the score of each node in the given path with the given color.
+
+    :param board: A Board instance.
+    :param color: A color.
+    :param path: A list of nodes.
+    """
+    wins = board.score(color) >= board.score(other_color)
+    for node in path:
+        if color == BLACK:
+            color = WHITE
+        else:
+            color = BLACK
+        if wins == (color == BLACK):
+            node.wins += 1
+        else:
+            node.losses += 1
+        if node.parent:
+            node.parent.bestchild = node.parent.best_child()
+147	def get_ids(self, features, threshold=0.0, func=np.sum, get_weights=False):
+        """ 
+        """
+        if isinstance(features, str):
+            features = [features]
+        features = self.search_features(features)  # Expand wild cards
+        feature_weights = self.data.ix[:, features]
+        weights = feature_weights.apply(func, 1)
+        above_thresh = weights[weights >= threshold]
+        # ids_to_keep = self.ids[above_thresh]
+        return above_thresh if get_weights else list(above_thresh.index)
+148	def _serialize(self, object):
+        """This function serializes an object into a stream of bytes.
+
+        :param object: The object to be serialized.
+        :return: A stream of bytes containing the serialized object.
+        """
+        raise NotImplementedError()
+149	def metadata_updated_on(item):
+    return item[MBox.DATE_FIELD].timestamp()
+150	<nooutput>
+151	def get_filtered_root_folder(self):
+    """"""
+    return os.path.join(self.name, VERSATILEIMAGEFIELD_FILTERED_DIRNAME, '')
+152	True
+153	<noinput>
+154	class CronJob(models.Model):
+    schedule = models.CharField(max_length=10)
+    last_run = models.DateTimeField(auto_now_add=True)
+    wait_for_schedule = models.BooleanField(default=False)
+    next_run = models.DateTimeField(null=True)
+155	def physical_qubits(self):
+    """
+    Returns a list of physical qubits associated with the given graph.
+    """
+    if self._qubit_list is None:
+        self._qubit_list = sorted([pqubit for pqubit in self.graph.nodes])
+    return self._qubit_list
+156	def get_pipeline(self, pipeline_name):
+    '''
+    Gets a pipeline by name
+    '''
+    if pipeline_name in self.pipeline_dict:
+        return self.pipeline_dict[pipeline_name]
+    else:
+        return None
+157	class CreditNote(models.Model):
+    invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    reference = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.reference
+158	Prepare initializes and activates the proxy.
+159	def sitetree_treeNode(tree_alias, use_template):
+    """
+    """
+    if use_template:
+        return TemplateNode(tree_alias)
+    else:
+        return Node(tree_alias)
+160	def main():
+    args = ["https://www.example.com/video.mp4"]
+    youtube_downloader = YouTubeDownloader()
+    for arg in args:
+        youtube_downloader.download(arg)
+
+if __name__ == "__main__":
+    main()
+161	def check_config(config):
+    global static_stages
+    if static_stages is None:
+        static_stages = PipelineStages()
+        stages = static_stages
+        if 'external_stages_path' in config:
+            path = config['external_stages_path']
+            if not os.path.isabs(path) and config.get('root_path'):
+                path = os.path.join(config['root_path'], path)
+            try:
+                stages.load_external_stages(config['external_stages_path'])
+            except IOError:
+                return streamcorpus_pipeline  # let check_config re-raise this
+        if 'external_stages_modules' in config:
+            for mod in config['external_stages_modules']:
+                try:
+                    stages.load_module_stages(mod)
+                except ImportError:
+                    return streamcorpus_pipeline  # let check_config re-raise this
+162	def p_function_call(p):
+    """
+    """
+    if p[1] in ('node', 'text'):
+        p[0] = ast.NodeType(p[1])
+    else:
+        p[0] = ast.FunctionCall(p[1], p[2])
+163	def parse_omim_line(line, header):
+    """"""
+    fields = line.split()
+    if len(fields) != len(header):
+        return None
+    else:
+        return {'fields': fields, 'header': header}
+164	def resize_thumbnail(image, size, resample=Image.LANCZOS):
+    """
+    Resizes an image to the specified size, using the specified resampling algorithm.
+    
+    Arguments:
+    image -- The image to resize.
+    size -- The size to resize to.
+    resample -- The resampling algorithm to use.
+    
+    Returns:
+    The resized image.
+    """
+    
+    return resize(image, size, resample)
+165	True
+166	def threaded_quit(arg):
+    threading.enumerate()
+    mythread = threading.currentThread()
+    for t in threading.enumerate():
+        if t != mythread:
+            ctype_async_raise(t, Mexcept.DebuggerQuit)
+    raise Mexcept.DebuggerQuit
+167	def _valid_group_id(self, group_id):
+        if not group_id:
+            return False
+        else:
+            return True
+168	def test_apply_parallel():
+    data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    result = apply_parallel(lambda x: x * x, data)
+    assert result == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+169	<nooutput>
+170	<nooutput>
+171	def main():
+    parser = argparse.ArgumentParser()
+    cls.add_arguments(parser)
+    args = parser.parse_args()
+    print(args)
+172	from las3 import from_descriptions
+
+if __name__ == '__main__':
+    print(from_descriptions("""
+        This is a test
+        ~~This is a test~~
+        ~~This is a test~~
+        ~~This is a test~~
+    """, lexicon=None, source="LAS", dlm=',', abbreviations=False))
+173	<nooutput>
+174	"""
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+        """
+       
+175	substring_after("Hello World", "World") -> "Hello"
+176	def assoc(m, k1, k2):
+    """"""
+    if m is None:
+        return lmap.Map.empty().assoc(k1, k2)
+    if isinstance(m, IAssociative):
+        return m.assoc(k1, k2)
+    raise TypeError(
+        f"Object of type {type(m)} does not implement Associative interface"
+    )
+177	def win32_clipboard_set(text):
+    """ 
+    """
+    try:
+        import win32clipboard
+    except ImportError:
+        raise TryNext("Setting text to the clipboard requires the pywin32 "
+                      "extensions: http://sourceforge.net/projects/pywin32/")
+    win32clipboard.OpenClipboard()
+    win32clipboard.SetClipboardData(win32clipboard.CF_TEXT, text)
+    win32clipboard.CloseClipboard()
+178	def fillna(self, value, fill_nan=True, fill_masked=True, column_names=None, prefix='__original_'):
+    '''
+    Fills missing values in a DataFrame with a given value.
+    
+    Parameters
+    ----------
+    value : scalar or list-like
+        Value to fill missing values with.
+    fill_nan : bool, default True
+        Fill missing values with this value if True.
+    fill_masked : bool, default True
+        Fill missing values with a masked value if True.
+    column_names : list, default None
+        List of column names to fill.
+    prefix : str, default '__original__'
+        Prefix to add to column names.
+    
+    Returns
+    -------
+    DataFrame
+        DataFrame with filled missing values.
+    '''
+    return self.fillna(value, fill_nan=fill_nan, fill_masked=fill_masked, column_names=column_names, prefix=prefix)
+179	def intern(
+        ns: sym.Symbol, name: sym.Symbol, val: Any, dynamic: bool = False, meta: Any = None
+    ) -> "Var":
+        """"""
+        var_ns = Namespace.get_or_create(ns)
+        var = var_ns.intern(name, Var(var_ns, name, dynamic=dynamic, meta=meta))
+        var.root = val
+        return var
+180	def run_line_magic(self, magic_name, line):
+    """
+    Run a line magic function.
+    
+    Parameters
+    ----------
+    magic_name : str
+        The name of the line magic to run.
+    line : str
+        The line of code to execute.
+
+    Returns
+    -------
+    result : Any
+        The result of running the line magic.
+    """
+    return self.run_magic(magic_name, line)
+181	class PulseError(Exception):
+    pass
+182	<nooutput>
+183	def plot_traces(self, analytes=None, samples=None, ranges=False,
+                    focus=None, outdir=None, filt=None, scale='log',
+                    figsize=[10, 4], stats=False, stat='nanmean',
+                    err='nanstd', subset='All_Analyses'):
+        """
+        """
+        if focus is None:
+            focus = self.focus_stage
+        if outdir is None:
+            outdir = self.report_dir + '/' + focus
+        if not os.path.isdir(outdir):
+            os.mkdir(outdir)
+
+        # if samples is not None:
+        #     subset = self.make_subset(samples)
+
+        if subset is not None:
+            samples = self._get_samples(subset)
+        elif samples is None:
+            samples = self.subsets['All_Analyses']
+        elif isinstance(samples, str):
+            samples = [samples]
+        
+        with self.pbar.set(total=len(samples), desc='Drawing Plots') as prog:
+            for s in samples:
+                f, a = self.data[s].tplot(analytes=analytes, figsize=figsize,
+                                        sc
+184	data = {
+            'field1': 'value1',
+            'field2': 'value2',
+            'field3': 'value3'
+        }
+185	print('Welcome to GPT Model Tasks!')
+186	def configure_profile(msg_type, profile_name, data, auth):
+    """
+    
+    """
+    with jsonconfig.Config("messages", indent=4) as cfg:
+        write_data(msg_type, profile_name, data, cfg)
+        write_auth(msg_type, profile_name, auth, cfg)
+
+    print("[+] Configuration entry for <" + profile_name + "> created.")
+    print("[+] Configuration file location: " + cfg.filename)
+187	def format_metric_string(m_name, value, m_type):
+    """"""
+
+    if m_type == 'gauge':
+        return '%s gauge: %s' % (m_name, value)
+    elif m_type == 'counter':
+        return '%s counter: %s' % (m_name, value)
+    elif m_type == 'set':
+        return '%s set: %s' % (m_name, value)
+    elif m_type == 'list':
+        return '%s list: %s' % (m_name, value)
+188	This function executes a query and returns the last inserted id.
+189	print(list_attributes(MyClass))
+190	self._framesync_times = librosa.core.frames_to_time(
+    np.arange(self._framesync_features.shape[0]), self.sr, self.hop_length)
+191	def unique_items(seq):
+    seen = set()
+    for x in seq:
+        if x not in seen:
+            seen.add(x)
+    return seen
+192	Registering with the boss.
+193	return tf.identity(target_accept_prob)
+194	"""
+        Returns a dictionary containing the parameters of the model.
+        """
+        return self.get_params()
+195	<nooutput>
+196	def f_load_child(self, name, recursive=False, load_data=pypetconstants.LOAD_DATA,
+                     max_depth=None):
+    """
+    Loads a child node from the given name.
+
+    Parameters
+    ----------
+    name : str
+        The name of the child node to load.
+    recursive : bool
+        Whether to recursively load the child node or not.
+    load_data : bool
+        Whether to load the data of the child node or not.
+    max_depth : int
+        The maximum depth of the tree to be loaded.
+
+    Returns
+    -------
+    Node
+        The loaded child node.
+    """
+    traj = self._nn_interface._root_instance
+    storage_service = traj.v_storage_service
+    return storage_service.load(pypetconstants.TREE, self, name,
+                                trajectory_name=traj.v_name,
+                                load_data=load_data, recursive=recursive,
+                                max_depth=max_depth)
+197	def userselect_block(blocks, default=None, debug=False):
+    """"""
+    print("Blocks found in assembly file:")
+    print("      block     | OPs | pck. | AVX || Registers |    ZMM   |    YMM   |    XMM   |    GP   ||ptr.inc|\n"
+          "----------------+-----+------+-----++-----------+----------+----------+----------+---------++-------|")
+    for idx, b in blocks:
+        print('{:>2} {b[labels]!r:>12} | {b[ops]:>3} | {b[packed_instr]:>4} | {b[avx_instr]:>3} |'
+              '| {b[regs][0]:>3} ({b[regs][1]:>3}) | {b[ZMM][0]:>3} ({b[ZMM][1]:>2}) | '
+              '{b[YMM][0]:>3} ({b[YMM][1]:>2}) | '
+              '{b[XMM][0]:>3} ({b[XMM][1]:>2}) | {b[GP][0]:>2} ({b[GP][1]:>2}) || '
+              '{b[poi
+198	def to_scientific_tuple(number):
+    mant, exp = number.split("e")
+    return mant, int(exp)
+199	"""
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+    """
+   

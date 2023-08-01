@@ -1,0 +1,722 @@
+0	Integrate plugins.
+1	Retrieve recent conversations.
+2	Calculate the sign of the product of two Pauli operators.
+3	Return the full path to the executable.
+4	Retrieve data from a given environment.
+
+        Parameters
+        ----------
+        environment_title_or_num : int or str
+            Environment title or environment num.
+        frequency : int
+            Environment frequency.
+
+        Returns
+        -------
+        pandas.DataFrame
+            Dataframe containing environment data.
+5	Raises a ServerError if the server is not None and an error has been set.
+6	Calculate the optimal marginal branch length.
+7	Retrieve the storage name.
+
+    Parameters
+    ----------
+    names : dict
+        Dictionary containing the storage name.
+
+    Returns
+    -------
+    str
+        The storage name.
+8	Return True if intervals are valid.
+9	End of cluster function
+10	Upload a file to H2O.
+
+    Parameters
+    ----------
+    path : str
+        The path of the file to upload.
+    destination_frame : str, optional
+        The destination frame in H2O.
+    header : int, optional
+        The number of columns in the destination frame.
+    sep : str, optional
+        The separator between columns in the file.
+    col_names : list, optional
+        The names of the columns in the destination frame.
+    col_types : list, optional
+        The types of the columns in the destination frame.
+    na_strings : list, optional
+        The names of the columns with missing values in the destination frame.
+    skipped_columns : list, optional
+        The names of the columns to be skipped in the destination frame.
+
+    Returns
+    -------
+    H2OFrame
+        The destination frame in H2O.
+11	Add a state to the state machine.
+12	Returns the empirical statistics of a time series.
+13	Calculate the branch-site mutation matrix.
+
+        Parameters
+        ----------
+        node : Node
+            The node to calculate the branch-site mutation matrix from.
+
+        Returns
+        -------
+        mut_matrix : ndarray
+            The branch-site mutation matrix.
+14	Decorate a function with annotations.
+15	Call the object's __call__() method.
+16	Write the revocation reason to the output stream.
+17	Returns the KL divergence between two distributions.
+18	Parses Ensembl gene information from the request.
+19	Save a Nifti1 image from numpy data.
+20	Returns prefix with minimal error.
+21	Called when a worker connection is lost.
+22	Search for dates.
+23	Called when a message is received from a connection.
+24	Writes a table to the output stream.
+25	Returns sx,sy,ex,ey
+26	Retrieve the parameters from the model.
+27	Given a list of qubits and a list of instructions, this function will
+        create a visualization of the circuit.
+
+        Parameters
+        ----------
+        qubits : list
+            The list of qubits to visualize.
+        instructions : list
+            The list of instructions to visualize.
+
+        Returns
+        -------
+        Visualization
+            The visualization of the circuit.
+28	Convert boolean value from config file
+29	Profile the execution of the object.
+30	def parse_ensembl_line(line, header):
+    ensembl_info = parse_ensembl_line(line, header)
+    return ensembl_info
+31	Align end of hierarchies
+32	Save a local file.
+33	Returns a primitive representation of an object.
+34	Removes nodes from the tree that have names in leaf_names.
+35	Return True if the value is a virtual register.
+36	Retrieve combined credits.
+37	Run a single step of backward smoothing.
+38	Calculate the quantiles of a H2OFrame.
+
+        Parameters
+        ----------
+        prob : list
+            List of probabilities (0.01, 0.1, 0.25, 0.333, 0.5, 0.667, 0.75, 0.9, 0.99)
+
+        Returns
+        -------
+        H2OFrame
+39	Resolve a symbol in the given context.
+
+    :param ParserContext ctx:
+    :param sym.Symbol form:
+    :return: Union[MaybeClass, MaybeHostForm, VarRef]
+40	Print the given figure.
+41	Write a single word to the device.
+42	Extracts a set of features from a given dataset or audio file and
+    saves them into the 'features' folder of the dataset or the specified
+    single file.
+43	Show about dialog.
+44	Create a server.
+45	Guesses the type of the given path.
+46	Refactors the given step node.
+
+        :param old_text: The old text of the step node.
+        :param new_text: The new text of the step node.
+        :param move_param_from_idx: The index of the param to move.
+        :return: The diffs of refactoring the step node.
+        :rtype: list
+        """
+        return self._refactor_step(old_text, new_text, move_param_from_idx)
+
+    def _refactor_step(self, old_text, new_text, move_param_from_idx):
+        """
+        Refactors the given step node.
+
+        :param old_text: The old text of the step node.
+        :param new_text: The new text of the step node.
+        :param move_param_from_idx: The index of the param to move.
+        :return: The diffs of refactoring the step node.
+        :rtype: list
+        """
+        diffs = []
+        step, func = self._find_step_node(old_text)
+        if step is None:
+            return diffs
+        step_diff = self._refactor_step_text(step, old_text, new_text)
+        diffs.append(
+47	Create a new job on lunapark.
+
+        :param task: The task to be executed.
+        :param person: The person who created the job.
+        :param tank: The tank where the job will be executed.
+        :param target_host: The target host of the job.
+        :param target_port: The target port of the job.
+        :param loadscheme: The loadscheme of the job.
+        :param detailed_time: The detailed time of the job.
+        :param notify_list: The notify list of the job.
+        :param trace: The trace of the job.
+48	This function adds the parameters to the trajectory.
+49	Convert MIDI note number to musical note.
+50	Concatenate video files.
+
+    Parameters
+    ----------
+    video_list : list
+        Video files to be concatenated.
+    out_file : str
+        Output file.
+    vcodec : str
+        Video codec.
+    acodec : str
+        Audio codec.
+    log_level : str
+        Log level.
+    print_cmd : bool
+        Print command line.
+51	Create a secret link to the record.
+
+    :param request: The request object.
+    :param message: The message to be included in the secret link.
+    :param expires_at: The expiration time of the secret link.
+    :return: None.
+52	Push the current module onto the module stack.
+53	Returns a list of tuples with the following format:
+
+    (fname, start, stop) = _get_functions(expr, ldelim="(")
+    (fname, start, stop) = _get_functions(expr, ldelim="(")
+    (fname, start, stop) = _get_functions(expr, ldelim="(")
+    (fname, start, stop) = _get_functions(expr, ldelim="(")
+    (fname, start, stop) = _get_functions(expr, ldelim="(")
+    (fname, start, stop) = _get_functions(expr, ldelim="(")
+    (fname, start, stop) = _get_functions(expr, ldelim="(")
+    (fname, start, stop) = _get_functions(expr, ldelim="(")
+    (fname, start, stop) = _get_functions(expr, ldelim="(")
+    (fname, start, stop) = _get_functions(expr, ldelim="(")
+    (fname, start, stop) = _get_functions(expr, ldelim="(")
+    (fname, start, stop) = _get_functions(expr, ldelim
+54	Create a MIMEText object from a string.
+55	Execute DML statements in a transaction.
+56	def histogram(x,
+              edges,
+              axis=None,
+              extend_lower_interval=False,
+              extend_upper_interval=False,
+              dtype=None,
+              name=None):
+  """Computes the histogram of `x`.
+
+  Args:
+    x: A `Tensor` of type `float32` or `float64`.
+    edges: A `Tensor` of type `float32` or `float64`.
+    axis: A `Tensor` of type `int32` or `int64`.
+    extend_lower_interval: A `bool`.
+    extend_upper_interval: A `bool`.
+57	Checks if an object is of an acceptable type.
+
+    :param o:
+        The object to check.
+    :param acceptable_types:
+        The acceptable types.
+    :param may_be_none:
+        If `o` may be `None`.
+58	Returns a decorator that wraps the given function.
+
+  Args:
+    fn: The function to wrap.
+
+  Returns:
+    A decorator that wraps the given function.
+59	Write data to output file.
+60	Closes the rpc system.
+61	Send a subscribe request to the API.
+62	Given a list of UCDs, return a list of columns that match the UCDs.
+63	Write the default config file.
+64	Register blueprints.
+65	Retrieve a list of classes from a module.
+66	Register a default statement.
+
+        Parameters
+        ----------
+        statements : list
+            Statements to be registered.
+67	Run the given circuits on the given backend
+
+    Parameters
+    ----------
+    experiments : list
+        The circuits to be run on the backend
+    backend : :class:`qiskit.backends.Backend`
+        The backend to run the circuits on
+    qobj_id : str
+        The id of the qobj to be run
+    qobj_header : :class:`qiskit.qobj.QobjHeader`
+        The qobj header to be run
+    shots : int
+        The number of shots to be run
+    memory : bool
+        Whether to use memory or not
+    max_credits : int
+        The maximum number of credits to be used
+    seed_simulator : :class:`qiskit.backends.SeedSimulator`
+        The seed simulator to use
+    default_qubit_los : :class:`qiskit.backends.DefaultQubitLosses`
+        The default qubit losses
+    default_meas_los : :class:`qiskit.backends.DefaultMeasurementLosses`
+        The default measurement losses
+    schedule_los : :class:`qiskit.backends.ScheduleLosses`
+        The schedule losses
+    meas_level : int
+        The measurement level
+    meas_re
+68	<nooutput>
+69	Given a list of filter predicates, count the number of bytes for each
+        predicate.
+70	Download and generate Enrichr library gene sets.
+71	Returns a list of newline positions in the text.
+72	def is_oversized(self, local_buffer):
+        """
+        Checks if the response is oversized.
+
+        :param local_buffer: The local buffer.
+        :return: True if oversized, False otherwise.
+        :rtype: bool
+        """
+        if self.is_tag_next(enums.Tags.OVERSIZED, local_buffer):
+            return True
+        return False
+73	Create a context from the given args.
+74	Returns a list of :class:`.Album` objects.
+75	Find the actual controller key file.
+76	Return a list of plugins.
+77	Decode the output of the model.
+78	Generate a unique token for the given application.
+
+    :param application:
+    :param token:
+    :return:
+    :rtype:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :ret
+79	Change the deployment configuration.
+80	Reverse the kl divergence.
+81	Pre-draws the layer.
+82	Add a node to the graph.
+83	Reads an entry from the cache.
+84	Retrieve rule from feed entry.
+
+    :param entry_element:
+    :return: Rule
+    :rtype: Rule
+85	Calculate the Shannon entropy of a probability vector.
+86	Send data to the client.
+87	Create a pipeline of functions.
+88	Initializes all bars.
+89	Remove a task from the registry.
+90	Returns the size hint of the control.
+91	chmod(path, mode, recursive=True)
+92	The file decision.
+
+        """
+
+        if (
+            status
+            and not PyFunceble.CONFIGURATION["simple"]
+            and PyFunceble.INTERN["file_to_test"]
+        ):
+            # * The status is given.
+            # and
+            # * The simple mode is deactivated.
+            # and
+            # * A file to test is set.
+
+            # We run the mining logic.
+            self.mining.process()
+
+            # We delete the currently tested element from the mining
+            # database.
+            # Indeed, as it is tested, it is already in our
+            # testing process which means that we don't need it into
+            # the mining database.
+            self.mining.remove()
+
+            if (
+                status.lower() in PyFunceble.STATUS["list"]["up"]
+                or status.lower() in PyFunceble.STATUS["list"]["valid"]
+            ):
+                # The status is in the list of up status.
+
+                if self.inactive_database.is_present():
+                    # The currently tested element is in the database.
+
+                    # We generate the suspicious file(s).
+                    Generate(PyFunceble.STATUS["official"]["up"]).
+93	Return the value of the element.
+94	Create a consumer group.
+95	Fetch issue data from Github.
+96	Confirm user input.
+97	Deliver the packet to the receiver.
+98	Connect to the server.
+99	Calculate errors for parameters.
+100	Replace the old pages with the new ones.
+101	Return a generator that yields tuples of accumulated values
+
+    Parameters
+    ----------
+    iterator : iterator
+        An iterator that yields tuples of accumulated values.
+    dtypes : list
+        A list of dtypes for the accumulated values.
+102	Closes the connection.
+103	Get account listing
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' cli.get_account_listing
+        salt '*' cli.get_container_listing
+        salt '*' cli.get_object_listing
+104	Returns the string with the context stripped.
+105	Write a summary record.
+
+        Parameters
+        ----------
+        summary_length : int
+            Length of the summary record.
+
+        Returns
+        -------
+        None
+106	Lookup a key in the hash table.
+107	Retrieve a list of modules from a given module name.
+
+    :param mname: The module name.
+    :return: A list of module names.
+108	Wrap an object with attributes.
+109	"""
+Write a Flexible Character Set (FCS) 3.0 file.
+
+This function creates a Flexible Character Set 3.0 (FCS3.0) file.
+
+Arguments
+----------
+filename : str
+    The name of the output FCS3.0 file.
+
+Returns
+-------
+None
+
+Examples
+-------
+Write a Flexible Character Set 3.0 (FCS3.0) file.
+
+.. code-block:: python
+
+    write_fcs30(filename)
+110	Relate two instances.
+
+    Parameters
+    ----------
+    from_instance : object
+        The instance to be related.
+    to_instance : object
+        The instance to be related.
+    rel_id : string
+        The relation id.
+    phrase : string
+        The relation phrase.
+111	Transplant a class from one module to another.
+112	Create a new instance of the class.
+
+        :param callable_: The callable to call.
+        :param args: The arguments to pass to the callable.
+        :return: The return value of the callable.
+113	Create a class event node.
+114	Calculate the KL divergence between two distributions.
+115	Spins forever.
+116	Create a new Hdl from an array.
+117	Return True if the element is expired.
+118	Check if client authentication is required.
+119	Run the HPSS demo.
+120	Subsample the given input file.
+121	Leave function definition.
+122	Login to enedis.
+123	Send a shared pin.
+124	Print a progress message.
+125	Recursively check if a node is the tail of a loop.
+
+    Args:
+        node (Node): The node to check.
+
+    Returns:
+        None.
+126	Return the 3D coordinate of the point.
+127	Returns True if the type is known.
+128	Create a new session.
+129	Run the GLUT event loop.
+130	Returns the value of the given field from the given kernel_results.
+131	Diagonal filter.
+132	Extract a chunk from S3.
+133	Returns a dictionary of variables from the given context.
+
+    :param context: The context to extract variables from.
+    :param in_env_var_format: Whether to use env variable format or not.
+    :return: Dictionary of variables.
+134	Returns a list of block indices sorted in ascending order.
+135	Retrieve an access token.
+136	Returns a list of states for the given method and URL.
+137	Create a EC2 instance from a boto instance.
+138	Adapt a list of tuples to a list of strings.
+139	Shuffles the playback queue.
+140	Adds new variants and case data to clinvar submission.
+
+        :param submission_id: The clinvar submission id.
+        :param submission_objects: The clinvar submission objects.
+        :return: The updated clinvar submission.
+141	Calculate character-to-length mapping.
+142	Return the basename of a path.
+143	Delete an app.
+144	Transform the current matrix.
+145	Returns a generator of Process instances.
+146	Update the path with the given color.
+147	Returns the indices of the features that are above the given threshold.
+148	Create an index from a stream of data.
+
+        Parameters
+        ----------
+        stream : iterable
+            A stream of data from which to create the index.
+
+        Returns
+        -------
+        handle : IndexStreamHandle
+            A handle to the created index.
+149	Returns the timestamp of when the item's metadata was updated.
+150	Retrieve the form for the given request.
+151	Get the filtered root folder.
+152	Checks if the given chromosome matches the given coordinates.
+153	Remove a logical interface from a thing type.
+154	Calculate the next run time.
+
+        :return: The next run time.
+155	Return a list of physical qubits.
+156	Get all pipelines.
+157	Generate a credit note from an invoice.
+158	Prepare the instance.
+159	Create a sitetree from a given tree.
+
+    :param parser:
+    :param token:
+160	Download a file from YouTube.
+161	Replace the given config with the given name.
+
+    :param config: The config to replace.
+    :param name: The name of the config to replace.
+    :return: The replaced config.
+162	Create a function call node
+163	Parses OMIM morbidity records.
+164	Resize the image to the specified size
+
+    :param image:
+    :param size:
+    :param resample:
+    :return:
+    :rtype:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :return:
+    :ret
+165	Return True if the user can paste text.
+166	Quit the debugger.
+167	Returns True if the user is an effective member of the group.
+168	Apply a parallel function to a list of data
+169	Generate a short summary of the review.
+170	Send a message.
+171	Additional arguments to be passed to the Asana API.
+172	Create a Las3 object from a string.
+173	Generates a visual summary of the input sequences.
+174	Resumes the CLI command.
+175	Return the substring after the given part of the string.
+176	Assoc(m, *kvs) -> m.assoc(*kvs)
+177	Get text from the clipboard.
+178	Fillna(self, value, fill_nan=fill_nan, fill_masked=fill_masked)
+179	Create a new variable with the given name in the given namespace.
+180	Run a line magic function.
+181	Returns the bound method for the given instruction.
+182	Add subparsers to the parser.
+183	Make a trace plot for each sample
+
+        Parameters
+        ----------
+        analytes : list
+            List of analytes
+        samples : list
+            List of samples
+        ranges : list
+            List of ranges
+        focus : str
+            Focus stage
+        outdir : str
+            Output directory
+        filt : str
+            Filtration type
+        scale : str
+            Scale type
+        figsize : list
+            Figure size
+        stats : bool
+            Whether to show statistics
+        stat : str
+            Statistic to show
+        err : str
+            Error type
+        subset : str
+            Subset of samples
+
+        Returns
+        -------
+        None
+184	Builds the data set from the form fields.
+185	Decorate a command line option with a greeting and yell.
+186	Create a new configuration entry.
+187	Serialize a metric to a string.
+188	Execute the query and return the result.
+189	Returns a list of attributes of the class.
+190	Compute the frame synchronization times.
+191	Returns a list of unique elements in a sequence.
+192	Register with boss.
+193	Validates and normalizes `target_accept_prob`.
+194	Return the parameters of the filter.
+195	Returns a list of (quality, stream) tuples.
+196	Retrieve the value of a child node.
+
+        Parameters
+        ----------
+        name : str
+            Name of the child node to retrieve.
+
+        Returns
+        -------
+        str
+            The value of the child node.
+197	Blocks found in assembly file:
+      block     | OPs | pck. | AVX || Registers |    ZMM   |    YMM   |    XMM   |    GP   ||ptr.inc
+198	Return a string representation of a number.
+199	Dumps a Python object as a JSON string.
+
+    :param obj: The object to be dumped.
+    :param encoding: The encoding to use.
+    :return: The JSON string.
+    :rtype: bytes

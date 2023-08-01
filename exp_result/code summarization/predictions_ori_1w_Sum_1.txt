@@ -1,0 +1,636 @@
+0	Integrate plugins.
+1	Recent conversations.
+2	Compute the product of two Pauli operators.
+
+        Parameters
+        ----------
+        p1 : PauliOperator
+            The first Pauli operator
+        p2 : PauliOperator
+            The second Pauli operator
+
+        Returns
+        -------
+        new_pauli : PauliOperator
+            The product of the two Pauli operators
+        phase : float
+            The phase of the product of the two Pauli operators
+3	Find the path to a command
+4	Retrieve data for a given environment.
+5	Raise a :class:`ServerError`.
+6	Optimal marginal branch length.
+7	Returns the name of the storage folder.
+8	Check that intervals are valid.
+9	End of cluster function
+10	Upload a file to H2O.
+
+    Parameters
+    ----------
+    path : str
+        The path to the file to upload.
+    destination_frame : str, optional
+        The destination frame in H2O.
+    header : int, optional
+        The number of columns in the destination frame.
+    sep : str, optional
+        The separator between columns in the file.
+    col_names : list, optional
+        The names of the columns in the destination frame.
+    col_types : list, optional
+        The types of the columns in the destination frame.
+    na_strings : list, optional
+        The names of the NA columns in the destination frame.
+    skipped_columns : list, optional
+        The names of the skipped columns in the destination frame.
+11	Adds a new state.
+12	Computes empirical statistics of a time series.
+13	Calculate the branch mutation matrix.
+
+        Parameters
+        ----------
+        node : Node
+            The node to calculate the branch mutation matrix for.
+
+        Returns
+        -------
+        mut_matrix : ndarray
+            The branch mutation matrix.
+14	Decorate a function with annotations.
+15	Call the object.
+16	Write the object to the output stream.
+17	KL(d1, d2)
+18	Parses Ensembl gene information from the request.
+19	Save a nifti image from numpy data.
+
+    Parameters
+    ----------
+    nifti_filename : str
+        The filename to save the nifti image to.
+    numpy_data : ndarray
+        The numpy data to save as a nifti image.
+
+    Returns
+    -------
+    nifti_filename : str
+20	Returns the prefix that should be used.
+21	Called when the worker connection is lost.
+22	Search for dates in text.
+23	Called when a new connection is received.
+24	Writes a table.
+25	Returns sx,sy,ex,ey
+26	Returns the parameters as a dictionary.
+27	Given a list of qubits, a list of instructions, and a list of gates,
+    this function creates a graphical representation of the circuit.
+
+    Parameters
+    ----------
+    qubits : list
+        The list of qubits.
+    instructions : list
+        The list of instructions.
+    gates : list
+        The list of gates.
+28	Convert boolean values from config file
+29	Profile the execution of the object.
+30	Parses an Ensembl line and returns an Ensembl object.
+31	Align end of hierarchies
+32	Save a local file
+33	Convert an object to its primitive form.
+34	Prune the tree by removing all leaves whose name is in `leaf_names`.
+
+        Parameters
+        ----------
+        leaf_names : list
+            List of leaf names to prune.
+        inverse : bool, optional
+            If True, prune all leaves whose name is not in `leaf_names`.
+35	Return True if the value is a virtual register.
+36	Retrieve combined credits.
+
+        .. versionadded:: 2016.3.0
+
+        CLI Example:
+
+        .. code-block:: bash
+
+            salt myminion boto_s3.combined_credits
+37	Run a single step of backward smoothing.
+38	Calculate the quantiles of the frame.
+
+        Parameters
+        ----------
+        prob : list, optional
+            List of probabilities (0.01, 0.1, 0.25, 0.333, 0.5, 0.667, 0.75, 0.9, 0.99)
+        combine_method : {'interpolate', 'nearest'}, optional
+            How to combine the probabilities.
+
+        Returns
+        -------
+        H2OFrame
+39	Resolve a symbol to a class or host form.
+40	Print the figure
+41	Write a word of data to the device.
+
+        Args:
+            addr (int): The address of the device.
+            cmd (int): The command to send to the device.
+            val (int): The value to write to the device.
+42	Main function.
+43	Show about dialog
+44	Create the server.
+45	Guess the type of the given path.
+46	Refactor a step node.
+
+        :param old_text: The old text of the step node.
+        :param new_text: The new text of the step node.
+        :param move_param_from_idx: The index of the param to move.
+        :return: A list of diffs.
+47	Create a new job on lunapark
+
+        Parameters
+        ----------
+        task : str
+            Job task
+        person : str
+            Job person
+        tank : str
+            Job tank
+        target_host : str
+            Job target host
+        target_port : str
+            Job target port
+        loadscheme : str
+            Job loadscheme
+        detailed_time : str
+            Job detailed time
+        notify_list : list
+            Job notify list
+        trace : bool
+            Job trace
+48	Add parameters to the trajectory.
+49	Convert a MIDI number to a musical note.
+
+    Parameters
+    ----------
+    midi : int or list of ints
+        A MIDI number or list of MIDI numbers.
+    octave : bool, optional
+        Whether to use octaves.
+    cents : bool, optional
+        Whether to use cents.
+50	Concatenate video files.
+
+    Parameters
+    ----------
+    video_list : list
+        Video files to be concatenated.
+    out_file : str
+        Output video file.
+    vcodec : str, optional
+        Video codec.
+    acodec : str, optional
+        Audio codec.
+51	Create a secret link to the record.
+52	Push the current module stack.
+53	Given an expression, return a list of tuples containing the function name,
+    expression, start and stop indices.
+54	Create a MIME text object from a string.
+
+        :param text: The text to be encoded.
+        :type text: str
+        :param subtype: The subtype of the text.
+        :type subtype: str
+        :return: A MIME text object.
+55	Execute DML statements in a transaction.
+
+        :type instance_id: string
+        :param instance_id: The ID of the instance.
+
+        :type database_id: string
+        :param database_id: The ID of the database.
+
+        :type project_id: string
+        :param project_id: The ID of the project.
+
+        :rtype: None
+56	Calculate the histogram of `x`.
+
+  Args:
+    x: A `Tensor`.
+    edges: A `Tensor`.
+    axis: A `Tensor`.
+    extend_lower_interval: A `bool`.
+    extend_upper_interval: A `bool`.
+57	Checks that `o` is an instance of one of `acceptable_types`.
+58	Ensures that `fn` is wrappable.
+59	Write data to output file.
+60	Closes rpc system
+61	Recv sub
+62	Find the column name(s) that match the given UCDs.
+63	Writes the default config file.
+64	Register blueprints
+65	Return a list of all classes in the given module.
+
+    :param mname: module name
+    :param cls_filter: list of class names to include
+    :return: list of classes
+66	Create a new statement with a default value.
+
+        :param statements:
+        :return:
+67	Transpiles the circuits and assembles them into a qobj to be run on the backend
+
+    Parameters
+    ----------
+    experiments : list
+        circuits to be transpiled and assembled
+    backend : str
+        name of the backend to be used
+    basis_gates : list
+        gates to be used in the transpiled circuits
+    coupling_map : dict
+        mapping of qubits to couplings in the transpiled circuits
+    backend_properties : dict
+        properties of the backend to be used
+    initial_layout : dict
+        initial layout of the qubits in the transpiled circuits
+    seed_transpiler : str
+        name of the seed transpiler
+    optimization_level : int
+        optimization level of the seed transpiler
+    pass_manager : str
+        name of the pass manager
+    seed_mapper : str
+        name of the seed mapper
+    shots : int
+        number of shots to be run
+    memory : bool
+        whether to use memory in the transpiled circuits
+    max_credits : int
+        maximum number of credits to be used
+    seed : int
+        seed of the transpiled circuits
+    seed_simulator : str
+        name of the seed simulator
+    default_qubit_l
+68	Builds an iterator over training and validation datasets.
+69	Count the number of bytes for each filter predicate.
+70	Download and generate Enrichr library gene sets
+71	Returns the positions of newlines in the text.
+72	Representation of a KMIP 1.3 ValidationInformation object.
+
+        Attributes:
+            validation_authority_type (enums.ValidationAuthorityType)
+            validation_authority_country (TextString)
+            validation_authority_uri (TextString)
+            validation_version_major (Integer)
+            validation_version_minor (Integer)
+            validation_type (enums.ValidationType)
+            validation_level (Integer)
+            validation_certificate_identifier (TextString)
+            validation_certificate_uri (TextString)
+            validation_vendor_uri (TextString)
+            validation_profiles (list[TextString])
+73	Parses the command-line arguments and creates a context object.
+74	Returns a list of :class:`~musicbrainzngs.Album` objects.
+75	Find the URL file.
+76	Return a dictionary of plugins.
+77	Decode the output of the model.
+78	Convert a token to a hash.
+79	Change the configuration of a deployment.
+80	Reverses the output of `kl_div`.
+81	Called before drawing.
+82	Arrange all nodes.
+83	Reads an entry from the cache
+84	Converts an etree element to a rule.
+
+    :param entry_element: The etree element containing the rule.
+    :return: The rule.
+85	Calculate Shannon entropy.
+
+    Parameters
+    ----------
+    pvec : array_like
+        Probability vector.
+    base : int, optional
+        Base of the logarithm.
+
+    Returns
+    -------
+    float
+        Shannon entropy.
+86	Send data to the server.
+87	Create a pipeline of functions.
+
+    Parameters
+    ----------
+    head : callable
+        The first function in the pipeline.
+    funcs : list of callables, optional
+        Additional functions in the pipeline.
+88	Initialize all bars.
+89	Remove a task from the registry.
+90	Returns the size hint of the control.
+91	Change the mode of a file or directory.
+
+    :param path: The path to the file or directory.
+    :param mode: The mode to set.
+    :param recursive: Whether to recursively set the mode.
+92	Run the mining logic.
+93	Return the content of the element.
+94	Gets a list of consumer groups.
+95	Fetch issue data
+96	Confirm user input
+97	Deliver the packet to the receiver.
+98	Connect to the server.
+99	Errors in parameters.
+100	Replace old pages with new ones.
+101	Yield tuples of accumulated values.
+102	Close the connection.
+103	Get a listing of objects in the account
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' cli.get_account_listing
+104	Translate the given message.
+105	Add an array of summaries to the file.
+106	Look up a key in the hash table.
+
+        :param key: The key to look up.
+
+        :return: The value associated with the key.
+107	Returns a list of module names from the given module.
+
+    Parameters
+    ----------
+    mname : str
+        The module name.
+
+    Returns
+    -------
+    list
+        A list of module names.
+108	Decorator to add attributes to an object
+109	def write_fcs(filename, chn_names, data,
+                endianness="big",
+                compat_chn_names=True,
+                compat_copy=True,
+                compat_negative=True,
+                compat_percent=True,
+                compat_max_int16=10000):
+    """
+    Write a FCS file.
+
+    Parameters
+    ----------
+    filename : str
+        The name of the FCS file.
+    chn_names : list
+        The names of the channels.
+    data : ndarray
+        The data to be written.
+    endianness : str
+        The endianness of the FCS file.
+    compat_chn_names : bool
+        Compatibility mode.
+    compat_copy : bool
+        Compatibility mode.
+    compat_negative : bool
+        Compatibility mode.
+    compat_percent : bool
+        Compatibility mode.
+    compat_max_int16 : int
+        Compatibility mode.
+110	Relate two instances.
+
+    :param from_instance:
+    :param to_instance:
+    :param rel_id:
+    :param phrase:
+    :return:
+111	Transplant a class from one module to another.
+112	Build a class
+113	<noinput>
+114	Computes the KL divergence between two distributions.
+
+  Args:
+    a: A `Tensor` of type `float32` or `float64`.
+    b: A `Tensor` of type `float32` or `float64`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` of type `float32` or `float64`.
+115	Spin every interval seconds.
+116	Returns the bit address of the array.
+117	Return True if the element is expired.
+118	Check if client authentication is required.
+119	Demonstration of the HPSS algorithm.
+120	Subsample the input file.
+121	Leave function definition.
+122	Main function.
+123	Send a shared pin.
+
+        Parameters
+        ----------
+        topics : list
+            The topics to send the pin to.
+        pin : dict
+            The pin to send.
+124	Print a progress message.
+125	Verify that the given node is not recursively defined.
+126	Return the coordinate of this descriptor.
+127	Checks if the given type name is known.
+128	Create a new session
+129	Run the GLUT event loop.
+130	Gets the value of a field from a kernel_results object.
+131	Diagonal filter.
+132	Get a chunk from S3.
+133	Converts context to airflow variables
+134	Given a list of indices, return a sorted list of block indices.
+135	Retrieve a token from the token endpoint.
+
+        :param code: The code from the authorization endpoint.
+        :type code: string
+        :param grant_type: The grant type from the authorization endpoint.
+        :type grant_type: string
+        :param client_id: The client id from the authorization endpoint.
+        :type client_id: string
+        :param client_secret: The client secret from the authorization endpoint.
+        :type client_secret: string
+        :param redirect_uri: The redirect uri from the authorization endpoint.
+        :type redirect_uri: string
+136	Synchronize the current state with the API.
+
+        :type method: str
+        :type url: str
+        :type params: dict
+        :type kwargs: dict
+137	Create a EC2 instance from a boto instance.
+138	Yields each row as a string.
+139	Shuffles the playback queue.
+140	Adds new variants and case data to clinvar submission
+141	Calculate character to length mapping.
+142	Returns the basename of a path.
+143	Delete an app
+144	Transform the current matrix.
+145	Iterate over all processes.
+146	Update the path of the game.
+147	Returns the indices of the features that are above the given threshold.
+
+        Parameters
+        ----------
+        features : list of str
+            The features to search for.
+        threshold : float, optional
+            The threshold to search for.
+        func : function, optional
+            The function to apply to the features.
+        get_weights : bool, optional
+            Whether to return the weights or not.
+148	Create an index from a stream of data.
+
+        Parameters
+        ----------
+        stream : iterable
+            A stream of data to create the index from.
+
+        Returns
+        -------
+        handle : IndexStreamHandle
+            A handle to the created index.
+149	Returns the timestamp when the item's metadata was updated.
+150	Returns the form instance.
+151	Get the filtered root folder.
+152	Checks if the given coordinates are valid.
+153	Remove a logical interface from a thing type.
+154	Calculate the next run time.
+155	List of physical qubits.
+156	Get all pipelines
+157	Generate a credit note from an invoice.
+158	Prepare the proxy.
+159	Create a sitetree tree.
+
+    :param parser:
+    :param token:
+    :return:
+160	Download a video from YouTube
+161	Replace the config with a new one.
+
+    :param config:
+    :param name:
+    :return:
+162	Create a function call node
+163	Parses OMIM morbidity lines.
+164	Resize the image to the specified size
+
+    :param image:
+    :param size:
+    :param resample:
+    :return:
+165	Returns True if the text can be pasted.
+166	Raises Mexcept.DebuggerQuit
+167	Checks if a user is an effective member of a group.
+
+        Args:
+            group_id (str): The ID of the group to check.
+            netid (str): The ID of the user to check.
+
+        Returns:
+            bool: True if the user is an effective member of the group.
+168	Apply a function to a list of data in parallel.
+
+    Parameters
+    ----------
+    func: Callable
+        Function to apply to each element of data.
+    data: List[Any]
+        List of data to apply func to.
+    cpu_cores: int
+        Number of cores to use for parallelism.
+169	Short summary of the review.
+170	Send the message.
+171	Add arguments to the AsanaClient class.
+172	Create a new LAS object from a string.
+173	Summarize a sequence of images.
+174	Resume the command.
+175	Return the substring after the given part.
+176	Returns an associative view of `m`.
+177	Get text from the Windows clipboard.
+178	Fill missing values with a given value.
+
+        Parameters
+        ----------
+        value : scalar or array-like
+            Value to fill missing values with.
+        fill_nan : bool, default True
+            Fill missing values with `value`.
+        fill_masked : bool, default True
+            Fill missing values with `value`.
+        column_names : list, default None
+            List of column names to fill.
+        prefix : str, default '__original_'
+            Prefix for column names.
+        inplace : bool, default False
+            If True, modify the data in-place.
+179	Intern a variable.
+180	Run a line magic.
+
+        Parameters
+        ----------
+        magic_name : str
+            The name of the line magic to run.
+        line : str
+            The line of code to run the magic on.
+
+        Returns
+        -------
+        result : str
+            The result of running the line magic.
+181	Returns a bound method for the given instruction.
+182	Add subparsers to the parser.
+183	Generate plots for all analytes.
+
+        Parameters
+        ----------
+        analytes : list, optional
+            List of analytes to generate plots for.
+        samples : list, optional
+            List of samples to generate plots for.
+        ranges : list, optional
+            List of ranges to generate plots for.
+        focus : list, optional
+            List of focuses to generate plots for.
+184	Returns the data dictionary for the form.
+185	Decorator for command line options.
+186	Configure a profile.
+187	Serialize a metric
+188	Execute the given query.
+189	Returns the attributes of the class.
+190	Compute framesync times.
+191	Return a list of unique items in a sequence.
+192	Register with the boss.
+193	Returns `target_accept_prob` if `validate_args` is `False`.
+194	Retrieve the parameters from the object.
+195	Retrieve the streams from the server.
+196	Loads a child node from the tree.
+197	Mark a block in the assembly file.
+
+    Parameters
+    ----------
+    blocks : list
+        List of blocks in the assembly file.
+    default : int, optional
+        The index of the block to be marked.
+    debug : bool, optional
+        Whether to print debug information.
+198	Return a string representation of a number.
+199	Dumps a Python object to JSON.
+
+    Parameters
+    ----------
+    obj : object
+        The object to dump.
+    **kwargs : dict
+        Keyword arguments to pass to :func:`json.dumps`.
