@@ -3,7 +3,7 @@ from typing import List
 from tqdm import tqdm
 import fire
 import torch
-from transformers import LlamaTokenizer, LlamaForCausalLM #causalLM: 因果语言模型
+from transformers import LlamaTokenizer, LlamaForCausalLM 
 from peft import (
     LoraConfig,
     get_peft_model,
@@ -99,7 +99,6 @@ def fl_finetune(
         pretrained_model_name_or_path=global_model
     )
 
-    # tokenizer = LlamaTokenizer.from_pretrained(global_model)
     tokenizer = LlamaTokenizer.from_pretrained(global_model)
     tokenizer.pad_token_id = ( 
         0
